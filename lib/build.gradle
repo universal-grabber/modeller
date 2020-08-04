@@ -1,0 +1,64 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "http://repository.jsweet.org/artifactory/libs-release-local" }
+        maven { url "http://repository.jsweet.org/artifactory/libs-snapshot-local" }
+        maven { url "http://repository.jsweet.org/artifactory/plugins-release-local" }
+        maven { url "http://repository.jsweet.org/artifactory/plugins-snapshot-local" }
+        maven { url "http://google-diff-match-patch.googlecode.com/svn/trunk/maven" }
+    }
+    dependencies {
+        classpath('org.jsweet:jsweet-gradle-plugin:2.3.0-SNAPSHOT') {
+
+        }
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'org.jsweet.jsweet-gradle-plugin'
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "http://repository.jsweet.org/artifactory/libs-release-local" }
+    maven { url "http://repository.jsweet.org/artifactory/libs-snapshot-local" }
+    maven { url "http://repository.jsweet.org/artifactory/plugins-release-local" }
+    maven { url "http://repository.jsweet.org/artifactory/plugins-snapshot-local" }
+    maven { url "http://google-diff-match-patch.googlecode.com/svn/trunk/maven" }
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.13.1'
+
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    compile group: 'org.jsweet', name: 'jsweet-transpiler', version: "2.3.7"
+    compile group: 'org.jsweet', name: 'jsweet-core', version: "5-20170726"
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+jsweet {
+    verbose = true
+    encoding = 'UTF-8'
+    sourceMap = true
+    outDir = new File('build/javascript')
+    candiesJsOut = new File('build/candies')
+    targetVersion = 'ES5'
+    declaration = true
+
+    includes = [
+            '**/html/lib/**/*.java',
+            '**/html/jsimpl/**/*.java',
+    ];
+}
