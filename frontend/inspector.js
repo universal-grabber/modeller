@@ -7,11 +7,18 @@ function Inspector(frameId) {
     this.frame.onload = function () {
         me.frameDoc = me.frame.contentWindow.document;
         me.injectCss();
+
+        me.frameDoc.addEventListener('mouseover', me.hoverHandler);
     }
 
-    window.a = this;
     this.clickHandler = this.clickHandler.bind(me);
     this.hoverHandler = this.hoverHandler.bind(me);
+
+    this.algorithm = 'SINGLE';
+}
+
+Inspector.prototype.isSingle = function () {
+    return this.algorithm === 'SINGLE';
 }
 
 Inspector.prototype.injectCss = function () {
@@ -29,8 +36,25 @@ Inspector.prototype.injectCss = function () {
     this.frameDoc.head.appendChild(styleElement);
 }
 
-Inspector.prototype.startInspection = function () {
-    this.frameDoc.addEventListener('mouseover', this.hoverHandler);
+window.fixFrameView = function (frameId) {
+    var frame = document.getElementById(frameId);
+    console.log(frame, frameId);
+    frame.onload = function () {
+        var frameDoc = frame.contentWindow.document;
+
+        const styleElement = frameDoc.createElement('style');
+
+        styleElement.innerHTML = `
+        [ug-field] {
+            border: 1px solid blue;
+        }
+    `;
+        frameDoc.head.appendChild(styleElement);
+    }
+}
+
+Inspector.prototype.setAlgorithm = function (algorithm) {
+    this.algorithm = algorithm;
 }
 
 Inspector.prototype.hoverHandler = function (event) {
@@ -61,6 +85,10 @@ Inspector.prototype.clickHandler = function (event) {
         event.target.classList.remove('ug-click');
         this.elements.remove(event.target);
     } else {
+        if (this.isSingle()) {
+            this.reset();
+        }
+
         event.target.classList.add('ug-click');
         this.elements.push(event.target);
     }
@@ -71,7 +99,7 @@ Inspector.prototype.clickHandler = function (event) {
     return false;
 }
 
-Inspector.prototype.stopInspection = function () {
+Inspector.prototype.reset = function () {
     [].forEach.call(this.frameDoc.querySelectorAll('.ug-click'), function (el) {
         el.classList.remove("ug-click");
     });
@@ -79,8 +107,6 @@ Inspector.prototype.stopInspection = function () {
         el.classList.remove("ug-hover");
     });
     this.elements = [];
-
-    this.frameDoc.removeEventListener('mouseover', this.hoverHandler);
 }
 
 Inspector.prototype.getElements = function () {
@@ -115,10 +141,7 @@ Inspector.prototype.uniqueSelector = function (elSrc) {
             aSel.unshift(sSel = el.nodeName.toLowerCase());
             // 2. Try to select by classes
             let className = el.className;
-            className = className.replace(/pHovered/, '');
-            className = className.replace(/pSelected/, '');
-            className = className.replace(/pContainer/, '');
-            className = className.replace(/pContainerIteration/, '');
+            className = className.replace(/ ?ug-click/, '');
             if (className) {
                 aSel[0] = sSel += '.' + className.trim().replace(/ +/g, '.');
                 if (uniqueQuery())

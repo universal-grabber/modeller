@@ -1,15 +1,17 @@
 package net.tislib.ugm.ui.inspector;
 
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import net.tislib.ugm.markers.MarkerParameter;
+import net.tislib.ugm.model.Example;
 import net.tislib.ugm.model.Model;
+import org.jsoup.nodes.Document;
 
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 public class InspectorDialog {
 
@@ -19,14 +21,16 @@ public class InspectorDialog {
     private final Consumer<String> onCancel;
 
     private final InspectorView inspectorView;
+    private final Function<Example, Document> documentResolver;
 
-    public InspectorDialog(Model model, MarkerParameter.InspectorOptions inspectorOptions, Consumer<String> onSave, Consumer<String> onCancel) {
+    public InspectorDialog(Model model, MarkerParameter.InspectorOptions inspectorOptions, Consumer<String> onSave, Consumer<String> onCancel, Function<Example, Document> documentResolver) {
         this.model = model;
         this.inspectorOptions = inspectorOptions;
         this.onSave = onSave;
         this.onCancel = onCancel;
+        this.documentResolver = documentResolver;
 
-        inspectorView = new InspectorView(model, inspectorOptions);
+        inspectorView = new InspectorView(model, inspectorOptions, this.documentResolver);
     }
 
     public void open() {
@@ -50,7 +54,7 @@ public class InspectorDialog {
         Button closeButton = new Button("Close");
 
         saveButton.addClickListener((event) -> {
-            String result = inspectorView.compileSelector();
+            String result = inspectorView.getSelector();
             onSave.accept(result);
             dialog.close();
         });
@@ -76,5 +80,9 @@ public class InspectorDialog {
 
     private VerticalLayout render() {
         return inspectorView.render();
+    }
+
+    public void setValue(String value) {
+        inspectorView.setSelector(value);
     }
 }

@@ -1,10 +1,7 @@
 package net.tislib.ugm.ui.pages;
 
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.combobox.ComboBox;
-import com.vaadin.flow.component.dependency.CssImport;
-import com.vaadin.flow.component.dependency.JavaScript;
-import com.vaadin.flow.component.html.IFrame;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.spring.annotation.UIScope;
@@ -14,34 +11,29 @@ import org.springframework.stereotype.Component;
 
 @Component
 @UIScope
-
-@JavaScript("/inspector.js")
-@CssImport("/inspector.css")
-@CssImport("/frame.css")
-public class FrameViewPage extends VerticalLayout {
+public class ExtractedDataPage extends VerticalLayout {
 
     public void render(Model model) {
         removeAll();
 
-        FrameViewPageRender frameViewPageRender = new FrameViewPageRender(model);
+        ExtractedDataPageRender extractedDataPageRender = new ExtractedDataPageRender(model);
 
-        frameViewPageRender.render(this);
+        extractedDataPageRender.render(this);
 
         setSizeFull();
     }
 
-    public static class FrameViewPageRender {
+    public static class ExtractedDataPageRender {
 
         private final ComboBox<Example> exampleSelector;
-        private final IFrame iFrame;
+        private final Label content = new Label();
         private final Model model;
         private Example selectedExample;
 
-        public FrameViewPageRender(Model model) {
+        public ExtractedDataPageRender(Model model) {
             this.model = model;
 
-            this.iFrame = new IFrame();
-            iFrame.setSizeFull();
+            content.setSizeFull();
 
             this.exampleSelector = new ComboBox<>();
             exampleSelector.setDataProvider(new ListDataProvider<>(model.getExamples()));
@@ -51,22 +43,18 @@ public class FrameViewPage extends VerticalLayout {
 
             exampleSelector.addValueChangeListener(event -> {
                 selectedExample = event.getValue();
-                loadFrame();
+                loadContent();
             });
         }
 
-        private void loadFrame() {
-            iFrame.setSrc("/model/frame?modelName=" + model.getId() + "&exampleId=" + selectedExample.getId());
-
-            iFrame.setSandbox(IFrame.SandboxType.ALLOW_SAME_ORIGIN);
-            iFrame.setId("frame-" + Math.random());
-
-            UI.getCurrent().getPage().executeJs("window.fixFrameView('" + iFrame.getId().get() + "');");
+        private void loadContent() {
+//            content.setText(model.getExamples().toString());
+            content.setText(model.getMarkers().toString());
         }
 
-        public void render(FrameViewPage frameViewPage) {
+        public void render(ExtractedDataPage frameViewPage) {
             frameViewPage.add(exampleSelector);
-            frameViewPage.add(iFrame);
+            frameViewPage.add(content);
         }
     }
 

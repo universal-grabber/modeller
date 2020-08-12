@@ -7,11 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class IterativeSelectionHelperTest {
 
-    private final static IterativeSelectionHelper iterativeSelectionHelper = new IterativeSelectionHelper();
+    private final static IterativeSelectionAlgorithm ITERATIVE_SELECTION_ALGORITHM = new IterativeSelectionAlgorithm();
 
 
     public static void main(String[] args) throws IOException {
@@ -23,7 +21,7 @@ class IterativeSelectionHelperTest {
         selections.add("#jumpto > a:nth-child(3)");
         selections.add("#jumpto > a:nth-child(5)");
 
-        String result = iterativeSelectionHelper.select(document, selections);
+        String result = ITERATIVE_SELECTION_ALGORITHM.select(document, selections);
     }
 
 }

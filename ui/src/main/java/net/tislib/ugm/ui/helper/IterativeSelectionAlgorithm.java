@@ -1,18 +1,18 @@
 package net.tislib.ugm.ui.helper;
 
 import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.util.List;
 
-public class SingleSelectionHelper {
+public class IterativeSelectionAlgorithm implements SelectionAlgorithm {
 
+    @Override
     public String select(Document document, List<String> elements) {
         String selector = elements.get(0);
-        Element selected = document.selectFirst(selector);
+        Elements selected = document.select(selector);
 
-        return selected.cssSelector();
+        return selected.toString();
     }
 
 }

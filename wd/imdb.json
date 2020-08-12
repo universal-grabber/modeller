@@ -1,26 +1,21 @@
 {
-  "id": "imdb",
-  "examples": [
-    {
-      "id": 1,
-      "url": "https://www.imdb.com/name/nm1720028/?ref_=tt_cl_t1"
-    },
-    {
-      "id": 2,
-      "url": "https://www.imdb.com/name/nm1869101/?ref_=nv_sr_srsg_0"
-    },
-    {
-      "id": 3,
-      "url": "https://www.imdb.com/name/nm0000115/?ref_=nv_sr_srsg_0"
+  "id" : "imdb",
+  "examples" : [ {
+    "id" : 1,
+    "url" : "https://www.imdb.com/name/nm1720028/?ref_=tt_cl_t1"
+  }, {
+    "id" : 2,
+    "url" : "https://www.imdb.com/name/nm1869101/?ref_=nv_sr_srsg_0"
+  }, {
+    "id" : 3,
+    "url" : "https://www.imdb.com/name/nm0000115/?ref_=nv_sr_srsg_0"
+  } ],
+  "markers" : [ {
+    "name" : "marker-1",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "bio",
+      "selector" : "#name-bio-text > div.name-trivia-bio-text > div.inline"
     }
-  ],
-  "markers": [
-    {
-      "name": "marker-1",
-      "type": "field-selector",
-      "parameters": {
-        "name": "field-20"
-      }
-    }
-  ]
+  } ]
 }

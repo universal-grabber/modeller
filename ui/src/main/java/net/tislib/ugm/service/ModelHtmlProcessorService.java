@@ -4,6 +4,7 @@ import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
 import net.tislib.ugm.model.Example;
 import net.tislib.ugm.model.Model;
+import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -20,6 +21,14 @@ public class ModelHtmlProcessorService {
 
         String html = Unirest.get(example.getUrl().toString()).asString().getBody();
 
-        return modelProcessor.process(html);
+        return modelProcessor.process(model, html);
+    }
+
+    public Document getDocument(Model model, Integer exampleId) {
+        Example example = model.getExamples().stream().filter(item -> item.getId().equals(exampleId)).findAny().get();
+
+        String html = Unirest.get(example.getUrl().toString()).asString().getBody();
+
+        return modelProcessor.processDocument(model, html);
     }
 }

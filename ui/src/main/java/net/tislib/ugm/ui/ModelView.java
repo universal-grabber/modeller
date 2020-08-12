@@ -14,6 +14,7 @@ import com.vaadin.flow.router.Route;
 import lombok.RequiredArgsConstructor;
 import net.tislib.ugm.model.Model;
 import net.tislib.ugm.service.ModelService;
+import net.tislib.ugm.ui.pages.ExtractedDataPage;
 import net.tislib.ugm.ui.pages.FrameViewPage;
 import net.tislib.ugm.ui.pages.MarkersPage;
 
@@ -31,6 +32,8 @@ public class ModelView extends VerticalLayout {
 	private final ModelService modelService;
 	private final FrameViewPage frameViewPage;
 	private final MarkersPage markersPage;
+	private final ExtractedDataPage extractedDataPage;
+
 	private Button saveButton;
 	private Button reloadButton;
 
@@ -60,6 +63,7 @@ public class ModelView extends VerticalLayout {
 	private void render(Model model) {
 		frameViewPage.render(model);
 		markersPage.render(model);
+		extractedDataPage.render(model);
 	}
 
 	private void initUI() {
@@ -69,17 +73,15 @@ public class ModelView extends VerticalLayout {
 		Tab frameViewTab = new Tab("View");
 		frameViewPage.setVisible(false);
 
-		Tab tab3 = new Tab("Tab three");
-		Div page3 = new Div();
-		page3.setText("Page#3");
-		page3.setVisible(false);
+		Tab extractedDataTab = new Tab("Extracted Data");
+		extractedDataPage.setVisible(false);
 
 		Map<Tab, Component> tabsToPages = new HashMap<>();
 		tabsToPages.put(markersTab, markersPage);
 		tabsToPages.put(frameViewTab, frameViewPage);
-		tabsToPages.put(tab3, page3);
-		Tabs tabs = new Tabs(markersTab, frameViewTab, tab3);
-		Div pages = new Div(markersPage, frameViewPage, page3);
+		tabsToPages.put(extractedDataTab, extractedDataPage);
+		Tabs tabs = new Tabs(markersTab, frameViewTab, extractedDataTab);
+		Div pages = new Div(markersPage, frameViewPage, extractedDataPage);
 		Set<Component> pagesShown = Stream.of(markersPage)
 				.collect(Collectors.toSet());
 

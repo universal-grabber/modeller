@@ -1,12 +1,22 @@
 package net.tislib.ugm.markers;
 
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static net.tislib.ugm.markers.MarkerParameter.ParameterType.INSPECTOR;
 import static net.tislib.ugm.markers.MarkerParameter.ParameterType.TEXT;
 
 public class FieldSelectorMarker implements Marker {
+
+    public static final String PARAM_NAME = "name";
+    public static final String PARAM_SELECTOR = "selector";
+
     @Override
     public String getName() {
         return "field-selector";
@@ -17,12 +27,12 @@ public class FieldSelectorMarker implements Marker {
         List<MarkerParameter> parameters = new ArrayList<>();
 
         MarkerParameter nameParameter = new MarkerParameter();
-        nameParameter.setName("name");
+        nameParameter.setName(PARAM_NAME);
         nameParameter.setCaption("Name");
         nameParameter.setParameterType(TEXT);
 
         MarkerParameter inspectorParameter = new MarkerParameter();
-        inspectorParameter.setName("selector");
+        inspectorParameter.setName(PARAM_SELECTOR);
         inspectorParameter.setCaption("Selector");
         inspectorParameter.setParameterType(INSPECTOR);
 
@@ -30,5 +40,21 @@ public class FieldSelectorMarker implements Marker {
         parameters.add(inspectorParameter);
 
         return parameters;
+    }
+
+    @Override
+    public Document process(Document document, Map<String, Serializable> parameters) {
+        String fieldName = (String) parameters.get(PARAM_NAME);
+        String selector = (String) parameters.get("selector");
+
+        Elements selectedElements = document.select(selector);
+
+        selectedElements.forEach(element -> this.applyParameter(element, fieldName));
+
+        return document;
+    }
+
+    private void applyParameter(Element element, String fieldName) {
+        element.attr("ug-field", fieldName);
     }
 }

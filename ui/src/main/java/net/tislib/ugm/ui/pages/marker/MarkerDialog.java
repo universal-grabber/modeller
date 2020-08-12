@@ -10,10 +10,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import net.tislib.ugm.markers.Marker;
 import net.tislib.ugm.markers.MarkerParameter;
+import net.tislib.ugm.model.Example;
 import net.tislib.ugm.model.MarkerData;
 import net.tislib.ugm.model.Model;
 import net.tislib.ugm.ui.ReloadHandler;
 import net.tislib.ugm.ui.inspector.InspectorDialog;
+import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -21,12 +23,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 @RequiredArgsConstructor
 public class MarkerDialog {
     private final Model model;
     private final Marker marker;
     private final MarkerData markerData;
+    private final Function<Example, Document> documentResolver;
 
     private Map<String, Serializable> markerParameters;
 
@@ -140,8 +144,9 @@ public class MarkerDialog {
 
             MarkerParameter.InspectorOptions inspectorOptions = (MarkerParameter.InspectorOptions) markerParameter.getOptions();
 
-            InspectorDialog inspectorDialog = new InspectorDialog(model, inspectorOptions, onSave, onCancel);
+            InspectorDialog inspectorDialog = new InspectorDialog(model, inspectorOptions, onSave, onCancel, documentResolver);
             inspectorDialog.open();
+            inspectorDialog.setValue(textField.getValue());
         });
     }
 

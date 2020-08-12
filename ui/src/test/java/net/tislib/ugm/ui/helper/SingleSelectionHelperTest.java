@@ -7,11 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class SingleSelectionHelperTest {
 
-    private static final SingleSelectionHelper singleSelectionHelper = new SingleSelectionHelper();
+    private static final SingleSelectionAlgorithm SINGLE_SELECTION_ALGORITHM = new SingleSelectionAlgorithm();
 
 
     public static void main(String[] args) throws IOException {
@@ -21,7 +19,7 @@ class SingleSelectionHelperTest {
 
         selections.add("#name-overview-widget-layout > tbody > tr:nth-child(1) > td > h1 > span");
 
-        String result = singleSelectionHelper.select(document, selections);
+        String result = SINGLE_SELECTION_ALGORITHM.select(document, selections);
     }
 
 }

@@ -1,6 +1,5 @@
 package net.tislib.ugm.ui.pages;
 
-import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.notification.Notification;
@@ -14,8 +13,8 @@ import net.tislib.ugm.markers.MarkerParameter;
 import net.tislib.ugm.model.MarkerData;
 import net.tislib.ugm.model.Model;
 import net.tislib.ugm.service.MarkerService;
+import net.tislib.ugm.service.ModelHtmlProcessorService;
 import net.tislib.ugm.ui.inspector.InspectorDialog;
-import net.tislib.ugm.ui.inspector.InspectorView;
 import net.tislib.ugm.ui.pages.marker.MarkerDialog;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +27,7 @@ import java.util.function.Consumer;
 public class MarkersPage extends VerticalLayout {
 
     private final MarkerService markerService;
+    private final ModelHtmlProcessorService modelHtmlProcessorService;
 
     public void render(Model model) {
         removeAll();
@@ -90,7 +90,8 @@ public class MarkersPage extends VerticalLayout {
 
                 MarkerParameter.InspectorOptions inspectorOptions = new MarkerParameter.InspectorOptions();
 
-                InspectorDialog inspectorDialog = new InspectorDialog(model, inspectorOptions, onSave, onCancel);
+                InspectorDialog inspectorDialog = new InspectorDialog(model, inspectorOptions, onSave, onCancel,
+                        example -> modelHtmlProcessorService.getDocument(model, example.getId()));
                 inspectorDialog.open();
             });
 
@@ -103,7 +104,8 @@ public class MarkersPage extends VerticalLayout {
         }
 
         private void openEditMarkerPopup(MarkerData markerData) {
-            MarkerDialog markerDialog = new MarkerDialog(model, markerService.locate(markerData.getType()), markerData);
+            MarkerDialog markerDialog = new MarkerDialog(model, markerService.locate(markerData.getType()), markerData,
+                    example -> modelHtmlProcessorService.getDocument(model, example.getId()));
 
             markerDialog.open();
 
@@ -115,7 +117,8 @@ public class MarkersPage extends VerticalLayout {
             markerData.setName("marker-" + model.getMarkers().size());
             markerData.setType(marker.getName());
 
-            MarkerDialog markerDialog = new MarkerDialog(model, marker, markerData);
+            MarkerDialog markerDialog = new MarkerDialog(model, marker, markerData,
+                    example -> modelHtmlProcessorService.getDocument(model, example.getId()));
 
             markerDialog.open();
 
