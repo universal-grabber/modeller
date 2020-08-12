@@ -1,4 +1,4 @@
 rootProject.name = 'ugm-backend'
 include 'lib'
-include 'ui-logic'
+include 'ui'
 
