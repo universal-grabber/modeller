@@ -17,5 +17,19 @@
       "name" : "bio",
       "selector" : "#name-bio-text > div.name-trivia-bio-text > div.inline"
     }
+  }, {
+    "name" : "marker-2",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "name",
+      "selector" : "#name-overview-widget-layout > tbody > tr:nth-child(1) > td.name-overview-widget__section > h1.header > span.itemprop"
+    }
+  }, {
+    "name" : "marker-3",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "specialities",
+      "selector" : "#name-job-categories > a > span.itemprop"
+    }
   } ]
 }

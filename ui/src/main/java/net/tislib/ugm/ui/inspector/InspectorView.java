@@ -79,7 +79,11 @@ public class InspectorView {
 
             exampleSelector.putIfAbsent(selectedExample, new ArrayList<>());
             if (!documentMap.containsKey(selectedExample)) {
-                documentMap.put(selectedExample, exampleDocumentResolver.apply(selectedExample));
+                try {
+                    documentMap.put(selectedExample, exampleDocumentResolver.apply(selectedExample));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -124,8 +128,10 @@ public class InspectorView {
         selectors.clear();
 
         exampleSelector.forEach((example, selecterElements) -> {
-            String selector = selectionAlgorithm.select(documentMap.get(example), selecterElements);
-            selectors.put(example, selector);
+            if (selecterElements.size() > 0) {
+                String selector = selectionAlgorithm.select(documentMap.get(example), selecterElements);
+                selectors.put(example, selector);
+            }
         });
 
         // not implemented

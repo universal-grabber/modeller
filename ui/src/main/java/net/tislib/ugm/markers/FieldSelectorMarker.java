@@ -1,5 +1,6 @@
 package net.tislib.ugm.markers;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -46,6 +47,10 @@ public class FieldSelectorMarker implements Marker {
     public Document process(Document document, Map<String, Serializable> parameters) {
         String fieldName = (String) parameters.get(PARAM_NAME);
         String selector = (String) parameters.get("selector");
+
+        if (StringUtils.isBlank(selector)) {
+            return document;
+        }
 
         Elements selectedElements = document.select(selector);
 

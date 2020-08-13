@@ -114,7 +114,7 @@ public class MarkersPage extends VerticalLayout {
 
         private void openAddMarkerPopup(Marker marker) {
             MarkerData markerData = new MarkerData();
-            markerData.setName("marker-" + model.getMarkers().size());
+            markerData.setName(getUniqueName());
             markerData.setType(marker.getName());
 
             MarkerDialog markerDialog = new MarkerDialog(model, marker, markerData,
@@ -123,6 +123,18 @@ public class MarkersPage extends VerticalLayout {
             markerDialog.open();
 
             markerDialog.setReloadHandler(() -> render(model));
+        }
+
+        private String getUniqueName() {
+            int l = model.getMarkers().size();
+            final String[] name = {"marker-" + l};
+
+            while (model.getMarkers().stream().anyMatch(item -> item.getName().equals(name[0]))) {
+                l++;
+                name[0] = "marker-" + l;
+            }
+
+            return name[0];
         }
 
         public void render2(MarkersPage markersPage) {
