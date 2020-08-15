@@ -12,4 +12,12 @@ public interface Marker {
     List<MarkerParameter> getParameters();
 
     Document process(Document document, Map<String, Serializable> parameters);
+
+    default void materializeParameters(Map<String, Serializable> parameters) {
+        getParameters().forEach(item -> {
+            if (!parameters.containsKey(item.getName()) && item.getDefaultValue() != null) {
+                parameters.put(item.getName(), item.getDefaultValue());
+            }
+        });
+    }
 }

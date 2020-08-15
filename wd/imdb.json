@@ -11,18 +11,30 @@
     "url" : "https://www.imdb.com/name/nm0000115/?ref_=nv_sr_srsg_0"
   } ],
   "markers" : [ {
+    "name" : "marker-12",
+    "type" : "text-transform",
+    "parameters" : {
+      "output-select" : "ug-value",
+      "substitution" : "",
+      "transformer" : "REGEX_REPLACE",
+      "output-type" : "ATTR",
+      "input-type" : "TEXT",
+      "script" : "[\\(\\)]",
+      "element" : "#knownfor > .knownfor-title > .knownfor-year"
+    }
+  }, {
+    "name" : "marker-11",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "name",
+      "selector" : "#name-overview-widget-layout > tbody > tr:nth-child(1) > td.name-overview-widget__section > h1.header > span.itemprop"
+    }
+  }, {
     "name" : "marker-1",
     "type" : "field-selector",
     "parameters" : {
       "name" : "bio",
       "selector" : "#name-bio-text > div.name-trivia-bio-text > div.inline"
-    }
-  }, {
-    "name" : "marker-2",
-    "type" : "field-selector",
-    "parameters" : {
-      "name" : "name",
-      "selector" : "#name-overview-widget-layout > tbody > tr:nth-child(1) > td.name-overview-widget__section > h1.header > span.itemprop"
     }
   }, {
     "name" : "marker-3",
@@ -58,6 +70,27 @@
     "parameters" : {
       "name" : "title",
       "selector" : "#knownfor > .knownfor-title > .knownfor-title-role > a"
+    }
+  }, {
+    "name" : "marker-8",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "namePoster",
+      "selector" : "#name-poster"
+    }
+  }, {
+    "name" : "marker-9",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "bornDate",
+      "selector" : "#name-born-info > time"
+    }
+  }, {
+    "name" : "marker-10",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "bornPlace",
+      "selector" : "#name-born-info > a"
     }
   } ]
 }

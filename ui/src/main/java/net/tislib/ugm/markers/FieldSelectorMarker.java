@@ -61,5 +61,18 @@ public class FieldSelectorMarker implements Marker {
 
     private void applyParameter(Element element, String fieldName) {
         element.attr("ug-field", fieldName);
+
+        applyValueIf(element);
+    }
+
+    private void applyValueIf(Element element) {
+        String value = null;
+        if (element.tagName().equals("img")) {
+            value = element.attr("src");
+        }
+
+        if (value != null) {
+            element.attr("ug-value", value);
+        }
     }
 }

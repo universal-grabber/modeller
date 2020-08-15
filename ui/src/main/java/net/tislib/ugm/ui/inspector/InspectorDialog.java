@@ -3,7 +3,6 @@ package net.tislib.ugm.ui.inspector;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Label;
-import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import net.tislib.ugm.markers.MarkerParameter;
 import net.tislib.ugm.model.Example;
@@ -46,9 +45,6 @@ public class InspectorDialog {
         content.add(inner);
         inner.setSizeFull();
 
-        HorizontalLayout actionButtons = new HorizontalLayout();
-        content.add(actionButtons);
-
         Button saveButton = new Button("Save");
         Button tempButton = new Button("Temp");
         Button closeButton = new Button("Close");
@@ -68,9 +64,9 @@ public class InspectorDialog {
             inspectorView.temp();
         });
 
-        actionButtons.add(saveButton);
-        actionButtons.add(tempButton);
-        actionButtons.add(closeButton);
+        inspectorView.getSelectorBar().add(saveButton);
+        inspectorView.getSelectorBar().add(tempButton);
+        inspectorView.getSelectorBar().add(closeButton);
 
         dialog.setWidth("1500px");
         dialog.setHeight("1000px");

@@ -1,11 +1,13 @@
 package net.tislib.ugm.ui.pages.marker;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.data.provider.ListDataProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import net.tislib.ugm.markers.Marker;
@@ -18,10 +20,7 @@ import net.tislib.ugm.ui.inspector.InspectorDialog;
 import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
@@ -83,6 +82,8 @@ public class MarkerDialog {
     }
 
     private void save() {
+        marker.materializeParameters(markerParameters);
+
         markerData.setParameters(new HashMap<>(markerParameters));
 
         Optional<MarkerData> existingMarkerData = model.getMarkers().stream().filter(item -> item.getName().equals(markerData.getName())).findAny();
@@ -96,6 +97,8 @@ public class MarkerDialog {
 
     private VerticalLayout render() {
         VerticalLayout verticalLayout = new VerticalLayout();
+
+        verticalLayout.setSizeFull();
 
         List<MarkerParameter> parameters = marker.getParameters();
 
@@ -114,24 +117,32 @@ public class MarkerDialog {
             case INSPECTOR:
                 renderInspectorParameter(verticalLayout, markerParameter);
                 break;
+            case COMBOBOX:
+                renderComboboxParameter(verticalLayout, markerParameter);
+                break;
         }
     }
 
     private void renderInspectorParameter(VerticalLayout verticalLayout, MarkerParameter markerParameter) {
-
-        HorizontalLayout horizontalLayout = new HorizontalLayout();
+        VerticalLayout container = new VerticalLayout();
 
         TextField textField = new TextField();
         textField.setLabel(markerParameter.getCaption());
-        horizontalLayout.add(textField);
-        verticalLayout.add(horizontalLayout);
+        container.add(textField);
+        verticalLayout.add(container);
 
-        textField.setValue(String.valueOf(markerParameters.get(markerParameter.getName())));
-        textField.setEnabled(false);
+        container.setWidth("500px");
+        textField.setWidth("500px");
+
+        if (markerParameters.containsKey(markerParameter.getName())) {
+            textField.setValue(String.valueOf(markerParameters.get(markerParameter.getName())));
+        } else if (markerParameter.getDefaultValue() != null) {
+            textField.setValue(String.valueOf(markerParameter.getDefaultValue()));
+        }
 
         Button inspect = new Button("inspect");
 
-        horizontalLayout.add(inspect);
+        container.add(inspect);
 
         inspect.addClickListener((event) -> {
             Consumer<String> onSave = (res) -> {
@@ -154,10 +165,35 @@ public class MarkerDialog {
         TextField textField = new TextField();
         textField.setLabel(markerParameter.getCaption());
         verticalLayout.add(textField);
+        textField.setWidth("500px");
 
-        textField.setValue(String.valueOf(markerParameters.get(markerParameter.getName())));
+        if (markerParameters.containsKey(markerParameter.getName())) {
+            textField.setValue(String.valueOf(markerParameters.get(markerParameter.getName())));
+        } else if (markerParameter.getDefaultValue() != null) {
+            textField.setValue(String.valueOf(markerParameter.getDefaultValue()));
+        }
 
         textField.addValueChangeListener(event -> {
+            markerParameters.put(markerParameter.getName(), event.getValue());
+        });
+    }
+
+    private void renderComboboxParameter(VerticalLayout verticalLayout, MarkerParameter markerParameter) {
+        ComboBox<Serializable> comboBox = new ComboBox<>();
+        comboBox.setLabel(markerParameter.getCaption());
+        verticalLayout.add(comboBox);
+        comboBox.setWidth("500px");
+
+        comboBox.setAllowCustomValue(false);
+        comboBox.setDataProvider(new ListDataProvider<>(Arrays.asList(markerParameter.getValues())));
+
+        if (markerParameters.containsKey(markerParameter.getName())) {
+            comboBox.setValue(markerParameters.get(markerParameter.getName()));
+        } else if (markerParameter.getDefaultValue() != null) {
+            comboBox.setValue(markerParameter.getDefaultValue());
+        }
+
+        comboBox.addValueChangeListener(event -> {
             markerParameters.put(markerParameter.getName(), event.getValue());
         });
     }

@@ -2,6 +2,7 @@ package net.tislib.ugm.service;
 
 import net.tislib.ugm.markers.FieldSelectorMarker;
 import net.tislib.ugm.markers.Marker;
+import net.tislib.ugm.markers.TextTransformMarker;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -13,6 +14,7 @@ public class MarkerService {
         Set<Marker> markers = new HashSet<>();
 
         markers.add(new FieldSelectorMarker());
+        markers.add(new TextTransformMarker());
 
         return markers;
     }

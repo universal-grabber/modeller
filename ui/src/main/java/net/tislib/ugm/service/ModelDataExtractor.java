@@ -50,7 +50,7 @@ public class ModelDataExtractor {
             if (childrenData.size() != 0) {
                 data.put(key, (Serializable) childrenData);
             } else {
-                data.put(key, parent.text());
+                data.put(key, getValue(parent));
             }
         }
 
@@ -61,9 +61,12 @@ public class ModelDataExtractor {
         return data;
     }
 
-    private Serializable extract2(Element parent) {
-        String value = parent.text();
-        return value;
+    private Serializable getValue(Element parent) {
+        if (parent.hasAttr("ug-value")) {
+            return parent.attr("ug-value");
+        } else {
+            return parent.text();
+        }
     }
 
     private Map<String, Serializable> merge(Map<String, Serializable> data, Map<String, Serializable> extracted) {

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Set;
 import java.util.function.Consumer;
+import java.util.function.Function;
 
 @Component
 @UIScope
@@ -58,18 +59,47 @@ public class MarkersPage extends VerticalLayout {
                         Button editButton = new Button("edit");
                         Button deleteButton = new Button("delete");
 
+                        Button upButton = new Button("U");
+                        Button downButton = new Button("D");
+
                         editButton.addClickListener(event -> openEditMarkerPopup(markerData));
 
                         deleteButton.addClickListener(event -> {
                             deleteMarker(markerData);
                         });
 
+                        final Function<MarkerData, Integer> getIndex = md -> model.getMarkers().indexOf(md);
+
+                        upButton.addClickListener(event -> {
+                            Integer index = getIndex.apply(markerData);
+
+                            if (index < model.getMarkers().size()) {
+                                model.getMarkers().remove(markerData);
+                                model.getMarkers().add(index + 1, markerData);
+                                render(model);
+                            }
+                        });
+
+                        downButton.addClickListener(event -> {
+                            Integer index = getIndex.apply(markerData);
+
+                            if (index > 0) {
+                                model.getMarkers().remove(markerData);
+                                model.getMarkers().add(index - 1, markerData);
+                                render(model);
+                            }
+                        });
+
+                        horizontalLayout.add(upButton);
+                        horizontalLayout.add(downButton);
                         horizontalLayout.add(editButton);
                         horizontalLayout.add(deleteButton);
 
                         return horizontalLayout;
                     }
             ).setHeader("Actions");
+
+            grid.setColumnReorderingAllowed(true);
 
             Set<Marker> markers = markerService.getAllMarkers();
 

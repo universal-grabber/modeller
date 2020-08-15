@@ -11,6 +11,7 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.provider.ListDataProvider;
 import elemental.json.impl.JreJsonArray;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import net.tislib.ugm.markers.MarkerParameter;
 import net.tislib.ugm.model.Example;
@@ -50,6 +51,12 @@ public class InspectorView {
     private final Map<Example, Document> documentMap = new HashMap<>();
     private final Map<Example, List<String>> exampleSelector = new HashMap<>();
     private final Map<Example, String> selectors = new HashMap<>();
+
+    @Getter
+    private HorizontalLayout selectorBar;
+
+    @Getter
+    private HorizontalLayout algorithmBar;
 
     private void loadFrame() {
         iFrame.setSrc("/model/frame?modelName=" + model.getId() + "&exampleId=" + selectedExample.getId());
@@ -97,8 +104,8 @@ public class InspectorView {
             UI.getCurrent().getPage().executeJs("window.inspector.setAlgorithm($0)", algorithmField.getValue().name());
         });
 
-        HorizontalLayout selectorBar = new HorizontalLayout();
-        HorizontalLayout algorithmBar = new HorizontalLayout();
+        selectorBar = new HorizontalLayout();
+        algorithmBar = new HorizontalLayout();
         selectorBar.add(cssSelector);
         selectorBar.add(applyButton);
         selectorBar.add(applyAllButton);
@@ -149,13 +156,11 @@ public class InspectorView {
             }
         });
 
-        // not implemented
-
         cssSelector.setValue(selectors.get(selectedExample));
     }
 
     private SelectionAlgorithm getSelectionAlgorithm() {
-        SelectionAlgorithm selectionAlgorithm = null;
+        SelectionAlgorithm selectionAlgorithm;
         switch (algorithmField.getValue()) {
             case SINGLE:
                 selectionAlgorithm = new SingleSelectionAlgorithm();
