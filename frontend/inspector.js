@@ -57,13 +57,33 @@ Inspector.prototype.setAlgorithm = function (algorithm) {
     this.algorithm = algorithm;
 }
 
+Inspector.prototype.updateSelector = function (selector) {
+    console.log(this);
+    console.log(this.frameDoc);
+    [].forEach.call(this.frameDoc.querySelectorAll(selector), function (el) {
+        el.classList.remove("ug-click");
+    });
+
+    var me = this;
+    [].forEach.call(this.frameDoc.querySelectorAll(selector), function (el) {
+        me.focusElement(el);
+        el.click();
+    });
+
+
+}
+
 Inspector.prototype.hoverHandler = function (event) {
+    this.focusElement(event.target);
+}
+
+Inspector.prototype.focusElement = function (elem) {
     if (this.lastHoveredElem) {
         this.unAttach(this.lastHoveredElem);
     }
 
-    this.attach(event.target);
-    this.lastHoveredElem = event.target;
+    this.attach(elem);
+    this.lastHoveredElem = elem;
 }
 
 Inspector.prototype.attach = function (elem) {

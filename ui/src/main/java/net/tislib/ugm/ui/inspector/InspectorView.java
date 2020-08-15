@@ -16,6 +16,7 @@ import net.tislib.ugm.markers.MarkerParameter;
 import net.tislib.ugm.model.Example;
 import net.tislib.ugm.model.Model;
 import net.tislib.ugm.ui.helper.*;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 
 import java.util.*;
@@ -85,6 +86,10 @@ public class InspectorView {
                     e.printStackTrace();
                 }
             }
+
+            if (!StringUtils.isBlank(cssSelector.getValue())) {
+                applyButton.click();
+            }
         });
 
         algorithmField.setValue(SelectorAlgorithm.SINGLE);
@@ -119,7 +124,17 @@ public class InspectorView {
             compile();
         });
 
+        applyButton.addClickListener(event -> {
+            apply();
+        });
+
         return verticalLayout;
+    }
+
+    private void apply() {
+        UI.getCurrent().getPage().executeJs("window.inspector.updateSelector($0)", cssSelector.getValue());
+        exampleSelector.get(selectedExample).clear();
+        exampleSelector.get(selectedExample).add(cssSelector.getValue());
     }
 
     private void compile() {

@@ -31,5 +31,33 @@
       "name" : "specialities",
       "selector" : "#name-job-categories > a > span.itemprop"
     }
+  }, {
+    "name" : "marker-4",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "knownFor",
+      "selector" : "#knownfor > .knownfor-title"
+    }
+  }, {
+    "name" : "marker-5",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "year",
+      "selector" : "#knownfor > .knownfor-title > .knownfor-year"
+    }
+  }, {
+    "name" : "marker-7",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "character",
+      "selector" : "#knownfor > .knownfor-title > .knownfor-title-role > span"
+    }
+  }, {
+    "name" : "marker-6",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "title",
+      "selector" : "#knownfor > .knownfor-title > .knownfor-title-role > a"
+    }
   } ]
 }

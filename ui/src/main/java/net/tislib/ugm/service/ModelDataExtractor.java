@@ -39,18 +39,31 @@ public class ModelDataExtractor {
     }
 
     private Map<String, Serializable> extract(Element parent) {
-        Map<String, Serializable> data = new HashMap<>();
+        Map<String, Serializable> childrenData = new HashMap<>();
         for (Element element : parent.children()) {
-            data = merge(data, extract(element));
+            childrenData = merge(childrenData, extract(element));
         }
 
+        Map<String, Serializable> data = new HashMap<>();
         if (parent.hasAttr("ug-field")) {
             String key = parent.attr("ug-field");
-            String value = parent.text();
-            data.put(key, value);
+            if (childrenData.size() != 0) {
+                data.put(key, (Serializable) childrenData);
+            } else {
+                data.put(key, parent.text());
+            }
+        }
+
+        if (data.size() == 0) {
+            return childrenData;
         }
 
         return data;
+    }
+
+    private Serializable extract2(Element parent) {
+        String value = parent.text();
+        return value;
     }
 
     private Map<String, Serializable> merge(Map<String, Serializable> data, Map<String, Serializable> extracted) {
