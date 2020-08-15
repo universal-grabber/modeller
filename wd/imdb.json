@@ -11,6 +11,12 @@
     "url" : "https://www.imdb.com/name/nm0000115/?ref_=nv_sr_srsg_0"
   } ],
   "markers" : [ {
+    "name" : "marker-13",
+    "type" : "meta-data",
+    "parameters" : {
+      "meta-tags" : true
+    }
+  }, {
     "name" : "marker-12",
     "type" : "text-transform",
     "parameters" : {

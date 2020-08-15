@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -33,10 +34,55 @@ public class ModelDataExtractor {
 
         processedDocument.select("ug-field");
 
-        Serializable data = (Serializable) extract(processedDocument);
+        Map<String, Serializable> data = extract(processedDocument);
 
-        return data;
+        data = fixExtracted(data);
+
+        return (Serializable) data;
     }
+
+    private Serializable fixExtracted(Serializable data) {
+        if (data instanceof Map) {
+            return (Serializable) fixExtracted((Map) data);
+        } else if (data instanceof List) {
+            return (Serializable) fixExtracted((List) data);
+        } else {
+            return data;
+        }
+    }
+
+    private List<Serializable> fixExtracted(List<Serializable> data) {
+        return data.stream().map(this::fixExtracted).collect(Collectors.toList());
+    }
+
+    private Map<String, Serializable> fixExtracted(Map<String, Serializable> data) {
+        Map<String, Serializable> newData = new HashMap<>();
+
+        data.forEach((key, value) -> {
+            if (key.contains(".")) {
+                Map<String, Serializable> a = newData;
+                Map<String, Serializable> val = null;
+                while (key.contains(".")) {
+                    String leftKey = key.substring(0, key.indexOf("."));
+                    key = key.substring(key.indexOf(".") + 1);
+                    val = new HashMap<>();
+
+                    if (a.containsKey(leftKey)) {
+                        val = (Map<String, Serializable>) a.get(leftKey);
+                    } else {
+                        a.put(leftKey, (Serializable) val);
+                    }
+                }
+
+                val.put(key, value);
+            } else {
+                newData.put(key, fixExtracted(data.get(key)));
+            }
+        });
+
+        return newData;
+    }
+
 
     private Map<String, Serializable> extract(Element parent) {
         Map<String, Serializable> childrenData = new HashMap<>();
@@ -47,11 +93,14 @@ public class ModelDataExtractor {
         Map<String, Serializable> data = new HashMap<>();
         if (parent.hasAttr("ug-field")) {
             String key = parent.attr("ug-field");
+            Serializable value;
             if (childrenData.size() != 0) {
-                data.put(key, (Serializable) childrenData);
+                value = (Serializable) childrenData;
             } else {
-                data.put(key, getValue(parent));
+                value = getValue(parent);
             }
+
+            data.put(key, value);
         }
 
         if (data.size() == 0) {

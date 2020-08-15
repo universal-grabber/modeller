@@ -1,6 +1,7 @@
 package net.tislib.ugm.ui.pages.marker;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.checkbox.Checkbox;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Label;
@@ -120,6 +121,9 @@ public class MarkerDialog {
             case COMBOBOX:
                 renderComboboxParameter(verticalLayout, markerParameter);
                 break;
+            case CHECKBOX:
+                renderCheckboxParameter(verticalLayout, markerParameter);
+                break;
         }
     }
 
@@ -194,6 +198,23 @@ public class MarkerDialog {
         }
 
         comboBox.addValueChangeListener(event -> {
+            markerParameters.put(markerParameter.getName(), event.getValue());
+        });
+    }
+
+    private void renderCheckboxParameter(VerticalLayout verticalLayout, MarkerParameter markerParameter) {
+        Checkbox checkbox = new Checkbox();
+        checkbox.setLabel(markerParameter.getCaption());
+        verticalLayout.add(checkbox);
+        checkbox.setWidth("500px");
+
+        if (markerParameters.containsKey(markerParameter.getName())) {
+            checkbox.setValue(Boolean.valueOf(String.valueOf(markerParameters.get(markerParameter.getName()))));
+        } else if (markerParameter.getDefaultValue() != null) {
+            checkbox.setValue(Boolean.valueOf(String.valueOf(markerParameter.getDefaultValue())));
+        }
+
+        checkbox.addValueChangeListener(event -> {
             markerParameters.put(markerParameter.getName(), event.getValue());
         });
     }

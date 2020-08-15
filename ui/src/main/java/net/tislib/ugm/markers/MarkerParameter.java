@@ -26,7 +26,7 @@ public class MarkerParameter {
     private Serializable defaultValue;
 
     public enum ParameterType {
-        TEXT, REGEXP, INSPECTOR, NUMBER, COMBOBOX
+        TEXT, REGEXP, INSPECTOR, NUMBER, COMBOBOX, CHECKBOX
     }
 
     public interface MarkerParameterOptions {

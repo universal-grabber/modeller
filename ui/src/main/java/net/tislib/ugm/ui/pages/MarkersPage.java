@@ -18,6 +18,7 @@ import net.tislib.ugm.ui.inspector.InspectorDialog;
 import net.tislib.ugm.ui.pages.marker.MarkerDialog;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -101,7 +102,7 @@ public class MarkersPage extends VerticalLayout {
 
             grid.setColumnReorderingAllowed(true);
 
-            Set<Marker> markers = markerService.getAllMarkers();
+            List<Marker> markers = markerService.getAllMarkers();
 
             for (Marker marker : markers) {
                 Button button = new Button("Add: " + marker.getName());
