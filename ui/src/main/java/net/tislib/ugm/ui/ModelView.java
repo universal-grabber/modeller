@@ -10,6 +10,8 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.tabs.Tab;
 import com.vaadin.flow.component.tabs.Tabs;
+import com.vaadin.flow.router.BeforeEvent;
+import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import lombok.RequiredArgsConstructor;
 import net.tislib.ugm.model.Model;
@@ -27,7 +29,8 @@ import java.util.stream.Stream;
 
 @Route("model")
 @RequiredArgsConstructor
-public class ModelView extends VerticalLayout {
+public class ModelView extends VerticalLayout
+		implements HasUrlParameter<String> {
 
 	private final ModelService modelService;
 	private final FrameViewPage frameViewPage;
@@ -36,6 +39,7 @@ public class ModelView extends VerticalLayout {
 
 	private Button saveButton;
 	private Button reloadButton;
+	private String modelName;
 
 	@PostConstruct
 	public void init() {
@@ -47,7 +51,7 @@ public class ModelView extends VerticalLayout {
 	protected void onAttach(AttachEvent attachEvent) {
 		super.onAttach(attachEvent);
 
-		Model model = modelService.get("imdb");
+		Model model = modelService.get(modelName);
 		render(model);
 
 		saveButton.addClickListener(event -> {
@@ -120,5 +124,10 @@ public class ModelView extends VerticalLayout {
 	@ClientCallable
 	public void greet(Object name) {
 		System.out.println("Hi, " + name);
+	}
+
+	@Override
+	public void setParameter(BeforeEvent event, String parameter) {
+		this.modelName = parameter.replaceAll("_", "/");
 	}
 }

@@ -45,7 +45,7 @@ public class IterativeSelectionAlgorithm implements SelectionAlgorithm {
         selector.append(lca.cssSelector());
 
         while (true) {
-            if (paths.get(0).size() == r + 1) {
+            if (paths.get(0).size() == r) {
                 break;
             }
             int finalR = r;

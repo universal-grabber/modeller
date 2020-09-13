@@ -1,0 +1,96 @@
+{
+  "id" : "imdb/movie",
+  "examples" : [ {
+    "id" : 1,
+    "url" : "https://www.imdb.com/title/tt0133093/?ref_=nv_sr_srsg_0"
+  }, {
+    "id" : 2,
+    "url" : "https://www.imdb.com/title/tt1375666/?ref_=nv_sr_srsg_0"
+  }, {
+    "id" : 3,
+    "url" : "https://www.imdb.com/title/tt0477348/?ref_=nv_sr_srsg_0"
+  } ],
+  "markers" : [ {
+    "name" : "marker-13",
+    "type" : "meta-data",
+    "parameters" : {
+      "meta-tags" : true
+    }
+  }, {
+    "name" : "marker-1",
+    "type" : "text-wrap",
+    "parameters" : {
+      "element" : "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1"
+    }
+  }, {
+    "name" : "marker-2",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "name",
+      "selector" : "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1 > text"
+    }
+  }, {
+    "name" : "marker-3",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "year",
+      "selector" : "#titleYear > a"
+    }
+  }, {
+    "name" : "marker-4",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "imdbPoint",
+      "selector" : "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > div.ratingValue > strong > span"
+    }
+  }, {
+    "name" : "marker-5",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "voiceCount",
+      "selector" : "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > a > span.small"
+    }
+  }, {
+    "name" : "marker-6",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "info",
+      "selector" : "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.subtext"
+    }
+  }, {
+    "name" : "marker-7",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "about",
+      "selector" : "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.summary_text"
+    }
+  }, {
+    "name" : "marker-8",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "awards",
+      "selector" : "#titleAwardsRanks .awards-blurb"
+    }
+  }, {
+    "name" : "marker-9",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "cast",
+      "selector" : "#titleCast > table.cast_list > tbody > tr"
+    }
+  }, {
+    "name" : "marker-10",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "name",
+      "selector" : "#titleCast > table.cast_list > tbody > tr > td:nth-child(2) > a"
+    }
+  }, {
+    "name" : "marker-11",
+    "type" : "field-selector",
+    "parameters" : {
+      "name" : "roleName",
+      "selector" : "#titleCast > table.cast_list > tbody > tr > td.character > a"
+    }
+  } ]
+}

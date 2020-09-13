@@ -14,9 +14,7 @@ public class CommonParentIterativeSelectionAlgorithm implements SelectionAlgorit
     public String select(Document document, List<String> elements) {
         List<Element> selectedElements = new ArrayList<>();
 
-        elements.forEach(element -> {
-            selectedElements.addAll(document.select(element));
-        });
+        elements.forEach(element -> selectedElements.addAll(document.select(element)));
 
         Element commonParent = SelectionUtil.commonParent(selectedElements);
 

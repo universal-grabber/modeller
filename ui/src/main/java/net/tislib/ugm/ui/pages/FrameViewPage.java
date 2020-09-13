@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 @UIScope
-
 @JavaScript("/inspector.js")
 @CssImport("/inspector.css")
 @CssImport("/frame.css")

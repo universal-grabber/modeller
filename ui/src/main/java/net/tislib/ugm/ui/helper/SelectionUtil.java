@@ -63,6 +63,7 @@ public class SelectionUtil {
     public static StringBuilder commonSelector(List<Element> childElements) {
         StringBuilder childSelector = new StringBuilder();
 
+        Set<String> tag = new HashSet<>(Collections.singleton(childElements.get(0).tagName()));
         Set<String> classes = new HashSet<>(childElements.get(0).classNames());
         Set<String> attributes = new HashSet<>(childElements.get(0).attributes().dataset().keySet());
         Set<String> attributesWithValue = new HashSet<>(childElements.get(0).attributes().dataset().entrySet().stream().map(item -> item.getKey() + "=" + item.getValue()).collect(Collectors.toList()));
@@ -71,11 +72,17 @@ public class SelectionUtil {
             classes.retainAll(element.classNames());
             attributes.retainAll(element.classNames());
             attributesWithValue.retainAll(element.attributes().dataset().entrySet().stream().map(item -> item.getKey() + "=" + item.getValue()).collect(Collectors.toList()));
+            tag.retainAll(Collections.singleton(childElements.get(0).tagName()));
+        }
+
+        if (tag.size() == 1) {
+            childSelector.append(tag.stream().findFirst().get());
         }
 
         if (classes.size() > 0) {
             childSelector.append(".").append(String.join(".", classes));
         }
+
         childSelector.append(attributes.stream().map(item -> "[" + item + "]").collect(Collectors.joining("")));
         childSelector.append(attributesWithValue.stream().map(item -> "[" + item + "]").collect(Collectors.joining("")));
         return childSelector;

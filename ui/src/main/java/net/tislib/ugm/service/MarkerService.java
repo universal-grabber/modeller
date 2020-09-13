@@ -1,9 +1,6 @@
 package net.tislib.ugm.service;
 
-import net.tislib.ugm.markers.FieldSelectorMarker;
-import net.tislib.ugm.markers.Marker;
-import net.tislib.ugm.markers.MetaDataMarker;
-import net.tislib.ugm.markers.TextTransformMarker;
+import net.tislib.ugm.markers.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,6 +14,8 @@ public class MarkerService {
         markers.add(new FieldSelectorMarker());
         markers.add(new TextTransformMarker());
         markers.add(new MetaDataMarker());
+        markers.add(new ElementToElementTransformMarker());
+        markers.add(new TextWrapMarker());
 
         return markers;
     }
