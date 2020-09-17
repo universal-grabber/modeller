@@ -1,6 +1,6 @@
 package net.tislib.ugm.service;
 
-import net.tislib.ugm.lib.markers.Marker;
+import net.tislib.ugm.lib.markers.base.Marker;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

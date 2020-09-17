@@ -1,5 +1,6 @@
-package net.tislib.ugm.lib.markers;
+package net.tislib.ugm.lib.markers.base;
 
+import net.tislib.ugm.lib.markers.*;
 import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ public interface Marker {
     static List<Marker> getAllMarkers() {
         List<Marker> markers = new ArrayList<>();
 
+        markers.add(new PageMarker());
         markers.add(new FieldSelectorMarker());
         markers.add(new TextTransformMarker());
         markers.add(new MetaDataMarker());

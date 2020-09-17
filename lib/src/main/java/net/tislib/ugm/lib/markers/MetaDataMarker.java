@@ -1,5 +1,7 @@
 package net.tislib.ugm.lib.markers;
 
+import net.tislib.ugm.lib.markers.base.Marker;
+import net.tislib.ugm.lib.markers.base.MarkerParameter;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

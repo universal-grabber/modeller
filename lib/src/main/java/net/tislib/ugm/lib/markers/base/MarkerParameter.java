@@ -1,4 +1,4 @@
-package net.tislib.ugm.lib.markers;
+package net.tislib.ugm.lib.markers.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,8 +25,10 @@ public class MarkerParameter {
 
     private Serializable defaultValue;
 
+    private boolean required;
+
     public enum ParameterType {
-        TEXT, REGEXP, INSPECTOR, NUMBER, COMBOBOX, CHECKBOX
+        TEXT, REGEXP, REGEX_SUB, INSPECTOR, NUMBER, COMBOBOX, CHECKBOX
     }
 
     public interface MarkerParameterOptions {

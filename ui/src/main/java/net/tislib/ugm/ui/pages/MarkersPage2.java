@@ -6,12 +6,14 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.provider.ListDataProvider;
+import com.vaadin.flow.data.provider.hierarchy.TreeData;
+import com.vaadin.flow.data.provider.hierarchy.TreeDataProvider;
 import com.vaadin.flow.spring.annotation.UIScope;
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.lib.markers.Marker;
-import net.tislib.ugm.lib.markers.MarkerParameter;
-import net.tislib.ugm.lib.markers.model.MarkerData;
-import net.tislib.ugm.lib.markers.model.Model;
+import net.tislib.ugm.lib.markers.base.Marker;
+import net.tislib.ugm.lib.markers.base.MarkerParameter;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
+import net.tislib.ugm.lib.markers.base.model.Model;
 import net.tislib.ugm.service.MarkerService;
 import net.tislib.ugm.service.ModelHtmlProcessorService;
 import net.tislib.ugm.ui.inspector.InspectorDialog;
@@ -51,7 +53,17 @@ public class MarkersPage2 extends VerticalLayout {
 
             grid = new Grid<>(MarkerData.class);
 
-            grid.setDataProvider(new ListDataProvider<>(model.getMarkers()));
+            TreeData<MarkerData> treeData = new TreeData<>();
+
+            model.getMarkers().forEach(item -> {
+                if (item.getParentName() != null) {
+                    treeData.addItem(null, item);
+                } else {
+                    treeData.addItem(model.getMarkers().stream().filter(a -> a.getName().equals(item.getParentName())).findAny().get(), item);
+                }
+            });
+
+            grid.setDataProvider(new TreeDataProvider<>(treeData));
 
             grid.addComponentColumn(markerData -> {
                         HorizontalLayout horizontalLayout = new HorizontalLayout();

@@ -10,9 +10,9 @@ import com.vaadin.flow.spring.annotation.UIScope;
 import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import net.tislib.ugm.lib.markers.model.Example;
-import net.tislib.ugm.lib.markers.model.Model;
-import net.tislib.ugm.lib.markers.ModelDataExtractor;
+import net.tislib.ugm.lib.markers.base.model.Example;
+import net.tislib.ugm.lib.markers.base.model.Model;
+import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;

@@ -1,7 +1,8 @@
-package net.tislib.ugm.lib.markers;
+package net.tislib.ugm.lib.markers.base;
 
-import net.tislib.ugm.lib.markers.model.MarkerData;
-import net.tislib.ugm.lib.markers.model.Model;
+import net.tislib.ugm.lib.markers.base.Marker;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
+import net.tislib.ugm.lib.markers.base.model.Model;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 

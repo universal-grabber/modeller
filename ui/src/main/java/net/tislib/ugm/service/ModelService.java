@@ -3,14 +3,14 @@ package net.tislib.ugm.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
-import net.tislib.ugm.lib.markers.model.Model;
+import net.tislib.ugm.lib.markers.base.model.Model;
 
 import java.io.File;
 
 @Service
 public class ModelService {
 
-    String wdPath = "/home/taleh/Projects/UniersalDataPlatform/ugm-backend/wd";
+    String wdPath = "/home/taleh/Projects/experiments/universal-grabber-modeller/wd";
 
     private final ObjectMapper objectMapper = new ObjectMapper();
 

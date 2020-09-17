@@ -2,9 +2,9 @@ package net.tislib.ugm.service;
 
 import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.lib.markers.ModelProcessor;
-import net.tislib.ugm.lib.markers.model.Example;
-import net.tislib.ugm.lib.markers.model.Model;
+import net.tislib.ugm.lib.markers.base.ModelProcessor;
+import net.tislib.ugm.lib.markers.base.model.Example;
+import net.tislib.ugm.lib.markers.base.model.Model;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 

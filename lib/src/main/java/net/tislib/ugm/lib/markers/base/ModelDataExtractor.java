@@ -1,7 +1,7 @@
-package net.tislib.ugm.lib.markers;
+package net.tislib.ugm.lib.markers.base;
 
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.lib.markers.model.Model;
+import net.tislib.ugm.lib.markers.base.model.Model;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
