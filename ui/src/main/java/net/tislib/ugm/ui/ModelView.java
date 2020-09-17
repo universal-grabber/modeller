@@ -14,7 +14,7 @@ import com.vaadin.flow.router.BeforeEvent;
 import com.vaadin.flow.router.HasUrlParameter;
 import com.vaadin.flow.router.Route;
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.model.Model;
+import net.tislib.ugm.lib.markers.model.Model;
 import net.tislib.ugm.service.ModelService;
 import net.tislib.ugm.ui.pages.ExtractedDataPage;
 import net.tislib.ugm.ui.pages.FrameViewPage;

@@ -4,9 +4,9 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import net.tislib.ugm.markers.MarkerParameter;
-import net.tislib.ugm.model.Example;
-import net.tislib.ugm.model.Model;
+import net.tislib.ugm.lib.markers.MarkerParameter;
+import net.tislib.ugm.lib.markers.model.Example;
+import net.tislib.ugm.lib.markers.model.Model;
 import org.jsoup.nodes.Document;
 
 import java.util.function.Consumer;

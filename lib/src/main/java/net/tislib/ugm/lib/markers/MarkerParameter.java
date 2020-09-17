@@ -1,4 +1,4 @@
-package net.tislib.ugm.markers;
+package net.tislib.ugm.lib.markers;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

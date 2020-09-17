@@ -8,8 +8,8 @@ import com.vaadin.flow.component.html.IFrame;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.spring.annotation.UIScope;
-import net.tislib.ugm.model.Example;
-import net.tislib.ugm.model.Model;
+import net.tislib.ugm.lib.markers.model.Example;
+import net.tislib.ugm.lib.markers.model.Model;
 import org.springframework.stereotype.Component;
 
 @Component

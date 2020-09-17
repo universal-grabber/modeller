@@ -1,4 +1,4 @@
-package net.tislib.ugm.model;
+package net.tislib.ugm.lib.markers.model;
 
 import lombok.Data;
 

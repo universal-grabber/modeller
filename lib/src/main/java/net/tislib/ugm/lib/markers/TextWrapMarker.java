@@ -1,4 +1,4 @@
-package net.tislib.ugm.markers;
+package net.tislib.ugm.lib.markers;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;

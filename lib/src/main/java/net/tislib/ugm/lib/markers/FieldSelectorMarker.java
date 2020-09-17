@@ -1,4 +1,4 @@
-package net.tislib.ugm.markers;
+package net.tislib.ugm.lib.markers;
 
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static net.tislib.ugm.markers.MarkerParameter.ParameterType.INSPECTOR;
-import static net.tislib.ugm.markers.MarkerParameter.ParameterType.TEXT;
+import static net.tislib.ugm.lib.markers.MarkerParameter.ParameterType.INSPECTOR;
+import static net.tislib.ugm.lib.markers.MarkerParameter.ParameterType.TEXT;
 
 public class FieldSelectorMarker implements Marker {
 

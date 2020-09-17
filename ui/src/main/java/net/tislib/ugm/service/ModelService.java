@@ -2,8 +2,8 @@ package net.tislib.ugm.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.SneakyThrows;
-import net.tislib.ugm.model.Model;
 import org.springframework.stereotype.Service;
+import net.tislib.ugm.lib.markers.model.Model;
 
 import java.io.File;
 

@@ -1,18 +1,11 @@
-package net.tislib.ugm.service;
+package net.tislib.ugm.lib.markers;
 
-import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.markers.Marker;
-import net.tislib.ugm.model.MarkerData;
-import net.tislib.ugm.model.Model;
+import net.tislib.ugm.lib.markers.model.MarkerData;
+import net.tislib.ugm.lib.markers.model.Model;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
 public class ModelProcessor {
-
-    private final MarkerService markerService;
 
     public String process(Model model, String html) {
         Document document = processDocument(model, html);
@@ -31,8 +24,9 @@ public class ModelProcessor {
     }
 
     private Document applyMarker(Document document, MarkerData markerData) {
-        Marker marker = markerService.locate(markerData.getType());
+        Marker marker = Marker.locate(markerData.getType());
 
         return marker.process(document, markerData.getParameters());
     }
+
 }

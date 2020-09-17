@@ -1,12 +1,9 @@
-package net.tislib.ugm.service;
+package net.tislib.ugm.lib.markers;
 
-import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.model.Example;
-import net.tislib.ugm.model.Model;
+import net.tislib.ugm.lib.markers.model.Model;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,19 +12,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Service
 @RequiredArgsConstructor
 public class ModelDataExtractor {
 
-    private final ModelProcessor modelProcessor;
-
-    public Serializable processDocument(Model model, Integer exampleId) {
-        Example example = model.getExamples().stream().filter(item -> item.getId().equals(exampleId)).findAny().get();
-
-        String html = Unirest.get(example.getUrl().toString()).asString().getBody();
-
-        return processDocument(model, html);
-    }
+    private final ModelProcessor modelProcessor = new ModelProcessor();
 
     public Serializable processDocument(Model model, String html) {
         Document processedDocument = modelProcessor.processDocument(model, html);

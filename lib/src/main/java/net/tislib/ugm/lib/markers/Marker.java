@@ -1,12 +1,29 @@
-package net.tislib.ugm.markers;
+package net.tislib.ugm.lib.markers;
 
 import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public interface Marker {
+    static List<Marker> getAllMarkers() {
+        List<Marker> markers = new ArrayList<>();
+
+        markers.add(new FieldSelectorMarker());
+        markers.add(new TextTransformMarker());
+        markers.add(new MetaDataMarker());
+        markers.add(new ElementToElementTransformMarker());
+        markers.add(new TextWrapMarker());
+
+        return markers;
+    }
+
+    static Marker locate(String type) {
+        return getAllMarkers().stream().filter(item -> item.getName().equals(type)).findAny().get();
+    }
+
     String getName();
 
     List<MarkerParameter> getParameters();

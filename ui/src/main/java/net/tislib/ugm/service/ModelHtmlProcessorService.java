@@ -2,8 +2,9 @@ package net.tislib.ugm.service;
 
 import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.model.Example;
-import net.tislib.ugm.model.Model;
+import net.tislib.ugm.lib.markers.ModelProcessor;
+import net.tislib.ugm.lib.markers.model.Example;
+import net.tislib.ugm.lib.markers.model.Model;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ModelHtmlProcessorService {
 
     private final ModelService modelService;
-    private final ModelProcessor modelProcessor;
+    private final ModelProcessor modelProcessor = new ModelProcessor();
 
     public String processedFrame(String modelName, Integer exampleId) {
         Model model = modelService.get(modelName);

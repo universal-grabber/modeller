@@ -7,11 +7,12 @@ import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.spring.annotation.UIScope;
+import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import net.tislib.ugm.model.Example;
-import net.tislib.ugm.model.Model;
-import net.tislib.ugm.service.ModelDataExtractor;
+import net.tislib.ugm.lib.markers.model.Example;
+import net.tislib.ugm.lib.markers.model.Model;
+import net.tislib.ugm.lib.markers.ModelDataExtractor;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -21,7 +22,7 @@ import java.io.Serializable;
 @RequiredArgsConstructor
 public class ExtractedDataPage extends VerticalLayout {
 
-    private final ModelDataExtractor modelDataExtractor;
+    private final ModelDataExtractor modelDataExtractor = new ModelDataExtractor();
 
     public void render(Model model) {
         removeAll();
@@ -59,12 +60,20 @@ public class ExtractedDataPage extends VerticalLayout {
 
         @SneakyThrows
         private void loadContent() {
-            Serializable data = modelDataExtractor.processDocument(model, selectedExample.getId());
+            Serializable data = processDocument(model, selectedExample.getId());
             ObjectMapper objectMapper = new ObjectMapper();
             String jsonData = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(data);
 
             content.removeAll();
             content.add(new Html("<pre>" + jsonData + "</pre>"));
+        }
+
+        public Serializable processDocument(Model model, Integer exampleId) {
+            Example example = model.getExamples().stream().filter(item -> item.getId().equals(exampleId)).findAny().get();
+
+            String html = Unirest.get(example.getUrl().toString()).asString().getBody();
+
+            return modelDataExtractor.processDocument(model, html);
         }
 
         public void render(ExtractedDataPage frameViewPage) {
