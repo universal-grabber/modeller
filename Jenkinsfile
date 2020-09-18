@@ -49,7 +49,7 @@ pipeline {
                     steps {
                         sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker kill ugm-ui-old || true"
                         sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker rm ugm-ui-old || true"
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker run -d --name ugm-ui-old -p 8102:8080 hub.tisserv.net/ugm-api:v${env.BUILD_NUMBER}"
+                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker run -d --name ugm-ui-old -p 8102:8080 hub.tisserv.net/ugm-ui-old:v${env.BUILD_NUMBER}"
                     }
                 }
             }
