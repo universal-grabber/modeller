@@ -1,5 +1,5 @@
 {
-  "id" : "imdb/movie",
+  "name" : "imdb/movie",
   "examples" : [ {
     "id" : 1,
     "url" : "https://www.imdb.com/title/tt0133093/?ref_=nv_sr_srsg_0"

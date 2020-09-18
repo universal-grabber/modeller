@@ -14,11 +14,11 @@ import java.util.List;
 @RequestMapping("/api/1.0/markers")
 public class MarkersController {
 
-    private final MarkerService markerService;
+    private final MarkerService service;
 
     @GetMapping
     public List<Marker> list() {
-        return markerService.getAllMarkers();
+        return service.getAll();
     }
 
 }

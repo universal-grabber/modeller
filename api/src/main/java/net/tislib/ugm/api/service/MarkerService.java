@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public class MarkerService {
-    public List<Marker> getAllMarkers() {
+    public List<Marker> getAll() {
         return Marker.getAllMarkers();
     }
 

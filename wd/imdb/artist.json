@@ -1,5 +1,5 @@
 {
-  "id" : "imdb/artist",
+  "name" : "imdb/artist",
   "examples" : [ {
     "id" : 1,
     "url" : "https://www.imdb.com/name/nm1720028/?ref_=tt_cl_t1"
