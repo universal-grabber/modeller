@@ -37,7 +37,7 @@ pipeline {
             stages {
                 stage('Build Image') {
                     steps {
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker build api/ -t hub.tisserv.net/ugm-ui-old:v${env.BUILD_NUMBER}"
+                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker build ui/ -t hub.tisserv.net/ugm-ui-old:v${env.BUILD_NUMBER}"
                     }
                 }
                 stage('Push Image') {
