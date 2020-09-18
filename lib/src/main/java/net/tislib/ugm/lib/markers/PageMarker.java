@@ -53,6 +53,6 @@ public class PageMarker implements Marker {
 
     @Override
     public Document process(Document document, Map<String, Serializable> parameters) {
-        return null;
+        return document;
     }
 }

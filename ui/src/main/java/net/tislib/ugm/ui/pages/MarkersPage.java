@@ -8,7 +8,6 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.treegrid.TreeGrid;
-import com.vaadin.flow.data.provider.ListDataProvider;
 import com.vaadin.flow.data.provider.hierarchy.TreeData;
 import com.vaadin.flow.data.provider.hierarchy.TreeDataProvider;
 import com.vaadin.flow.spring.annotation.UIScope;
@@ -24,8 +23,8 @@ import net.tislib.ugm.ui.pages.marker.MarkerDialog;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 @Component
 @UIScope
@@ -57,11 +56,7 @@ public class MarkersPage extends VerticalLayout {
 
             grid = new TreeGrid<>(MarkerData.class);
 
-            TreeData<MarkerData> treeData = new TreeData<>();
-
-            setData(model, treeData);
-
-            grid.setDataProvider(new TreeDataProvider<>(treeData));
+            setData();
 
             grid.setSelectionMode(Grid.SelectionMode.NONE);
             grid.setRowsDraggable(true);
@@ -92,7 +87,7 @@ public class MarkersPage extends VerticalLayout {
 
                     model.getMarkers().add(dropIndex, draggedItem);
 
-                    setData(model, treeData);
+                    setData();
 
                     grid.getDataProvider().refreshAll();
                 } else {
@@ -148,15 +143,25 @@ public class MarkersPage extends VerticalLayout {
             addMarkersLayout.add(button);
         }
 
-        private void setData(Model model, TreeData<MarkerData> treeData) {
-            treeData.clear();
-            model.getMarkers().forEach(item -> {
-                if (item.getParentName() == null) {
-                    treeData.addItem(null, item);
-                } else {
-                    treeData.addItem(model.getMarkers().stream().filter(a -> a.getName().equals(item.getParentName())).findAny().get(), item);
-                }
-            });
+        private void setData() {
+            TreeData<MarkerData> treeData = new TreeData<>();
+            setData(null, treeData);
+            grid.setDataProvider(new TreeDataProvider<>(treeData));
+            grid.expand(model.getMarkers().toArray(new MarkerData[0]));
+            grid.setHierarchyColumn("name");
+        }
+
+        private void setData(String parentName, TreeData<MarkerData> treeData) {
+            model.getMarkers().stream()
+                    .filter(item -> Objects.equals(parentName, item.getParentName()))
+                    .forEach(item -> {
+                        if (item.getParentName() == null) {
+                            treeData.addItem(null, item);
+                        } else {
+                            treeData.addItem(model.getMarkers().stream().filter(a -> a.getName().equals(item.getParentName())).findAny().get(), item);
+                        }
+                        setData(item.getName(), treeData);
+                    });
         }
 
         private void deleteMarker(MarkerData markerData) {
