@@ -33,7 +33,7 @@ public class ModelsController {
     }
 
     @PutMapping(params = {"name"})
-    public Model update(@RequestParam String name, @Validated Model model) {
+    public Model update(@RequestParam String name, @RequestBody @Validated Model model) {
         return service.update(name, model);
     }
 

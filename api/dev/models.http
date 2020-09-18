@@ -5,10 +5,9 @@ PUT http://localhost:8080/api/1.0/models?name=imdb/artist
 Content-Type: application/json
 
 {
-  "name": "imdb/artist",
   "examples": [
     {
-      "id": "example-1",
+      "id": 1,
       "url": "https://www.imdb.com/name/nm1720028/?ref_=tt_cl_t1"
     },
     {
