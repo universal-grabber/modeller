@@ -1,10 +1,13 @@
 package net.tislib.ugm.api.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import net.tislib.ugm.api.data.ModelRepository;
 import net.tislib.ugm.lib.markers.base.Marker;
+import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
+import net.tislib.ugm.lib.markers.base.model.Example;
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.bson.Document;
 import org.springframework.beans.BeanUtils;
@@ -12,6 +15,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.List;
 
 @Service
@@ -48,5 +52,17 @@ public class ModelService {
         repository.save(existingModel);
 
         return get(name);
+    }
+
+    public Serializable extractData(String name, Integer exampleId) {
+        ModelDataExtractor modelDataExtractor = new ModelDataExtractor();
+
+        Model model = get(name);
+
+        Example example = model.getExamples().stream().filter(item -> item.getId().equals(exampleId)).findAny().get();
+
+        String html = Unirest.get(example.getUrl().toString()).asString().getBody();
+
+        return modelDataExtractor.processDocument(model, html);
     }
 }
