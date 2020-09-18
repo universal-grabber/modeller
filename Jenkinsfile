@@ -6,7 +6,8 @@ pipeline {
             checkout scm
         }
         stage('Api') {
-                 stage('Build') {
+            stages {
+                stage('Build') {
                     steps {
                         sh "./gradlew clean :api:bootJar -x test"
                     }
@@ -28,6 +29,7 @@ pipeline {
                         sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker run -d --name ugm-api -p 8101:8080 hub.tisserv.net/ugm-api:v${env.BUILD_NUMBER}"
                     }
                 }
+            }
         }
     }
 }
