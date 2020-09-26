@@ -1,10 +1,8 @@
 package net.tislib.ugm.api.controller;
 
 import lombok.RequiredArgsConstructor;
-import net.tislib.ugm.api.data.ModelRepository;
 import net.tislib.ugm.api.service.ModelHtmlProcessorService;
 import net.tislib.ugm.api.service.ModelService;
-import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -42,13 +40,13 @@ public class ModelsController {
     }
 
     @GetMapping(value = "/process", produces = "text/html")
-    public String processedFrame(@RequestParam String name, @RequestParam Integer exampleId) {
-        return modelHtmlProcessorService.processedFrame(name, exampleId);
+    public String processedFrame(@RequestParam String name, @RequestParam String url) {
+        return modelHtmlProcessorService.processedFrame(name, url);
     }
 
     @GetMapping(value = "/extract")
-    public Serializable extractData(@RequestParam String name, @RequestParam Integer exampleId) {
-        return service.extractData(name, exampleId);
+    public Serializable extractData(@RequestParam String name, @RequestParam String url) {
+        return service.extractData(name, url);
     }
 
 }
