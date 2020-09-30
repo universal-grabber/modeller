@@ -1,4 +1,4 @@
-package net.tislib.ugm.api.data;
+package net.tislib.ugm.api.data.repository;
 
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.springframework.data.mongodb.repository.MongoRepository;

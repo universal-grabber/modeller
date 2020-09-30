@@ -1,4 +1,5 @@
 GET http://localhost:8080/api/1.0/models?name=imdb/artist
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YWxlaCIsImV4cCI6MTYwMTQ5NDEzNn0.RXj5os-isjMpA5MigtCSfdxMa0XoHfXV4keyX-m2mivc0t-we9O6Fv0fy9SXzgvigHu4VoIC_hE5ac17Q58p1w
 
 ###
 PUT http://localhost:8080/api/1.0/models?name=imdb/artist

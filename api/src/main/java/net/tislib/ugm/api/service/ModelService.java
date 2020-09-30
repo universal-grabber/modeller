@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import net.tislib.ugm.api.data.ModelRepository;
+import net.tislib.ugm.api.data.repository.ModelRepository;
 import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
 import net.tislib.ugm.lib.markers.base.ModelProcessor;
 import net.tislib.ugm.lib.markers.base.model.Model;
@@ -30,7 +30,6 @@ public class ModelService {
     @SneakyThrows
     public Model get(String name) {
         return repository.findByName(name)
-                .map(item -> modelProcessor.materialize(item))
                 .orElseThrow(() -> new RuntimeException("model not found"));
     }
 
@@ -44,6 +43,8 @@ public class ModelService {
 
     public Model update(String name, Model model) {
         Model existingModel = get(name);
+
+        modelProcessor.materialize(model);
 
         existingModel.setExamples(model.getExamples());
         existingModel.setMarkers(model.getMarkers());
