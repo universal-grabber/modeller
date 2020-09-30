@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import net.tislib.ugm.api.data.ModelRepository;
 import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
+import net.tislib.ugm.lib.markers.base.ModelProcessor;
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
@@ -22,12 +23,15 @@ public class ModelService {
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     private final ModelRepository repository;
+    private final ModelProcessor modelProcessor = new ModelProcessor();
 
     private final MongoTemplate mongoTemplate;
 
     @SneakyThrows
     public Model get(String name) {
-        return repository.findByName(name).orElseThrow(() -> new RuntimeException("model not found"));
+        return repository.findByName(name)
+                .map(item -> modelProcessor.materialize(item))
+                .orElseThrow(() -> new RuntimeException("model not found"));
     }
 
     public List<Model> getAll() {

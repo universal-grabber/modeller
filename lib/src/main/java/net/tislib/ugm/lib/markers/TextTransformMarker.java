@@ -2,6 +2,7 @@ package net.tislib.ugm.lib.markers;
 
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -10,6 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class TextTransformMarker implements Marker {
 
@@ -91,7 +93,9 @@ public class TextTransformMarker implements Marker {
     }
 
     @Override
-    public Document process(Document document, Map<String, Serializable> parameters) {
+    public Optional<Document> process(Document document, MarkerData markerData) {
+        Map<String, Serializable> parameters = markerData.getParameters();
+
         Transformer transformerType = Transformer.valueOf((String) parameters.get(PARAM_TRANSFORMER));
         Elements elements = document.select(String.valueOf(parameters.get(PARAM_ELEMENT)));
 
@@ -110,7 +114,7 @@ public class TextTransformMarker implements Marker {
             }
         }
 
-        return document;
+        return Optional.of(document);
     }
 
     private String getInput(Element element, Map<String, Serializable> parameters) {

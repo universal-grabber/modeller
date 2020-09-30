@@ -2,6 +2,7 @@ package net.tislib.ugm.lib.markers;
 
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -12,6 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class TextWrapMarker implements Marker {
 
@@ -37,7 +39,9 @@ public class TextWrapMarker implements Marker {
     }
 
     @Override
-    public Document process(Document document, Map<String, Serializable> parameters) {
+    public Optional<Document> process(Document document, MarkerData markerData) {
+        Map<String, Serializable> parameters = markerData.getParameters();
+
         String elementSelector = (String) parameters.get(PARAM_ELEMENT);
 
         if (!StringUtils.isBlank(elementSelector)) {
@@ -46,7 +50,7 @@ public class TextWrapMarker implements Marker {
             }
         }
 
-        return document;
+        return Optional.of(document);
     }
 
     private Element wrapElement(Element element) {

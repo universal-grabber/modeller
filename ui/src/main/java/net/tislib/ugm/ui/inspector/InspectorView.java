@@ -59,7 +59,7 @@ public class InspectorView {
     private HorizontalLayout algorithmBar;
 
     private void loadFrame() {
-        iFrame.setSrc("/model/frame?modelName=" + model.getId() + "&exampleId=" + selectedExample.getId());
+        iFrame.setSrc("/model/frame?modelName=" + model.getName() + "&exampleId=" + selectedExample.getId());
         iFrame.setId("frame-" + Math.random());
         iFrame.setSandbox(IFrame.SandboxType.ALLOW_SAME_ORIGIN);
 

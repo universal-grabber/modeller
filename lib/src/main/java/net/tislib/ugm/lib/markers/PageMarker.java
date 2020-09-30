@@ -2,12 +2,14 @@ package net.tislib.ugm.lib.markers;
 
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class PageMarker implements Marker {
 
@@ -52,7 +54,9 @@ public class PageMarker implements Marker {
     }
 
     @Override
-    public Document process(Document document, Map<String, Serializable> parameters) {
-        return document;
+    public Optional<Document> process(Document document, MarkerData markerData) {
+        Map<String, Serializable> parameters = markerData.getParameters();
+
+        return Optional.of(document);
     }
 }

@@ -2,16 +2,19 @@ package net.tislib.ugm.lib.markers;
 
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-public class ElementToElementTransformMarker implements Marker {
+public class ChildToParentTransformMarker implements Marker {
 
 
     private static final String PARAM_PARENT_SELECTOR = "parent_selector";
@@ -20,12 +23,18 @@ public class ElementToElementTransformMarker implements Marker {
 
     @Override
     public String getName() {
-        return "element-to-element-transform";
+        return "child-to-parent-transform";
     }
 
     @Override
     public List<MarkerParameter> getParameters() {
         List<MarkerParameter> parameters = new ArrayList<>();
+
+        parameters.add(MarkerParameter.builder()
+                .caption("Child selector(from parent)")
+                .name(PARAM_CHILD_SELECTOR)
+                .parameterType(MarkerParameter.ParameterType.INSPECTOR)
+                .build());
 
         parameters.add(MarkerParameter.builder()
                 .caption("Parent selector")
@@ -39,17 +48,13 @@ public class ElementToElementTransformMarker implements Marker {
                 .parameterType(MarkerParameter.ParameterType.TEXT)
                 .build());
 
-        parameters.add(MarkerParameter.builder()
-                .caption("Child selector")
-                .name(PARAM_CHILD_SELECTOR)
-                .parameterType(MarkerParameter.ParameterType.INSPECTOR)
-                .build());
-
         return parameters;
     }
 
     @Override
-    public Document process(Document document, Map<String, Serializable> parameters) {
+    public Optional<Document> process(Document document, MarkerData markerData) {
+        Map<String, Serializable> parameters = markerData.getParameters();
+
         String parentSelector = (String) parameters.get(PARAM_PARENT_SELECTOR);
         String parentAttr = (String) parameters.get(PARAM_PARENT_ATTR);
         String childSelector = (String) parameters.get(PARAM_CHILD_SELECTOR);
@@ -59,13 +64,15 @@ public class ElementToElementTransformMarker implements Marker {
                 !StringUtils.isBlank(parentAttr)
         ) {
             Elements parentElements = document.select(parentSelector);
-            Elements childElements = document.select(childSelector);
 
-            for (int i = 0; i < Math.min(parentElements.size(), childElements.size()); i++) {
-                childElements.get(i).attr(parentAttr, parentElements.get(i).text());
-            }
+            parentElements.forEach(parent -> {
+                Optional<Element> child = parent.select(childSelector).stream().findFirst();
+
+                child.ifPresent(element -> parent.attr(parentAttr, element.text()));
+
+            });
         }
 
-        return document;
+        return Optional.of(document);
     }
 }

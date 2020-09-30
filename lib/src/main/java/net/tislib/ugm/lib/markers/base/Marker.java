@@ -1,12 +1,14 @@
 package net.tislib.ugm.lib.markers.base;
 
 import net.tislib.ugm.lib.markers.*;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.jsoup.nodes.Document;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface Marker {
     static List<Marker> getAllMarkers() {
@@ -16,7 +18,7 @@ public interface Marker {
         markers.add(new FieldSelectorMarker());
         markers.add(new TextTransformMarker());
         markers.add(new MetaDataMarker());
-        markers.add(new ElementToElementTransformMarker());
+        markers.add(new ChildToParentTransformMarker());
         markers.add(new TextWrapMarker());
 
         return markers;
@@ -30,7 +32,7 @@ public interface Marker {
 
     List<MarkerParameter> getParameters();
 
-    Document process(Document document, Map<String, Serializable> parameters);
+    Optional<Document> process(Document document, MarkerData parameters);
 
     default void materializeParameters(Map<String, Serializable> parameters) {
         getParameters().forEach(item -> {

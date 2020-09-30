@@ -2,6 +2,8 @@ package net.tislib.ugm.lib.markers;
 
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
+import net.tislib.ugm.lib.markers.base.OutputForm;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -11,14 +13,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
-import static net.tislib.ugm.lib.markers.base.MarkerParameter.ParameterType.INSPECTOR;
-import static net.tislib.ugm.lib.markers.base.MarkerParameter.ParameterType.TEXT;
+import static net.tislib.ugm.lib.markers.base.MarkerParameter.ParameterType.*;
 
 public class FieldSelectorMarker implements Marker {
 
     public static final String PARAM_NAME = "name";
     public static final String PARAM_SELECTOR = "selector";
+    public static final String PARAM_OUTPUT_FORM = "outputForm";
+    public static final String PARAM_OUTPUT_TYPE = "outputType";
 
     @Override
     public String getName() {
@@ -42,35 +46,67 @@ public class FieldSelectorMarker implements Marker {
         parameters.add(nameParameter);
         parameters.add(inspectorParameter);
 
+        parameters.add(MarkerParameter.builder()
+                .name(PARAM_OUTPUT_FORM)
+                .caption("Output form")
+                .defaultValue("SINGULAR")
+                .parameterType(COMBOBOX)
+                .required(true)
+                .values(new Serializable[]{
+                        OutputForm.SINGLE.name(),
+                        OutputForm.OBJECT.name()
+                })
+                .build());
+
+        parameters.add(MarkerParameter.builder()
+                .name(PARAM_OUTPUT_TYPE)
+                .caption("Output type")
+                .defaultValue("text")
+                .parameterType(TEXT)
+                .required(true)
+                .build());
+
         return parameters;
     }
 
     @Override
-    public Document process(Document document, Map<String, Serializable> parameters) {
-        String fieldName = (String) parameters.get(PARAM_NAME);
+    public Optional<Document> process(Document document, MarkerData markerData) {
+        Map<String, Serializable> parameters = markerData.getParameters();
         String selector = (String) parameters.get("selector");
 
         if (StringUtils.isBlank(selector)) {
-            return document;
+            return Optional.empty();
         }
 
         Elements selectedElements = document.select(selector);
 
-        selectedElements.forEach(element -> this.applyParameter(element, fieldName));
+        selectedElements.forEach(element -> this.applyParameter(element, markerData));
 
-        return document;
+        return Optional.of(document);
     }
 
-    private void applyParameter(Element element, String fieldName) {
+    private void applyParameter(Element element, MarkerData markerData) {
+        Map<String, Serializable> parameters = markerData.getParameters();
+
+        String fieldName = (String) parameters.get(PARAM_NAME);
+        String paramOutputForm = (String) parameters.get(PARAM_OUTPUT_FORM);
+        String outputType = (String) parameters.get(PARAM_OUTPUT_TYPE);
         element.attr("ug-field", fieldName);
+        element.attr("ug-form", paramOutputForm);
 
-        applyValueIf(element);
+        applyValueIf(element, outputType);
     }
 
-    private void applyValueIf(Element element) {
+    private void applyValueIf(Element element, String outputType) {
         String value = null;
-        if (element.tagName().equals("img")) {
+        if (outputType.equals("img")) {
             value = element.attr("src");
+        }
+        if (outputType.equals("text")) {
+            value = element.text();
+        }
+        if (outputType.startsWith("attr:")) {
+            value = element.attr(outputType.substring(5));
         }
 
         if (value != null) {
