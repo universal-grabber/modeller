@@ -1,0 +1,353 @@
+{
+  id: '5f6474d537f9a73dd28e9796',
+  name: 'imdb/movie',
+  examples: [
+    {
+      id: null,
+      url: 'https://www.imdb.com/title/tt0133093'
+    },
+    {
+      id: null,
+      url: 'https://www.imdb.com/title/tt1375666'
+    },
+    {
+      id: null,
+      url: 'https://www.imdb.com/title/tt0477348'
+    },
+    {
+      id: null,
+      url: 'https://www.imdb.com/title/tt0209144'
+    }
+  ],
+  markers: [
+    {
+      name: 'main',
+      type: 'page-marker',
+      parentName: null,
+      parameters: {
+        objectType: 'movie',
+        name: 'main'
+      }
+    },
+    {
+      name: 'movie-name-wrap',
+      type: 'text-wrap',
+      parentName: 'main',
+      parameters: {
+        element: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1'
+      }
+    },
+    {
+      name: 'name',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'name',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1 > text',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1 > text'
+        ]
+      }
+    },
+    {
+      name: 'releaseYear',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'releaseYear',
+        algorithm: 'SINGLE',
+        selector: '#titleYear > a',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#titleYear > a'
+        ]
+      }
+    },
+    {
+      name: 'imdbPoint',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'imdbPoint',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > div.ratingValue > strong > span',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > div.ratingValue > strong > span'
+        ]
+      }
+    },
+    {
+      name: 'imdbPointVoteCount',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'imdbPointVoteCount',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > a > span.small',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > a > span.small'
+        ]
+      }
+    },
+    {
+      name: 'original-name-wrap',
+      type: 'text-wrap',
+      parentName: 'main',
+      parameters: {
+        element: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.originalTitle'
+      }
+    },
+    {
+      name: 'originalName',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'originalName',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.originalTitle > text',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.originalTitle > text'
+        ]
+      }
+    },
+    {
+      name: 'additionalInfo',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'additionalInfo',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.subtext',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.subtext'
+        ]
+      }
+    },
+    {
+      name: 'posterImage',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'posterImage',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.vital > div.slate_wrapper > div.poster > a > img',
+        outputForm: 'SINGLE',
+        outputType: 'img',
+        selectors: [
+          '#title-overview-widget > div.vital > div.slate_wrapper > div.poster > a > img'
+        ]
+      }
+    },
+    {
+      name: 'plotSummary',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'plotSummary',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.summary_text',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.summary_text'
+        ]
+      }
+    },
+    {
+      name: 'data-credit-summary-type',
+      type: 'child-to-parent-transform',
+      parentName: 'main',
+      parameters: {
+        parent_selector: '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item',
+        child_selector: ' h4.inline',
+        parent_attr: 'data-credit-summary-type'
+      }
+    },
+    {
+      name: 'directors',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'directors',
+        algorithm: 'ITERATIVE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=directors] > a',
+        outputForm: 'OBJECT',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=Directors\\:] > a:nth-child(2)',
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=Directors\\:] > a:nth-child(3)'
+        ]
+      }
+    },
+    {
+      name: 'writers',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'writers',
+        algorithm: 'ITERATIVE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=writers] > a',
+        outputForm: 'OBJECT',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=writers] > a:nth-child(2)',
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=writers] > a:nth-child(3)'
+        ]
+      }
+    },
+    {
+      name: 'stars',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'stars',
+        algorithm: 'ITERATIVE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:not(:last-child)',
+        outputForm: 'OBJECT',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:nth-child(2)',
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:nth-child(3)',
+          '#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:nth-child(4)'
+        ]
+      }
+    },
+    {
+      name: 'metacriticScore',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'metacriticScore',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(1) > a:nth-child(1) > div.metacriticScore.score_favorable.titleReviewBarSubItem > span',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(1) > a:nth-child(1) > div.metacriticScore.score_favorable.titleReviewBarSubItem > span'
+        ]
+      }
+    },
+    {
+      name: 'reviewCount',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'reviewCount',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(1)',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(1)'
+        ]
+      }
+    },
+    {
+      name: 'criticCount',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'criticCount',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(3)',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(3)'
+        ]
+      }
+    },
+    {
+      name: 'popularity',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'popularity',
+        algorithm: 'SINGLE',
+        selector: '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(5) > div.titleReviewBarSubItem > div:nth-child(2) > span.subText',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(5) > div.titleReviewBarSubItem > div:nth-child(2) > span.subText'
+        ]
+      }
+    },
+    {
+      name: 'awards',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'awards',
+        algorithm: 'SINGLE',
+        selector: '#titleAwardsRanks > strong, #titleAwardsRanks > span.awards-blurb',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#titleAwardsRanks > strong > a'
+        ]
+      }
+    },
+    {
+      name: 'cast',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'cast',
+        algorithm: 'COMMON_PARENT_ITERATIVE',
+        selector: '#titleCast > table.cast_list > tbody>tr:not(:first-child)',
+        outputForm: 'OBJECT',
+        outputType: 'text',
+        selectors: [
+          '#titleCast > table.cast_list > tbody > tr.odd:nth-child(2) > td.character',
+          '#titleCast > table.cast_list > tbody > tr.even:nth-child(3) > td.character',
+          '#titleCast > table.cast_list > tbody > tr.odd:nth-child(4) > td.character',
+          '#titleCast > table.cast_list > tbody > tr.even:nth-child(5) > td.character'
+        ]
+      }
+    },
+    {
+      name: 'personName',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'personName',
+        algorithm: 'ITERATIVE',
+        selector: '#titleCast > table.cast_list > tbody > tr > td:nth-child(2) > a',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#titleCast > table.cast_list > tbody > tr.odd:nth-child(2) > td:nth-child(2) > a',
+          '#titleCast > table.cast_list > tbody > tr.even:nth-child(3) > td:nth-child(2) > a',
+          '#titleCast > table.cast_list > tbody > tr.odd:nth-child(4) > td:nth-child(2) > a'
+        ]
+      }
+    },
+    {
+      name: 'character',
+      type: 'field-selector',
+      parentName: 'main',
+      parameters: {
+        name: 'character',
+        algorithm: 'SINGLE',
+        selector: '#titleCast > table.cast_list > tbody > tr > td:nth-child(4)',
+        outputForm: 'SINGLE',
+        outputType: 'text',
+        selectors: [
+          '#titleCast > table.cast_list > tbody > tr.odd:nth-child(2) > td.character > a'
+        ]
+      }
+    }
+  ]
+}
