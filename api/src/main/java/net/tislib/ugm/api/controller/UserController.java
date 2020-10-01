@@ -17,7 +17,7 @@ public class UserController {
     private final UserRepository repository;
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    @PostMapping("/register")
+    @PostMapping("/api/1.0/register")
     public void register(@RequestBody @Validated User req) {
         User user = new User();
         user.setUsername(req.getUsername());

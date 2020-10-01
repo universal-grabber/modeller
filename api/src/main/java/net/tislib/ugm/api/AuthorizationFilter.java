@@ -27,9 +27,9 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
     protected void doFilterInternal(HttpServletRequest request,
                                     HttpServletResponse response,
                                     FilterChain chain) throws IOException, ServletException {
-        String header = request.getHeader(HEADER_NAME);
+        String token = locateToken(request);
 
-        if (header == null) {
+        if (token == null) {
             chain.doFilter(request, response);
             return;
         }
@@ -40,8 +40,17 @@ public class AuthorizationFilter extends BasicAuthenticationFilter {
         chain.doFilter(request, response);
     }
 
-    private UsernamePasswordAuthenticationToken authenticate(HttpServletRequest request) {
+    private String locateToken(HttpServletRequest request) {
         String token = request.getHeader(HEADER_NAME);
+
+        if (token == null) {
+            token = request.getParameter("token"); //todo possible csrf
+        }
+        return token;
+    }
+
+    private UsernamePasswordAuthenticationToken authenticate(HttpServletRequest request) {
+        String token = locateToken(request);
         byte[] key = Base64.getEncoder().encode(SecurityConstants.KEY.getBytes());
         if (token != null) {
             Claims user = Jwts.parser()

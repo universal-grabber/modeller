@@ -33,26 +33,5 @@ pipeline {
                 }
             }
         }
-        stage('Vaadin UI') {
-            stages {
-                stage('Build Image') {
-                    steps {
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker build ui/ -t hub.tisserv.net/ugm-ui-old:v${env.BUILD_NUMBER}"
-                    }
-                }
-                stage('Push Image') {
-                    steps {
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker push hub.tisserv.net/ugm-ui-old:v${env.BUILD_NUMBER}"
-                    }
-                }
-                stage('Run Docker') {
-                    steps {
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker kill ugm-ui-old || true"
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker rm ugm-ui-old || true"
-                        sh "eval \$(cat /var/lib/jenkins/.docker/env.sh); docker run -d --name ugm-ui-old -p 8102:8080 hub.tisserv.net/ugm-ui-old:v${env.BUILD_NUMBER}"
-                    }
-                }
-            }
-        }
     }
 }
