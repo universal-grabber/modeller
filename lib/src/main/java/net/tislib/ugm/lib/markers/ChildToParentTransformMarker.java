@@ -1,5 +1,6 @@
 package net.tislib.ugm.lib.markers;
 
+import com.github.slugify.Slugify;
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
 import net.tislib.ugm.lib.markers.base.model.MarkerData;
@@ -20,6 +21,8 @@ public class ChildToParentTransformMarker implements Marker {
     private static final String PARAM_PARENT_SELECTOR = "parent_selector";
     private static final String PARAM_PARENT_ATTR = "parent_attr";
     private static final String PARAM_CHILD_SELECTOR = "child_selector";
+
+    private static final Slugify slg = new Slugify();
 
     @Override
     public String getName() {
@@ -68,7 +71,7 @@ public class ChildToParentTransformMarker implements Marker {
             parentElements.forEach(parent -> {
                 Optional<Element> child = parent.select(childSelector).stream().findFirst();
 
-                child.ifPresent(element -> parent.attr(parentAttr, element.text()));
+                child.ifPresent(element -> parent.attr(parentAttr, slg.slugify(element.text())));
 
             });
         }
