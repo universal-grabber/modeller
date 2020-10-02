@@ -94,6 +94,7 @@ public class FieldSelectorMarker implements Marker {
         String paramOutputForm = (String) parameters.get(PARAM_OUTPUT_FORM);
         String outputType = (String) parameters.get(PARAM_OUTPUT_TYPE);
         element.attr("ug-field", fieldName);
+        element.attr("ug-marker", markerData.getName());
         element.attr("ug-form", paramOutputForm);
 
         applyValueIf(element, outputType);
