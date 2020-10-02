@@ -6,7 +6,6 @@ import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
-import org.jsoup.select.Elements;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -54,25 +53,28 @@ public class ChunkWrapMarker implements Marker {
         String elementSelector = (String) parameters.get(PARAM_ELEMENT);
         int chunkSize = Integer.parseInt(String.valueOf(parameters.get(PARAM_CHUNK_SIZE)));
 
-        Element parent = document.selectFirst(elementSelector);
+        List<Element> children = new ArrayList<>(document.select(elementSelector));
 
-        List<Element> children = new ArrayList<>(parent.children());
-        children.forEach(Node::remove);
+        if (children.size() > 0) {
+            Element parent = children.get(0).parent();
 
-        Element container = null;
+            children.forEach(Node::remove);
 
-        for (int i = 0; i < children.size(); i++) {
-            if (i % chunkSize == 0) {
-                if (container != null) {
-                    parent.appendChild(container);
+            Element container = null;
+
+            for (int i = 0; i < children.size(); i++) {
+                if (i % chunkSize == 0) {
+                    if (container != null) {
+                        parent.appendChild(container);
+                    }
+                    container = document.createElement("div");
                 }
-                container = document.createElement("div");
-            }
 
-            Element element = children.get(i);
-            container.appendChild(element);
+                Element element = children.get(i);
+                container.appendChild(element);
+            }
+            parent.appendChild(container);
         }
-        parent.appendChild(container);
 
 
         return Optional.of(page);
