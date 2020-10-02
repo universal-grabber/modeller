@@ -1,5 +1,6 @@
 package net.tislib.ugm.lib.markers.base;
 
+import net.tislib.ugm.lib.markers.Page;
 import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.jsoup.Jsoup;
@@ -11,37 +12,37 @@ import java.util.Optional;
 
 public class ModelProcessor {
 
-    public String process(Model model, String html) {
-        Document document = processDocument(model, html);
+    public String process(Model model, String url, String html) {
+        Document document = processDocument(model, url, html);
 
         return document.html();
     }
 
-    public Document processDocument(Model model, String html) {
+    public Document processDocument(Model model, String url, String html) {
         Document document = Jsoup.parse(html);
 
-        document = applyMarkers(model.getMarkers(), null, document);
+        Page page = applyMarkers(model.getMarkers(), null, Page.of(url, document));
 
-        return document;
+        return page.getDocument();
     }
 
-    private Document applyMarkers(List<MarkerData> markers, String parentMarker, Document document) {
+    private Page applyMarkers(List<MarkerData> markers, String parentMarker, Page page) {
         for (MarkerData markerData : markers) {
             if (Objects.equals(markerData.getParentName(), parentMarker)) {
-                Optional<Document> appliedResult = applyMarker(document, markerData);
+                Optional<Page> appliedResult = applyMarker(page, markerData);
                 if (appliedResult.isPresent()) {
-                    document = appliedResult.get();
-                    document = applyMarkers(markers, markerData.getName(), document);
+                    page = appliedResult.get();
+                    page = applyMarkers(markers, markerData.getName(), page);
                 }
             }
         }
-        return document;
+        return page;
     }
 
-    private Optional<Document> applyMarker(Document document, MarkerData markerData) {
+    private Optional<Page> applyMarker(Page page, MarkerData markerData) {
         Marker marker = Marker.locate(markerData.getType());
 
-        return marker.process(document, markerData);
+        return marker.process(page, markerData);
     }
 
     public Model materialize(Model model) {

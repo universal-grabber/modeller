@@ -61,6 +61,6 @@ public class ModelService {
 
         String html = Unirest.get(url).asString().getBody();
 
-        return modelDataExtractor.processDocument(model, html);
+        return modelDataExtractor.processDocument(model, url, html);
     }
 }

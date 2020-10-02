@@ -17,8 +17,8 @@ public class ModelDataExtractor {
 
     private final ModelProcessor modelProcessor = new ModelProcessor();
 
-    public Serializable processDocument(Model model, String html) {
-        Document processedDocument = modelProcessor.processDocument(model, html);
+    public Serializable processDocument(Model model, String url, String html) {
+        Document processedDocument = modelProcessor.processDocument(model, url, html);
 
         processedDocument.select("ug-field");
 

@@ -3,11 +3,10 @@ package net.tislib.ugm.lib.markers;
 import net.tislib.ugm.lib.markers.base.Marker;
 import net.tislib.ugm.lib.markers.base.MarkerParameter;
 import net.tislib.ugm.lib.markers.base.model.MarkerData;
-import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
-import org.jsoup.nodes.TextNode;
+import org.jsoup.select.Elements;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -15,14 +14,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class TextWrapMarker implements Marker {
+public class ChunkWrapMarker implements Marker {
 
 
     private static final String PARAM_ELEMENT = "element";
+    private static final String PARAM_CHUNK_SIZE = "chunkSize";
 
     @Override
     public String getName() {
-        return "text-wrap";
+        return "chunk-wrap";
     }
 
     @Override
@@ -35,6 +35,14 @@ public class TextWrapMarker implements Marker {
                 .parameterType(MarkerParameter.ParameterType.INSPECTOR)
                 .build());
 
+        parameters.add(MarkerParameter.builder()
+                .caption("Chunk size")
+                .defaultValue(2)
+                .required(true)
+                .name(PARAM_CHUNK_SIZE)
+                .parameterType(MarkerParameter.ParameterType.NUMBER)
+                .build());
+
         return parameters;
     }
 
@@ -44,33 +52,29 @@ public class TextWrapMarker implements Marker {
         Document document = page.getDocument();
 
         String elementSelector = (String) parameters.get(PARAM_ELEMENT);
+        int chunkSize = Integer.parseInt(String.valueOf(parameters.get(PARAM_CHUNK_SIZE)));
 
-        if (!StringUtils.isBlank(elementSelector)) {
-            for (Element element : document.select(elementSelector)) {
-                element.html(wrapElement(element).html());
+        Element parent = document.selectFirst(elementSelector);
+
+        List<Element> children = new ArrayList<>(parent.children());
+        children.forEach(Node::remove);
+
+        Element container = null;
+
+        for (int i = 0; i < children.size(); i++) {
+            if (i % chunkSize == 0) {
+                if (container != null) {
+                    parent.appendChild(container);
+                }
+                container = document.createElement("div");
             }
+
+            Element element = children.get(i);
+            container.appendChild(element);
         }
+        parent.appendChild(container);
+
 
         return Optional.of(page);
-    }
-
-    private Element wrapElement(Element element) {
-        Element newElement = element.clone();
-        newElement.html("");
-
-        for (Node node : new ArrayList<>(element.childNodes())) {
-            if (node instanceof TextNode) {
-                if (StringUtils.isBlank(((TextNode) node).text())) {
-                    continue;
-                }
-                Element textElement = new Element("text");
-                textElement.text(((TextNode) node).text());
-                newElement.appendChild(textElement);
-            } else {
-                newElement.appendChild(node);
-            }
-        }
-
-        return newElement;
     }
 }

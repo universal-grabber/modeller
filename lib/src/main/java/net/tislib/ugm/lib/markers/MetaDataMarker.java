@@ -37,8 +37,9 @@ public class MetaDataMarker implements Marker {
     }
 
     @Override
-    public Optional<Document> process(Document document, MarkerData markerData) {
+    public Optional<Page> process(Page page, MarkerData markerData) {
         Map<String, Serializable> parameters = markerData.getParameters();
+        Document document = page.getDocument();
 
         boolean metaTags = Boolean.parseBoolean(String.valueOf(parameters.get(PARAM_META_TAGS)));
 
@@ -46,7 +47,7 @@ public class MetaDataMarker implements Marker {
             processMetaTags(document);
         }
 
-        return Optional.of(document);
+        return Optional.of(page);
     }
 
     private void processMetaTags(Document document) {

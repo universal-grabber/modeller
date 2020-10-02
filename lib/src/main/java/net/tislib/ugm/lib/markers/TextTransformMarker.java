@@ -93,8 +93,9 @@ public class TextTransformMarker implements Marker {
     }
 
     @Override
-    public Optional<Document> process(Document document, MarkerData markerData) {
+    public Optional<Page> process(Page page, MarkerData markerData) {
         Map<String, Serializable> parameters = markerData.getParameters();
+        Document document = page.getDocument();
 
         Transformer transformerType = Transformer.valueOf((String) parameters.get(PARAM_TRANSFORMER));
         Elements elements = document.select(String.valueOf(parameters.get(PARAM_ELEMENT)));
@@ -114,7 +115,7 @@ public class TextTransformMarker implements Marker {
             }
         }
 
-        return Optional.of(document);
+        return Optional.of(page);
     }
 
     private String getInput(Element element, Map<String, Serializable> parameters) {

@@ -55,8 +55,9 @@ public class ChildToParentTransformMarker implements Marker {
     }
 
     @Override
-    public Optional<Document> process(Document document, MarkerData markerData) {
+    public Optional<Page> process(Page page, MarkerData markerData) {
         Map<String, Serializable> parameters = markerData.getParameters();
+        Document document = page.getDocument();
 
         String parentSelector = (String) parameters.get(PARAM_PARENT_SELECTOR);
         String parentAttr = (String) parameters.get(PARAM_PARENT_ATTR);
@@ -76,6 +77,6 @@ public class ChildToParentTransformMarker implements Marker {
             });
         }
 
-        return Optional.of(document);
+        return Optional.of(page);
     }
 }

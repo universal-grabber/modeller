@@ -20,6 +20,7 @@ public interface Marker {
         markers.add(new MetaDataMarker());
         markers.add(new ChildToParentTransformMarker());
         markers.add(new TextWrapMarker());
+        markers.add(new ChunkWrapMarker());
 
         return markers;
     }
@@ -32,7 +33,7 @@ public interface Marker {
 
     List<MarkerParameter> getParameters();
 
-    Optional<Document> process(Document document, MarkerData parameters);
+    Optional<Page> process(Page page, MarkerData parameters);
 
     default void materializeParameters(Map<String, Serializable> parameters) {
         getParameters().forEach(item -> {

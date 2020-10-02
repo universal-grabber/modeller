@@ -20,6 +20,6 @@ public class ModelHtmlProcessorService {
 
         String html = Unirest.get(url).asString().getBody();
 
-        return modelProcessor.process(model, html);
+        return modelProcessor.process(model, url, html);
     }
 }
