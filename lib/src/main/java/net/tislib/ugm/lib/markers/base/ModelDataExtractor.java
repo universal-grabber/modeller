@@ -2,6 +2,7 @@ package net.tislib.ugm.lib.markers.base;
 
 import lombok.RequiredArgsConstructor;
 import net.tislib.ugm.lib.markers.base.model.Model;
+import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -23,10 +24,28 @@ public class ModelDataExtractor {
         processedDocument.select("ug-field");
 
         Map<String, Serializable> data = extract(processedDocument);
+        extractPageData(data, processedDocument);
 
         data = fixExtracted(data);
 
         return (Serializable) data;
+    }
+
+    private void extractPageData(Map<String, Serializable> data, Document document) {
+        Element html = document.getElementsByTag("html").get(0);
+
+        if (!StringUtils.isBlank(html.attr("ug-page-name"))) {
+            data.put("_page", html.attr("ug-page-name"));
+        }
+
+        if (!StringUtils.isBlank(html.attr("ug-object-type"))) {
+            data.put("_type", html.attr("ug-object-type"));
+        }
+
+        if (!StringUtils.isBlank(html.attr("ug-ref"))) {
+            data.put("_ref", html.attr("ug-ref"));
+        }
+
     }
 
     private Serializable fixExtracted(Serializable data) {

@@ -45,8 +45,11 @@ public class ModelsController {
     }
 
     @GetMapping(value = "/extract")
-    public Serializable extractData(@RequestParam String name, @RequestParam String url) {
-        return service.extractData(name, url);
+    public Serializable extractData(@RequestParam String name,
+                                    @RequestParam List<String> url,
+                                    @RequestParam(defaultValue = "false", required = false) boolean cache,
+                                    @RequestParam(defaultValue = "false", required = false) boolean merge) {
+        return service.extractData(name, url, cache, merge);
     }
 
 }

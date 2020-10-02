@@ -63,12 +63,6 @@ public class PageMarker implements Marker {
 
         Element html = document.getElementsByTag("html").get(0);
 
-        html.attr("ug-page-name", name);
-
-        if (!StringUtils.isBlank(objectType)) {
-            html.attr("ug-object-type", objectType);
-        }
-
         if (!StringUtils.isBlank(urlCheck)) {
             Pattern pattern = Pattern.compile(urlCheck);
 
@@ -77,6 +71,13 @@ public class PageMarker implements Marker {
             if (!matcher.find()) {
                 return Optional.empty();
             }
+        }
+
+
+        html.attr("ug-page-name", name);
+
+        if (!StringUtils.isBlank(objectType)) {
+            html.attr("ug-object-type", objectType);
         }
 
         if (!StringUtils.isBlank(ref)) {
