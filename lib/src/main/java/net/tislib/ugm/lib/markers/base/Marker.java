@@ -19,14 +19,16 @@ public interface Marker {
         markers.add(new TextTransformMarker());
         markers.add(new MetaDataMarker());
         markers.add(new ChildToParentTransformMarker());
-        markers.add(new TextWrapMarker());
+        markers.add(new NormalizerMarker());
         markers.add(new ChunkWrapMarker());
 
         return markers;
     }
 
     static Marker locate(String type) {
-        return getAllMarkers().stream().filter(item -> item.getName().equals(type)).findAny().get();
+        return getAllMarkers().stream().filter(item -> item.getName().equals(type)).findAny().orElseThrow(() -> {
+            return new RuntimeException("marker not found");
+        });
     }
 
     String getName();
