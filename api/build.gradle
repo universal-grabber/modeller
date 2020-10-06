@@ -46,3 +46,10 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task ptest(type: JavaExec) {
+    group = "Execution"
+    description = "Run the main class with JavaExecTask"
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'net.tislib.ugm.api.Test'
+}
