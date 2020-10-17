@@ -15,7 +15,7 @@ node {
         if ((env.BRANCH_NAME == 'develop' || env.BRANCH_NAME == 'master') && (env.GITLAB_OBJECT_KIND == 'none' || env.GITLAB_OBJECT_KIND == 'push')){
             stage ('Build Image') {
                 sh './gradlew bootJar'
-				sh "docker build -t hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} ."
+				sh "docker build -t hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} api"
             }
 
       	    stage ('Push&Clean Image') {
