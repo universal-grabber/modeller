@@ -9,11 +9,10 @@ node {
         	checkout scm
         }
         stage ('Build Project') {
-            sh "BRANCH: ${env.BRANCH_NAME}"
             sh './gradlew clean build -x test --no-daemon --info'
         }
 
-        if (env.BRANCH_NAME == 'master'){
+//         if (env.BRANCH_NAME == 'master'){
             stage ('Build Image') {
                 sh './gradlew bootJar'
 				sh "docker build -t hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} api"
@@ -28,7 +27,7 @@ node {
                sh "/usr/local/bin/kubectl --kubeconfig /var/lib/jenkins/.kube/config --record deployment.apps/$RESOURCE_NAME set image deployment.apps/$RESOURCE_NAME $APP_NAME=hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} -n $NAMESPACE"
 			   sh "/usr/local/bin/kubectl --kubeconfig /var/lib/jenkins/.kube/config rollout status deployment/$RESOURCE_NAME -n $NAMESPACE"
             }
-        }
+//         }
     } catch (err) {
         throw err
     }
