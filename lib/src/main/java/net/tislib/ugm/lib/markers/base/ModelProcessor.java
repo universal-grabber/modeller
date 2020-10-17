@@ -19,7 +19,7 @@ public class ModelProcessor {
     }
 
     public Document processDocument(Model model, String url, String html) {
-        Document document = Jsoup.parse(html);
+        Document document = (Jsoup.parse(html));
 
         Page page = applyMarkers(model.getMarkers(), null, Page.of(url, document));
 

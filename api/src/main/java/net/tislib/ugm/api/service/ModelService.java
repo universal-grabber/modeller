@@ -51,8 +51,8 @@ public class ModelService {
         return get(name);
     }
 
-    public Serializable extractData(String name, List<String> url, boolean cache, boolean merge) {
-        List<Serializable> list = url.stream().map(item -> extractData(name, item, cache)).collect(Collectors.toList());
+    public Serializable extractSingleData(String name, List<String> url, boolean cache, boolean merge) {
+        List<Serializable> list = url.stream().map(item -> extractDataSingle(name, item, cache)).collect(Collectors.toList());
 
         if (list.size() == 1) {
             return list.get(0);
@@ -86,7 +86,7 @@ public class ModelService {
         return (Serializable) result;
     }
 
-    public Serializable extractData(String name, String url, boolean cache) {
+    public Serializable extractDataSingle(String name, String url, boolean cache) {
         ModelDataExtractor modelDataExtractor = new ModelDataExtractor();
 
         Model model = get(name);

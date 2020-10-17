@@ -6,6 +6,7 @@ import net.tislib.ugm.api.service.ModelService;
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 
 import java.io.Serializable;
 import java.util.List;
@@ -49,7 +50,16 @@ public class ModelsController {
                                     @RequestParam List<String> url,
                                     @RequestParam(defaultValue = "false", required = false) boolean cache,
                                     @RequestParam(defaultValue = "false", required = false) boolean merge) {
-        return service.extractData(name, url, cache, merge);
+        return service.extractSingleData(name, url, cache, merge);
+    }
+
+    @GetMapping(value = "/extract-stream", produces = "application/octet-stream")
+    public Flux<Serializable> extractDataStream(@RequestParam String name,
+                                                @RequestParam List<String> url,
+                                                @RequestParam(defaultValue = "false", required = false) boolean cache,
+                                                @RequestParam(defaultValue = "false", required = false) boolean merge) {
+//        return service.extractSingleData(name, url, cache, merge);
+        return null;
     }
 
 }
