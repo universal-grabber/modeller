@@ -58,7 +58,7 @@ public class NormalizerMarker implements Marker {
 
     private void normalizeTableSpan(Element element) {
         // fix row spans
-        Elements elementsWithRowspan = element.select("td[rowspan]");
+        Elements elementsWithRowspan = element.select("td[rowspan],th[rowspan]");
 
         if (elementsWithRowspan.size() > 0) {
             elementsWithRowspan.forEach(this::fixRowSpan);
