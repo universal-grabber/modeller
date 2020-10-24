@@ -11,6 +11,9 @@ node {
         stage ('Build Project') {
             sh './gradlew clean build -x test --no-daemon --info'
         }
+        stage ('Install') {
+            sh './gradlew clean install'
+        }
 
 //         if (env.BRANCH_NAME == 'master'){
             stage ('Build Image') {
