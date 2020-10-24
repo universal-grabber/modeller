@@ -1,4 +1,6 @@
 rootProject.name = 'ugm-backend'
 include 'lib'
 include 'api'
+include 'schema'
+include 'shell'
 

@@ -1,0 +1,29 @@
+name: 'media.imdb.movie'
+namespace: 'media/imdb'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  directors:
+    items:
+      type: 'string'
+  writers:
+    items:
+      type: 'string'
+  stars:
+    items:
+      type: 'string'
+  metacriticScore:
+    type: 'number'
+  posterImage:
+    type: 'string'
+  imdbPointVoteCount:
+    type: '1,643,935'
+  originalName:
+    type: 'originalName'
+  cast:
+    type: array
+    items:
+      type: string
+
