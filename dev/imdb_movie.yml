@@ -6,12 +6,15 @@ properties:
     type: 'string'
     pattern: '^[A-Z]\w+'
   directors:
+    type: 'array'
     items:
       type: 'string'
   writers:
+    type: 'array'
     items:
       type: 'string'
   stars:
+    type: 'array'
     items:
       type: 'string'
   metacriticScore:
@@ -19,11 +22,31 @@ properties:
   posterImage:
     type: 'string'
   imdbPointVoteCount:
-    type: '1,643,935'
+    type: 'number'
   originalName:
-    type: 'originalName'
+    type: 'string'
   cast:
     type: array
     items:
-      type: string
-
+      type: object
+      properties:
+        personName:
+          type: string
+        character:
+          type: string
+  reviewCount:
+    type: number
+  meta:
+    type: object
+  popularity:
+    type: string
+  additionalInfo:
+    type: string
+  plotSummary:
+    type: string
+  imdbPoint:
+    type: number
+  criticCount:
+    type: number
+  releaseYear:
+    type: number
