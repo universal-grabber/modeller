@@ -3,7 +3,7 @@ plugins {
     id 'maven'
 }
 
-group 'org.example'
+group 'net.tislib.ugm'
 version '1.0-SNAPSHOT'
 sourceCompatibility = '1.8'
 
