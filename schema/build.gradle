@@ -17,7 +17,6 @@ dependencies {
     compile 'com.github.slugify:slugify:2.4'
 
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.11.3'
-    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-annotations', version: '2.11.3'
 
     // https://mvnrepository.com/artifact/javax.validation/validation-api
     compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
