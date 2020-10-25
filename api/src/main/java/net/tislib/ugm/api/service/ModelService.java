@@ -5,7 +5,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import net.tislib.ugm.api.component.CacheHelper;
 import net.tislib.ugm.api.data.repository.ModelRepository;
+import net.tislib.ugm.data.Schema;
 import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
+import net.tislib.ugm.lib.markers.base.ModelDataSchemaExtractor;
 import net.tislib.ugm.lib.markers.base.ModelProcessor;
 import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import net.tislib.ugm.lib.markers.base.model.Model;
@@ -23,6 +25,7 @@ public class ModelService {
     private final ModelRepository repository;
     private final ModelProcessor modelProcessor = new ModelProcessor();
     private final CacheHelper cacheHelper;
+    private final SchemaService schemaService;
 
     @SneakyThrows
     public Model get(String name) {
@@ -45,6 +48,10 @@ public class ModelService {
 
         existingModel.setExamples(model.getExamples());
         existingModel.setMarkers(model.getMarkers());
+        existingModel.setSchema(model.getSchema());
+        existingModel.setUrlCheck(model.getUrlCheck());
+        existingModel.setRef(model.getRef());
+        existingModel.setObjectType(model.getObjectType());
 
         repository.save(existingModel);
 
@@ -87,13 +94,22 @@ public class ModelService {
     }
 
     public Serializable extractDataSingle(String name, String url, boolean cache) {
-        ModelDataExtractor modelDataExtractor = new ModelDataExtractor();
+
 
         Model model = get(name);
 
         String html = download(url, cache);
 
-        return modelDataExtractor.processDocument(model, url, html);
+        if (model.getSchema() != null) {
+            ModelDataSchemaExtractor modelDataSchemaExtractor = new ModelDataSchemaExtractor();
+
+            Schema schema = schemaService.get(model.getSchema());
+
+            return modelDataSchemaExtractor.processDocument(model, schema, url, html);
+        } else {
+            ModelDataExtractor modelDataExtractor = new ModelDataExtractor();
+            return modelDataExtractor.processDocument(model, url, html);
+        }
     }
 
     private String download(String url, boolean cache) {
