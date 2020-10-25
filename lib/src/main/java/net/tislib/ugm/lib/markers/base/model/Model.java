@@ -11,6 +11,8 @@ public class Model {
 
     private String name;
 
+    private String source;
+
     private List<Example> examples;
 
     private List<MarkerData> markers;

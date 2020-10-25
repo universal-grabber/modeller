@@ -1,0 +1,4 @@
+http://localhost:8080/api/1.0/models/extract?name=imdb/movie&url=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt1375666&cache=true&merge=false
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YWxlaCIsImV4cCI6MTkxODk2NDkxNX0.X3wEhvuQvn-yNA06T3-OtBrAV_j-mXgsxM0lIXysjK4QduSCKBg2ieVjupIE8BWCSiEWDRjYdad7M2YpMX_VwQ
+
+###

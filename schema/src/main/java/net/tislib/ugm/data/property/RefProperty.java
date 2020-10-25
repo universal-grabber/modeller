@@ -10,8 +10,5 @@ import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
 
 @Data
 @JsonInclude(NON_NULL)
-public class ArrayProperty implements SchemaProperty {
-    SchemaProperty items;
-    
-    private Set<String> tags;
+public class RefProperty implements SchemaProperty {
 }

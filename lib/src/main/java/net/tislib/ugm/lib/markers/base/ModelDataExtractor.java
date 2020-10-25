@@ -21,8 +21,6 @@ public class ModelDataExtractor {
     public Serializable processDocument(Model model, String url, String html) {
         Document processedDocument = modelProcessor.processDocument(model, url, html);
 
-        processedDocument.select("ug-field");
-
         Map<String, Serializable> data = extract(processedDocument);
         extractPageData(data, processedDocument);
 
