@@ -40,6 +40,11 @@ public class ModelsController {
         return service.update(name, model);
     }
 
+    @PutMapping(value = "/split", params = {"name"})
+    public Model split(@RequestParam String name) {
+        return service.split(name);
+    }
+
     @GetMapping(value = "/process", produces = "text/html")
     public String processedFrame(@RequestParam String name, @RequestParam String url) {
         return modelHtmlProcessorService.processedFrame(name, url);

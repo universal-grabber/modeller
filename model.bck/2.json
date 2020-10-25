@@ -1,0 +1,1242 @@
+/** 
+* Paste one or more documents here
+*/
+{
+  "name": "imdb/movie",
+  "examples": [{
+    "url": "https://www.imdb.com/title/tt0763840/parentalguide"
+  }, {
+    "url": "https://www.imdb.com/title/tt0087803/fullcredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0350184/parentalguide"
+  }, {
+    "url": "https://www.imdb.com/title/tt2093044/reviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0087660/trivia"
+  }, {
+    "url": "https://www.imdb.com/title/tt0087712/soundtrack"
+  }, {
+    "url": "https://www.imdb.com/title/tt0350194/plotsummary"
+  }, {
+    "url": "https://www.imdb.com/title/tt2092011/reviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/alternateversions"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/alternateversions"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/alternateversions"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/alternateversions"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/awards"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/awards"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/awards"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/awards"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/companycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/companycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/companycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/companycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/crazycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/crazycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/crazycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/crazycredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/criticreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/criticreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/criticreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/criticreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/externalreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/externalreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/externalreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/externalreviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/externalsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/externalsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/externalsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/externalsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/faq"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/faq"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/faq"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/faq"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/fullcredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/fullcredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/fullcredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/fullcredits"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/goofs"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/goofs"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/goofs"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/goofs"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/keywords"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/keywords"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/keywords"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/keywords"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/locations"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/locations"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/locations"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/locations"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/mediaindex"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/mediaindex"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/mediaindex"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/mediaindex"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/movieconnections"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/movieconnections"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/movieconnections"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/movieconnections"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/news"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/news"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/news"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/news"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/officialsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/officialsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/officialsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/officialsites"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/parentalguide"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/parentalguide"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/parentalguide"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/parentalguide"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/plotsummary"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/plotsummary"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/plotsummary"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/plotsummary"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/quotes"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/quotes"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/quotes"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/quotes"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/ratings"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/ratings"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/ratings"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/ratings"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/releaseinfo"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/releaseinfo"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/releaseinfo"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/releaseinfo"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/reviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/reviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/reviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/reviews"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/soundtrack"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/soundtrack"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/soundtrack"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/soundtrack"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/synopsis"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/synopsis"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/synopsis"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/synopsis"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/taglines"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/taglines"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/taglines"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/taglines"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/technical"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/technical"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/technical"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/technical"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/trivia"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/trivia"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/trivia"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/trivia"
+  }, {
+    "url": "https://www.imdb.com/title/tt0133093/videogallery"
+  }, {
+    "url": "https://www.imdb.com/title/tt1375666/videogallery"
+  }, {
+    "url": "https://www.imdb.com/title/tt0477348/videogallery"
+  }, {
+    "url": "https://www.imdb.com/title/tt0209144/videogallery"
+  }],
+  "markers": [{
+    "name": "page-main",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "movie-name-wrap",
+    "type": "normalize",
+    "parentName": "page-main",
+    "parameters": {
+      "element": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1"
+    }
+  }, {
+    "name": "_name",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "_name",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1 > text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > h1 > text"]
+    }
+  }, {
+    "name": "meta-extract",
+    "type": "meta-data",
+    "parentName": "page-main",
+    "parameters": {
+      "meta-tags": true
+    }
+  }, {
+    "name": "releaseYear",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "releaseYear",
+      "algorithm": "SINGLE",
+      "selector": "#titleYear > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#titleYear > a"]
+    }
+  }, {
+    "name": "imdbPoint",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "imdbPoint",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > div.ratingValue > strong > span",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > div.ratingValue > strong > span"]
+    }
+  }, {
+    "name": "imdbPointVoteCount",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "imdbPointVoteCount",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > a > span.small",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.ratings_wrapper > div.imdbRating > a > span.small"]
+    }
+  }, {
+    "name": "original-name-wrap",
+    "type": "normalize",
+    "parentName": "page-main",
+    "parameters": {
+      "element": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.originalTitle"
+    }
+  }, {
+    "name": "originalName",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "originalName",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.originalTitle > text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.originalTitle > text"]
+    }
+  }, {
+    "name": "additionalInfo",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "additionalInfo",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.subtext",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.vital > div.title_block > div.title_bar_wrapper > div.titleBar > div.title_wrapper > div.subtext"]
+    }
+  }, {
+    "name": "posterImage",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "posterImage",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.vital > div.slate_wrapper > div.poster > a > img",
+      "outputForm": "SINGLE",
+      "outputType": "img",
+      "selectors": ["#title-overview-widget > div.vital > div.slate_wrapper > div.poster > a > img"]
+    }
+  }, {
+    "name": "plotSummary",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "plotSummary",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.summary_text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.summary_text"]
+    }
+  }, {
+    "name": "data-credit-summary-type",
+    "type": "child-to-parent-transform",
+    "parentName": "page-main",
+    "parameters": {
+      "parent_selector": "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item",
+      "child_selector": " h4.inline",
+      "parent_attr": "data-credit-summary-type"
+    }
+  }, {
+    "name": "directors",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "directors",
+      "algorithm": "ITERATIVE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=directors] > a",
+      "outputForm": "OBJECT",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=Directors\\:] > a:nth-child(2)", "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=Directors\\:] > a:nth-child(3)"]
+    }
+  }, {
+    "name": "writers",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "writers",
+      "algorithm": "ITERATIVE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=writers] > a",
+      "outputForm": "OBJECT",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=writers] > a:nth-child(2)", "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=writers] > a:nth-child(3)"]
+    }
+  }, {
+    "name": "stars",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "stars",
+      "algorithm": "ITERATIVE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:not(:last-child)",
+      "outputForm": "OBJECT",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:nth-child(2)", "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:nth-child(3)", "#title-overview-widget > div.plot_summary_wrapper > div.plot_summary > div.credit_summary_item[data-credit-summary-type=stars] > a:nth-child(4)"]
+    }
+  }, {
+    "name": "metacriticScore",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "metacriticScore",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(1) > a:nth-child(1) > div.metacriticScore.score_favorable.titleReviewBarSubItem > span",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(1) > a:nth-child(1) > div.metacriticScore.score_favorable.titleReviewBarSubItem > span"]
+    }
+  }, {
+    "name": "reviewCount",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "reviewCount",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(1)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(1)"]
+    }
+  }, {
+    "name": "criticCount",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "criticCount",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(3)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem.titleReviewbarItemBorder > div:nth-child(2) > span.subText > a:nth-child(3)"]
+    }
+  }, {
+    "name": "popularity",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "popularity",
+      "algorithm": "SINGLE",
+      "selector": "#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(5) > div.titleReviewBarSubItem > div:nth-child(2) > span.subText",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#title-overview-widget > div.plot_summary_wrapper > div.titleReviewBar > div.titleReviewBarItem:nth-child(5) > div.titleReviewBarSubItem > div:nth-child(2) > span.subText"]
+    }
+  }, {
+    "name": "cast",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "cast",
+      "algorithm": "COMMON_PARENT_ITERATIVE",
+      "selector": "#titleCast > table.cast_list > tbody>tr:not(:first-child)",
+      "outputForm": "OBJECT",
+      "outputType": "text",
+      "selectors": ["#titleCast > table.cast_list > tbody > tr.odd:nth-child(2) > td.character", "#titleCast > table.cast_list > tbody > tr.even:nth-child(3) > td.character", "#titleCast > table.cast_list > tbody > tr.odd:nth-child(4) > td.character", "#titleCast > table.cast_list > tbody > tr.even:nth-child(5) > td.character"]
+    }
+  }, {
+    "name": "personName",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "personName",
+      "algorithm": "ITERATIVE",
+      "selector": "#titleCast > table.cast_list > tbody > tr > td:nth-child(2) > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#titleCast > table.cast_list > tbody > tr.odd:nth-child(2) > td:nth-child(2) > a", "#titleCast > table.cast_list > tbody > tr.even:nth-child(3) > td:nth-child(2) > a", "#titleCast > table.cast_list > tbody > tr.odd:nth-child(4) > td:nth-child(2) > a"]
+    }
+  }, {
+    "name": "character",
+    "type": "field-selector",
+    "parentName": "page-main",
+    "parameters": {
+      "name": "character",
+      "algorithm": "SINGLE",
+      "selector": "#titleCast > table.cast_list > tbody > tr > td:nth-child(4)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#titleCast > table.cast_list > tbody > tr.odd:nth-child(2) > td.character > a"]
+    }
+  }, {
+    "name": "page-fullcredits",
+    "type": "page-marker",
+    "parameters": {
+      "objectType": "movie",
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/fullcredits\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/fullcredits\\/?(\\?.*)?$"
+    }
+  }, {
+    "name": "fullCreditsCreditCategoryTextWrap",
+    "type": "normalize",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "element": "#fullcredits_content > h4"
+    }
+  }, {
+    "name": "fullCreditsWrapper",
+    "type": "chunk-wrap",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "element": "#fullcredits_content > table, #fullcredits_content > h4",
+      "chunkSize": "2"
+    }
+  }, {
+    "name": "fullCreditsCreditCategory",
+    "type": "child-to-parent-transform",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "parent_selector": "#fullcredits_content > div",
+      "child_selector": "h4 > text",
+      "parent_attr": "data-credit-category"
+    }
+  }, {
+    "name": "crew",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "crew",
+      "algorithm": "COMMON_PARENT_ITERATIVE",
+      "selector": "#fullcredits_content > div:not([data-credit-category=cast])",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.credit", "#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.credit", "#fullcredits_content > div[data-credit-category=produced-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=produced-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(6) > td.credit"]
+    }
+  }, {
+    "name": "items",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "items",
+      "algorithm": "COMMON_PARENT_ITERATIVE",
+      "selector": "#fullcredits_content>div:not([data-credit-category=cast])>table>tbody>tr",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.credit", "#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.credit"]
+    }
+  }, {
+    "name": "personName",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "personName",
+      "algorithm": "ITERATIVE",
+      "selector": "#fullcredits_content > div > table.simpleTable.simpleCreditsTable > tbody > tr > td.name > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.name > a", "#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.name > a", "#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.name > a", "#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.name > a"]
+    }
+  }, {
+    "name": "creditedFor",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "creditedFor",
+      "algorithm": "ITERATIVE",
+      "selector": "#fullcredits_content > div > table.simpleTable.simpleCreditsTable > tbody > tr > td.credit",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=produced-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=produced-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(2) > td.credit", "#fullcredits_content > div[data-credit-category=produced-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(9) > td.credit", "#fullcredits_content > div[data-credit-category=directed-by] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit", "#fullcredits_content > div[data-credit-category=writing-credits] > table.simpleTable.simpleCreditsTable > tbody > tr:nth-child(1) > td.credit"]
+    }
+  }, {
+    "name": "fullCast",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "fullCast",
+      "algorithm": "SINGLE",
+      "selector": "#fullcredits_content > div[data-credit-category=cast] > table > tbody > tr:not(:first-child)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=cast]"]
+    }
+  }, {
+    "name": "personName",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "personName",
+      "algorithm": "ITERATIVE",
+      "selector": "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr > td:nth-child(2) > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.odd:nth-child(2) > td:nth-child(2) > a", "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.even:nth-child(3) > td:nth-child(2) > a", "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.odd:nth-child(4) > td:nth-child(2) > a", "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.even:nth-child(9) > td:nth-child(2) > a"]
+    }
+  }, {
+    "name": "character",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "character",
+      "algorithm": "ITERATIVE",
+      "selector": "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr:not(:first-child) > td:last-child",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.even:nth-child(5) > td.character", "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.odd:nth-child(6) > td.character", "#fullcredits_content > div[data-credit-category=cast] > table.cast_list > tbody > tr.even:nth-child(7) > td.character"]
+    }
+  }, {
+    "name": "category",
+    "type": "field-selector",
+    "parentName": "page-fullcredits",
+    "parameters": {
+      "name": "category",
+      "algorithm": "ITERATIVE",
+      "selector": "#fullcredits_content > div > h4 > text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div[data-credit-category=directed-by] > h4.dataHeaderWithBorder > text", "#fullcredits_content > div[data-credit-category=writing-credits] > h4.dataHeaderWithBorder > text"]
+    }
+  }, {
+    "name": "page-awards",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/awards\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/awards\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "award-category-wrap",
+    "type": "chunk-wrap",
+    "parentName": "page-awards",
+    "parameters": {
+      "element": "#main > div:nth-child(1) > div.article.listo > h3, #main > div:nth-child(1) > div.article.listo > table",
+      "chunkSize": "2"
+    }
+  }, {
+    "name": "award-page-normalizer",
+    "type": "normalize",
+    "parentName": "page-awards",
+    "parameters": {
+      "element": "#main > div:nth-child(1) > div.article.listo"
+    }
+  }, {
+    "name": "awardTypes",
+    "type": "field-selector",
+    "parentName": "page-awards",
+    "parameters": {
+      "name": "awardTypes",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div:nth-child(1) > div.article.listo > div:nth-child(n+3)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div:nth-child(1) > div.article.listo > div:nth-child(48)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(50)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(51)", "#main > div:nth-child(1) > div.article.listo > div.subpage_title_block", "#main > div:nth-child(1) > div.article.listo > div.header > div.nav"]
+    }
+  }, {
+    "name": "awardCompanyName",
+    "type": "field-selector",
+    "parentName": "page-awards",
+    "parameters": {
+      "name": "awardCompanyName",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div:nth-child(1) > div.article.listo > div > h3 > text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > h3 > text", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > h3 > text", "#main > div:nth-child(1) > div.article.listo > div:nth-child(50) > h3 > text"]
+    }
+  }, {
+    "name": "award",
+    "type": "field-selector",
+    "parentName": "page-awards",
+    "parameters": {
+      "name": "award",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div:nth-child(1) > div.article.listo > div > table.awards > tbody > tr",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(1) > td.title_award_outcome", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(2) > td.title_award_outcome", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(3) > td.title_award_outcome", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(4) > td.title_award_outcome"]
+    }
+  }, {
+    "name": "awardCat",
+    "type": "field-selector",
+    "parentName": "page-awards",
+    "parameters": {
+      "name": "awardCat",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div:nth-child(1) > div.article.listo > div > table.awards > tbody > tr > td.title_award_outcome > span.award_category",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(1) > td.title_award_outcome > span.award_category", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(2) > td.title_award_outcome > span.award_category", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(4) > td.title_award_outcome > span.award_category", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(1) > td.title_award_outcome > span.award_category", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(2) > td.title_award_outcome > span.award_category", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(5) > td.title_award_outcome > span.award_category"]
+    }
+  }, {
+    "name": "person",
+    "type": "field-selector",
+    "parentName": "page-awards",
+    "parameters": {
+      "name": "person",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div:nth-child(1) > div.article.listo > div > table.awards > tbody > tr > td.award_description > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(1) > td.award_description > a", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(2) > td.award_description > a:nth-child(2)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(2) > td.award_description > a:nth-child(6)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(1) > td.award_description > a:nth-child(6)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(1) > td.award_description > a:nth-child(8)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(1) > td.award_description > a:nth-child(10)", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(2) > td.award_description > a:nth-child(8)"]
+    }
+  }, {
+    "name": "awardOutcome",
+    "type": "field-selector",
+    "parentName": "page-awards",
+    "parameters": {
+      "name": "awardOutcome",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div:nth-child(1) > div.article.listo > div > table.awards > tbody > tr > td.title_award_outcome > b",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(1) > td.title_award_outcome > b", "#main > div:nth-child(1) > div.article.listo > div:nth-child(48) > table.awards > tbody > tr:nth-child(2) > td.title_award_outcome > b", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(1) > td.title_award_outcome > b", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(3) > td.title_award_outcome > b", "#main > div:nth-child(1) > div.article.listo > div:nth-child(49) > table.awards > tbody > tr:nth-child(2) > td.title_award_outcome > b"]
+    }
+  }, {
+    "name": "page-alternate-versions",
+    "type": "page-marker",
+    "parameters": {
+      "objectType": "movie",
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/alternateversions\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/alternateversions\\/?(\\?.*)?$"
+    }
+  }, {
+    "name": "alternateVersions",
+    "type": "field-selector",
+    "parentName": "page-alternate-versions",
+    "parameters": {
+      "name": "alternateVersions",
+      "algorithm": "ITERATIVE",
+      "selector": "#alternateversions_content > div.soda",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#alternateversions_content > div.soda.odd:nth-child(2)", "#alternateversions_content > div.soda.even:nth-child(3)", "#alternateversions_content > div.soda.odd:nth-child(4)", "#alternateversions_content > div.soda.even:nth-child(5)"]
+    }
+  }, {
+    "name": "page-companycredits",
+    "type": "page-marker",
+    "parameters": {
+      "objectType": "movie",
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/companycredits\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/companycredits\\/?(\\?.*)?$"
+    }
+  }, {
+    "name": "company-credits-content-normalizer",
+    "type": "normalize",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "element": "#company_credits_content"
+    }
+  }, {
+    "name": "company-type-wrap",
+    "type": "chunk-wrap",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "element": "#company_credits_content h4, #company_credits_content  ul",
+      "chunkSize": "2"
+    }
+  }, {
+    "name": "companyCategories",
+    "type": "field-selector",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "name": "companyCategories",
+      "algorithm": "ITERATIVE",
+      "selector": "#company_credits_content > div:nth-child(n+2)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#company_credits_content > div:nth-child(3)", "#company_credits_content > div:nth-child(2)", "#company_credits_content > div.header"]
+    }
+  }, {
+    "name": "companyCategoryName",
+    "type": "field-selector",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "name": "companyCategoryName",
+      "algorithm": "ITERATIVE",
+      "selector": "#company_credits_content > div > h4.dataHeaderWithBorder",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#production", "#distributors"]
+    }
+  }, {
+    "name": "companies",
+    "type": "field-selector",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "name": "companies",
+      "algorithm": "ITERATIVE",
+      "selector": "#company_credits_content > div > ul.simpleList > li",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(1)", "#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(2)", "#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(3)", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(2)", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(3)", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(5)", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(14)"]
+    }
+  }, {
+    "name": "companyName",
+    "type": "field-selector",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "name": "companyName",
+      "algorithm": "ITERATIVE",
+      "selector": "#company_credits_content > div > ul.simpleList > li > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(1) > a", "#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(2) > a", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(1) > a", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(2) > a", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(3) > a", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(4) > a", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(5) > a"]
+    }
+  }, {
+    "name": "info",
+    "type": "field-selector",
+    "parentName": "page-companycredits",
+    "parameters": {
+      "name": "info",
+      "algorithm": "ITERATIVE",
+      "selector": "#company_credits_content > div > ul.simpleList > li > text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(5) > text", "#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(1) > text", "#company_credits_content > div:nth-child(2) > ul.simpleList > li:nth-child(3) > text", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(3) > text", "#company_credits_content > div:nth-child(3) > ul.simpleList > li:nth-child(10) > text", "#company_credits_content > div:nth-child(5) > ul.simpleList > li:nth-child(11) > text", "#company_credits_content > div:nth-child(5) > ul.simpleList > li:nth-child(19) > text"]
+    }
+  }, {
+    "name": "page-crazy-credits",
+    "type": "page-marker",
+    "parameters": {
+      "objectType": "movie",
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/crazycredits\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/crazycredits\\/?(\\?.*)?$"
+    }
+  }, {
+    "name": "info",
+    "type": "field-selector",
+    "parentName": "page-crazy-credits",
+    "parameters": {
+      "name": "info",
+      "algorithm": "ITERATIVE",
+      "selector": "#crazycredits_content > div.list > div.soda.sodavote > div.sodatext",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#cz0005874 > div.sodatext", "#cz0005876 > div.sodatext"]
+    }
+  }, {
+    "name": "interest",
+    "type": "field-selector",
+    "parentName": "page-crazy-credits",
+    "parameters": {
+      "name": "interest",
+      "algorithm": "ITERATIVE",
+      "selector": "#crazycredits_content > div.list > div.soda.sodavote > div.did-you-know-actions > a.interesting-count-text",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#cz0005874 > div.did-you-know-actions > a.interesting-count-text", "#cz0005876 > div.did-you-know-actions > a.interesting-count-text", "#cz0005875 > div.did-you-know-actions > a.interesting-count-text"]
+    }
+  }, {
+    "name": "credits",
+    "type": "field-selector",
+    "parentName": "page-crazy-credits",
+    "parameters": {
+      "name": "credits",
+      "algorithm": "ITERATIVE",
+      "selector": "#crazycredits_content > div.list > div.soda.sodavote",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#cz0005874", "#cz0005876", "#cz0005875"]
+    }
+  }, {
+    "name": "page-keywords",
+    "type": "page-marker",
+    "parameters": {
+      "objectType": "movie",
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/keywords\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/keywords\\/?(\\?.*)?$"
+    }
+  }, {
+    "name": "keywords",
+    "type": "field-selector",
+    "parentName": "page-keywords",
+    "parameters": {
+      "name": "keywords",
+      "algorithm": "ITERATIVE",
+      "selector": "#keywords_content > table.dataTable.evenWidthTable2Col .sodatext",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.odd:nth-child(1) > td.soda.sodavote[data-item-votes=\\30 ][data-item-keyword=simulated\\ reality] > div.sodatext > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.odd:nth-child(1) > td.soda.sodavote[data-item-votes=\\30 ][data-item-keyword=simulated\\ reality] > div.did-you-know-actions > div.interesting-count-text > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.odd:nth-child(1) > td.soda.sodavote[data-item-votes=\\31 ][data-item-keyword=artificial\\ reality] > div.sodatext > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.odd:nth-child(1) > td.soda.sodavote[data-item-votes=\\31 ][data-item-keyword=artificial\\ reality] > div.did-you-know-actions > div.interesting-count-text > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.even:nth-child(2) > td.soda.sodavote[data-item-votes=\\32 ][data-item-keyword=war\\ with\\ machines] > div.sodatext > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.even:nth-child(2) > td.soda.sodavote[data-item-votes=\\32 ][data-item-keyword=war\\ with\\ machines] > div.did-you-know-actions > div.interesting-count-text > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.even:nth-child(2) > td.soda.sodavote[data-item-votes=\\33 ][data-item-keyword=computer\\ hacker] > div.sodatext > a", "#keywords_content > table.dataTable.evenWidthTable2Col > tbody > tr.even:nth-child(2) > td.soda.sodavote[data-item-votes=\\33 ][data-item-keyword=computer\\ hacker] > div.did-you-know-actions > div.interesting-count-text > a"]
+    }
+  }, {
+    "name": "categoryName",
+    "type": "field-selector",
+    "parentName": "page-keywords",
+    "parameters": {
+      "name": "categoryName",
+      "algorithm": "ITERATIVE",
+      "selector": "#fullcredits_content > div > h4.dataHeaderWithBorder:not(#cast)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#fullcredits_content > div > h4.dataHeaderWithBorder:not(#cast)"]
+    }
+  }, {
+    "name": "page-reviews",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/reviews\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/reviews\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "reviews-field",
+    "type": "field-selector",
+    "parentName": "page-reviews",
+    "parameters": {
+      "name": "reviews",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656849][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656849\\/vote\\/interesting]", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656536][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656536\\/vote\\/interesting]", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2656248][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656248\\/vote\\/interesting]", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2673658][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2673658\\/vote\\/interesting]", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw3014230][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3014230\\/vote\\/interesting]", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw4323602][data-vote-url=\\/title\\/tt2093044\\/review\\/rw4323602\\/vote\\/interesting]"]
+    }
+  }, {
+    "name": "title",
+    "type": "field-selector",
+    "parentName": "page-reviews",
+    "parameters": {
+      "name": "title",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review > div.review-container > div.lister-item-content > a.title",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656536][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656536\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656849][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656849\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2656248][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656248\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2673658][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2673658\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw3014230][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3014230\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2729254][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2729254\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw3872860][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3872860\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw3802482][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3802482\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw3055577][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3055577\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2660944][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2660944\\/vote\\/interesting] > div.review-container > div.lister-item-content > a.title"]
+    }
+  }, {
+    "name": "content",
+    "type": "field-selector",
+    "parentName": "page-reviews",
+    "parameters": {
+      "name": "content",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable > div.review-container > div.lister-item-content > div.content > div.text.show-more__control",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2682627][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2682627\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.content > div.text.show-more__control", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw3566622][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3566622\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.content > div.text.show-more__control", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw5695932][data-vote-url=\\/title\\/tt2093044\\/review\\/rw5695932\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.content > div.text.show-more__control", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2772640][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2772640\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.content > div.text.show-more__control", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw3578988][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3578988\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.content > div.text.show-more__control"]
+    }
+  }, {
+    "name": "user",
+    "type": "field-selector",
+    "parentName": "page-reviews",
+    "parameters": {
+      "name": "user",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review > div.review-container > div.lister-item-content > div.display-name-date > span.display-name-link > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656536][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656536\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.display-name-link > a", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656849][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656849\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.display-name-link > a", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2656248][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656248\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.display-name-link > a", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2673658][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2673658\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.display-name-link > a", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw3014230][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3014230\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.display-name-link > a"]
+    }
+  }, {
+    "name": "date",
+    "type": "field-selector",
+    "parentName": "page-reviews",
+    "parameters": {
+      "name": "date",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review > div.review-container > div.lister-item-content > div.display-name-date > span.review-date",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2660944][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2660944\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.review-date", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2881326][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2881326\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.review-date", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw4327732][data-vote-url=\\/title\\/tt2093044\\/review\\/rw4327732\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.review-date", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw4116377][data-vote-url=\\/title\\/tt2093044\\/review\\/rw4116377\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.review-date", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw3566622][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3566622\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.review-date", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw3578988][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3578988\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.display-name-date > span.review-date"]
+    }
+  }, {
+    "name": "vote",
+    "type": "field-selector",
+    "parentName": "page-reviews",
+    "parameters": {
+      "name": "vote",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review > div.review-container > div.lister-item-content > div.ipl-ratings-bar > span.rating-other-user-rating > span:nth-child(2)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656536][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656536\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.ipl-ratings-bar > span.rating-other-user-rating > span:nth-child(2)", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.collapsable[data-review-id=rw2656849][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656849\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.ipl-ratings-bar > span.rating-other-user-rating > span:nth-child(2)", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2656248][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2656248\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.ipl-ratings-bar > span.rating-other-user-rating > span:nth-child(2)", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw3014230][data-vote-url=\\/title\\/tt2093044\\/review\\/rw3014230\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.ipl-ratings-bar > span.rating-other-user-rating > span:nth-child(2)", "#main > section.article > div.lister > div.lister-list > div.lister-item.mode-detail.imdb-user-review.with-spoiler[data-review-id=rw2674166][data-vote-url=\\/title\\/tt2093044\\/review\\/rw2674166\\/vote\\/interesting] > div.review-container > div.lister-item-content > div.ipl-ratings-bar > span.rating-other-user-rating > span:nth-child(2)"]
+    }
+  }, {
+    "name": "page-trivia",
+    "type": "page-marker",
+    "parameters": {
+      "objectType": "movie",
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/trivia\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/trivia\\/?(\\?.*)?$"
+    }
+  }, {
+    "name": "trivia",
+    "type": "field-selector",
+    "parentName": "page-trivia",
+    "parameters": {
+      "name": "trivia",
+      "algorithm": "ITERATIVE",
+      "selector": "#trivia_content > div.list > div.soda.sodavote > div.sodatext",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#tr0614876 > div.sodatext", "#tr0615894 > div.sodatext", "#tr0655972 > div.sodatext", "#tr0643423 > div.sodatext", "#tr0726151 > div.sodatext"]
+    }
+  }, {
+    "name": "page-soundtrack",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/soundtrack\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/soundtrack\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "soundtracks",
+    "type": "field-selector",
+    "parentName": "page-soundtrack",
+    "parameters": {
+      "name": "soundtracks",
+      "algorithm": "ITERATIVE",
+      "selector": "#soundtracks_content > div.list > div.soundTrack.soda",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#sn0685461", "#sn0685462", "#sn0685463", "#sn0685464", "#sn0685465", "#sn0685466", "#sn0685467", "#sn0685468", "#sn0685469"]
+    }
+  }, {
+    "name": "page-plotsummary",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/plotsummary\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/plotsummary\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "plot-summary-wrap",
+    "type": "chunk-wrap",
+    "parentName": "page-plotsummary",
+    "parameters": {
+      "element": "#main > section.article.listo > h4, #main > section.article.listo > ul",
+      "chunkSize": "2"
+    }
+  }, {
+    "name": "plot-category",
+    "type": "child-to-parent-transform",
+    "parentName": "page-plotsummary",
+    "parameters": {
+      "parent_selector": "#main > section.article.listo > h4, #main > section.article.listo > div",
+      "child_selector": "h4",
+      "parent_attr": "data-category"
+    }
+  }, {
+    "name": "summaries",
+    "type": "field-selector",
+    "parentName": "page-plotsummary",
+    "parameters": {
+      "name": "summaries",
+      "algorithm": "ITERATIVE",
+      "selector": "#plot-summaries-content > li.ipl-zebra-list__item",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#summary-ps0280779", "#summary-po1068874", "#summary-ps2888160"]
+    }
+  }, {
+    "name": "content",
+    "type": "field-selector",
+    "parentName": "page-plotsummary",
+    "parameters": {
+      "name": "content",
+      "algorithm": "ITERATIVE",
+      "selector": "#plot-summaries-content > li.ipl-zebra-list__item > p",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#summary-po1068874 > p", "#summary-ps0280779 > p", "#summary-ps2888160 > p"]
+    }
+  }, {
+    "name": "writer",
+    "type": "field-selector",
+    "parentName": "page-plotsummary",
+    "parameters": {
+      "name": "writer",
+      "algorithm": "ITERATIVE",
+      "selector": "#plot-summaries-content > li.ipl-zebra-list__item > div.author-container",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#summary-po1068874 > div.author-container", "#summary-ps0280779 > div.author-container", "#summary-ps2888160 > div.author-container"]
+    }
+  }, {
+    "name": "synopsis",
+    "type": "field-selector",
+    "parentName": "page-plotsummary",
+    "parameters": {
+      "name": "synopsis",
+      "algorithm": "SINGLE",
+      "selector": "#plot-synopsis-content",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#synopsis-py3243313"]
+    }
+  }, {
+    "name": "page-parentalguide",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/parentalguide\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/parentalguide\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "mpaa",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "mpaa",
+      "algorithm": "SINGLE",
+      "selector": "#mpaa-rating > td:nth-child(2)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#mpaa-rating > td:nth-child(2)"]
+    }
+  }, {
+    "name": "certification",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "certification",
+      "algorithm": "ITERATIVE",
+      "selector": "#certifications-list > td:nth-child(2) > ul.ipl-inline-list > li.ipl-inline-list__item > a",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#certifications-list > td:nth-child(2) > ul.ipl-inline-list > li.ipl-inline-list__item:nth-child(1) > a", "#certifications-list > td:nth-child(2) > ul.ipl-inline-list > li.ipl-inline-list__item:nth-child(2) > a", "#certifications-list > td:nth-child(2) > ul.ipl-inline-list > li.ipl-inline-list__item:nth-child(3) > a", "#certifications-list > td:nth-child(2) > ul.ipl-inline-list > li.ipl-inline-list__item:nth-child(4) > a"]
+    }
+  }, {
+    "name": "guides",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "guides",
+      "algorithm": "COMMON_PARENT_ITERATIVE",
+      "selector": "#main > section.article.listo.content-advisories-index>section:not(#certificates):not(#advisory-spoilers)",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#advisory-nudity > h4.ipl-list-title", "#advisory-violence > h4.ipl-list-title", "#advisory-profanity > h4.ipl-list-title", "#advisory-nudity", "#wrapper", "#pagecontent"]
+    }
+  }, {
+    "name": "key",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "key",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article.listo.content-advisories-index > section > h4.ipl-list-title",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#advisory-nudity > h4.ipl-list-title", "#advisory-violence > h4.ipl-list-title", "#advisory-profanity > h4.ipl-list-title", "#advisory-alcohol > h4.ipl-list-title"]
+    }
+  }, {
+    "name": "level",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "level",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article.listo.content-advisories-index > section > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > span.ipl-status-pill",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#advisory-violence > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > span.ipl-status-pill.ipl-status-pill--warning", "#advisory-nudity > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > span.ipl-status-pill.ipl-status-pill--ok", "#advisory-profanity > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > span.ipl-status-pill.ipl-status-pill--warning"]
+    }
+  }, {
+    "name": "levelComments",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "levelComments",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article.listo.content-advisories-index > section > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > a.advisory-severity-vote__message",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#advisory-violence > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > a.advisory-severity-vote__message", "#advisory-profanity > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > a.advisory-severity-vote__message", "#advisory-alcohol > ul.ipl-zebra-list > li.advisory-severity-vote > div.ipl-swapper > label.ipl-swapper__label > div.ipl-swapper__content.ipl-swapper__content-primary > div.advisory-severity-vote__container.ipl-zebra-list__item > a.advisory-severity-vote__message"]
+    }
+  }, {
+    "name": "details",
+    "type": "field-selector",
+    "parentName": "page-parentalguide",
+    "parameters": {
+      "name": "details",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > section.article.listo.content-advisories-index > section > ul.ipl-zebra-list > li.ipl-zebra-list__item",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#advisory-nudity > ul.ipl-zebra-list > li.ipl-zebra-list__item:nth-child(2)", "#advisory-nudity > ul.ipl-zebra-list > li.ipl-zebra-list__item:nth-child(3)", "#advisory-nudity > ul.ipl-zebra-list > li.ipl-zebra-list__item:nth-child(4)", "#advisory-violence > ul.ipl-zebra-list > li.ipl-zebra-list__item:nth-child(2)", "#advisory-violence > ul.ipl-zebra-list > li.ipl-zebra-list__item:nth-child(5)", "#advisory-violence > ul.ipl-zebra-list > li.ipl-zebra-list__item:nth-child(6)"]
+    }
+  }, {
+    "name": "page-criticalreview",
+    "type": "page-marker",
+    "parameters": {
+      "url-check": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/criticreviews\\/?(\\?.*)?$",
+      "ref": "^https:\\/\\/www\\.imdb\\.com\\/title\\/(tt[0-9]+)/criticreviews\\/?(\\?.*)?$",
+      "objectType": "movie"
+    }
+  }, {
+    "name": "criticReviews",
+    "type": "field-selector",
+    "parentName": "page-criticalreview",
+    "parameters": {
+      "name": "criticReviews",
+      "algorithm": "COMMON_PARENT_ITERATIVE",
+      "selector": "#main > div.article:nth-child(1) > table.crits_results > tbody>tr.detailed",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div.article:nth-child(1) > table.crits_results > tbody > tr.even.detailed:nth-child(1) > td.review", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.odd.detailed:nth-child(2) > td.review", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.even.detailed:nth-child(3) > td.review", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.odd.detailed:nth-child(4) > td.review"]
+    }
+  }, {
+    "name": "score",
+    "type": "field-selector",
+    "parentName": "page-criticalreview",
+    "parameters": {
+      "name": "score",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.detailed > td.score > div.critscore.critscore_favorable > span",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div.article:nth-child(1) > table.crits_results > tbody > tr.even.detailed:nth-child(1) > td.score > div.critscore.critscore_favorable > span", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.odd.detailed:nth-child(2) > td.score > div.critscore.critscore_favorable > span", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.even.detailed:nth-child(3) > td.score > div.critscore.critscore_favorable > span"]
+    }
+  }, {
+    "name": "review",
+    "type": "field-selector",
+    "parentName": "page-criticalreview",
+    "parameters": {
+      "name": "review",
+      "algorithm": "ITERATIVE",
+      "selector": "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.detailed > td.review > div.summary",
+      "outputForm": "SINGLE",
+      "outputType": "text",
+      "selectors": ["#main > div.article:nth-child(1) > table.crits_results > tbody > tr.odd.detailed:nth-child(2) > td.review > div.summary", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.even.detailed:nth-child(1) > td.review > div.summary", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.even.detailed:nth-child(3) > td.review > div.summary", "#main > div.article:nth-child(1) > table.crits_results > tbody > tr.odd.detailed:nth-child(4) > td.review > div.summary"]
+    }
+  }],
+  "_class": "net.tislib.ugm.lib.markers.base.model.Model"
+}

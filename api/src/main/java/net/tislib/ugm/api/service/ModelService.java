@@ -7,13 +7,13 @@ import net.tislib.ugm.api.component.CacheHelper;
 import net.tislib.ugm.api.data.repository.ModelRepository;
 import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
 import net.tislib.ugm.lib.markers.base.ModelProcessor;
+import net.tislib.ugm.lib.markers.base.model.MarkerData;
 import net.tislib.ugm.lib.markers.base.model.Model;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -108,5 +108,47 @@ public class ModelService {
         }
 
         return html;
+    }
+
+    public Model split(String name) {
+        Model existingModel = get(name);
+        existingModel.setId(null);
+        existingModel.setName(name + "_old_" + Math.random());
+        repository.save(existingModel);
+
+        List<MarkerData> commonMarkers = new ArrayList<>();
+        List<MarkerData> pageMarkers = new ArrayList<>();
+
+        existingModel.getMarkers().forEach(item -> {
+            if (!item.getType().equals("page-marker") && StringUtils.isBlank(item.getParentName())) {
+                commonMarkers.add(item);
+            } else if (item.getType().equals("page-marker")) {
+                pageMarkers.add(item);
+            }
+        });
+
+        pageMarkers.forEach(item -> {
+            Model model = new Model();
+            model.setName(name + "/" + item.getName());
+            model.setExamples(existingModel.getExamples());
+
+            model.setObjectType((String) item.getParameters().get("objectType"));
+            model.setUrlCheck((String) item.getParameters().get("url-check"));
+            model.setRef((String) item.getParameters().get("ref"));
+
+            List<MarkerData> markers = new ArrayList<>(commonMarkers);
+
+            existingModel.getMarkers().forEach(markerData -> {
+                if (StringUtils.equals(markerData.getParentName(), item.getName())) {
+                    markerData.setParentName(null);
+                    markers.add(markerData);
+                }
+            });
+
+            model.setMarkers(markers);
+            repository.save(model);
+        });
+
+        return existingModel;
     }
 }

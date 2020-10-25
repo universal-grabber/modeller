@@ -216,3 +216,7 @@ Content-Type: application/json
     }
   ]
 }
+
+###
+PUT http://localhost:8181/api/1.0/models/split?name=imdb/movie
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YWxlaCIsImV4cCI6MTkxODQ2MTYwN30.GyMJCuJtB9nHEo7aa96dHmqrwVKQbbNJRC7FQkIKv8uCmlGTR7LvlBBE8ATKAwbLmGbKuVpD7GoOwgYu_wKM9w

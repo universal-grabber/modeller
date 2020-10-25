@@ -14,4 +14,12 @@ public class Model {
     private List<Example> examples;
 
     private List<MarkerData> markers;
+
+    private String schema;
+
+    private String objectType;
+
+    private String urlCheck;
+
+    private String ref;
 }

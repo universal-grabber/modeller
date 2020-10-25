@@ -18,7 +18,6 @@ import java.util.regex.Pattern;
 public class PageMarker implements Marker {
 
     public static final String PARAM_OBJECT_TYPE = "objectType";
-    public static final String PARAM_NAME = "name";
     public static final String PARAM_URL_CHECK = "url-check";
     public static final String PARAM_REF = "ref";
 
