@@ -7,9 +7,11 @@ properties:
     pattern: '^[A-Z]\w+'
   biography:
     type: 'string'
+  photo:
+    type: 'string'
   activeYears:
     type: 'string'
-  born:
+  bornInfo:
     type: 'string'
   genres:
     type: 'array'

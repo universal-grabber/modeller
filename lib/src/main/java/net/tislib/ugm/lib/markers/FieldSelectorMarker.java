@@ -108,6 +108,9 @@ public class FieldSelectorMarker implements Marker {
         if (outputType.equals("text")) {
             value = element.text();
         }
+        if (outputType.equals("html")) {
+            value = element.html();
+        }
         if (outputType.startsWith("attr:")) {
             value = element.attr(outputType.substring(5));
         }
