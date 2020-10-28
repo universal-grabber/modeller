@@ -1,15 +1,12 @@
 package net.tislib.ugm.lib.markers.base;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
 import net.tislib.ugm.data.HasProperties;
 import net.tislib.ugm.data.Schema;
 import net.tislib.ugm.data.SchemaProperty;
-import net.tislib.ugm.data.property.ArrayProperty;
-import net.tislib.ugm.data.property.NumberProperty;
-import net.tislib.ugm.data.property.ObjectProperty;
-import net.tislib.ugm.data.property.StringProperty;
+import net.tislib.ugm.data.property.*;
 import net.tislib.ugm.data.structure.Record;
+import net.tislib.ugm.data.structure.Reference;
 import net.tislib.ugm.lib.markers.base.model.Model;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.nodes.Document;
@@ -21,11 +18,12 @@ import java.math.BigDecimal;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 //@Log4j2
 public class ModelDataSchemaExtractor {
+
+    private final List<Model> models;
 
     private final ModelProcessor modelProcessor = new ModelProcessor();
 
@@ -39,7 +37,7 @@ public class ModelDataSchemaExtractor {
         record.setData(data);
         record.setSource(model.getSource());
         record.setTags(new HashSet<>());
-        record.setRef(extractRef(model, url, html));
+        record.setRef(extractRef(model, url));
         record.setObjectType(model.getObjectType());
         record.setSourceUrl(url);
         record.setSchema(model.getSchema());
@@ -79,7 +77,7 @@ public class ModelDataSchemaExtractor {
         return meta;
     }
 
-    private String extractRef(Model model, String url, String html) {
+    private String extractRef(Model model, String url) {
         String ref = model.getRef();
 
         if (!StringUtils.isBlank(ref)) {
@@ -165,11 +163,51 @@ public class ModelDataSchemaExtractor {
         } else if (property instanceof HasProperties) {
             ObjectProperty objectProperty = (ObjectProperty) property;
             return extract(objectProperty, field);
+        } else if (property instanceof ReferenceProperty) {
+            ReferenceProperty referenceProperty = (ReferenceProperty) property;
+            return extractReference(referenceProperty, field);
         }
         return null;
     }
 
-    private Serializable getValue(Element element) {
+    private Reference extractReference(ReferenceProperty referenceProperty, Element field) {
+        Reference reference = new Reference();
+        String text = getValue(field);
+        reference.setName(text);
+
+
+        if (StringUtils.isBlank(field.attr("href"))) {
+            return reference;
+        }
+        String href = field.attr("href");
+
+        //todo prepend host if href has not host
+
+        String schemaName = referenceProperty.getSchema();
+
+        Optional<Model> optionalModel = locateModel(schemaName);
+
+        if (!optionalModel.isPresent()) {
+            return reference;
+        }
+
+        Model model = optionalModel.get();
+
+        reference.setSource(model.getSource());
+        reference.setRef(extractRef(model, href));
+        reference.setObjectType(model.getObjectType());
+        reference.setSourceUrl(href);
+
+        return reference;
+    }
+
+    private Optional<Model> locateModel(String schemaName) {
+        return models.stream()
+                .filter(item -> Objects.equals(item.getSchema(), schemaName))
+                .findAny();
+    }
+
+    private String getValue(Element element) {
         if (element.hasAttr("ug-value")) {
             return element.attr("ug-value");
         } else {

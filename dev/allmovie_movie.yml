@@ -1,24 +1,11 @@
-name: 'media.allmovie.artist'
+name: 'media.allmovie.movie'
 namespace: 'media/allmovie'
 version: '1.0.0'
 properties:
   name:
     type: 'string'
     pattern: '^[A-Z]\w+'
-  biography:
-    type: 'string'
-  photo:
-    type: 'string'
-  activeYears:
-    type: 'string'
-  bornInfo:
-    type: 'string'
   genres:
-    type: 'array'
-    items:
-      type: 'ref'
-      schema: 'media.allmovie.genre'
-  aliases:
     type: 'array'
     items:
       type: 'string'
@@ -26,7 +13,17 @@ properties:
     type: 'array'
     items:
       type: 'string'
-  facts:
+  moods:
     type: 'array'
     items:
       type: 'string'
+  themes:
+    type: 'array'
+    items:
+      type: 'string'
+  releaseYear:
+    type: number
+  releaseDate:
+    type: string
+  duration:
+    type: string

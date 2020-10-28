@@ -12,7 +12,7 @@ import net.tislib.ugm.data.property.*;
         @JsonSubTypes.Type(value = ArrayProperty.class, name = "array"),
         @JsonSubTypes.Type(value = NumberProperty.class, name = "number"),
         @JsonSubTypes.Type(value = ObjectProperty.class, name = "object"),
-        @JsonSubTypes.Type(value = RefProperty.class, name = "ref"),
+        @JsonSubTypes.Type(value = ReferenceProperty.class, name = "ref"),
 })
 public interface SchemaProperty {
 

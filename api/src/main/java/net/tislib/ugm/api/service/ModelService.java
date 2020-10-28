@@ -101,7 +101,7 @@ public class ModelService {
         String html = download(url, cache);
 
         if (model.getSchema() != null) {
-            ModelDataSchemaExtractor modelDataSchemaExtractor = new ModelDataSchemaExtractor();
+            ModelDataSchemaExtractor modelDataSchemaExtractor = new ModelDataSchemaExtractor(getAll());
 
             Schema schema = schemaService.get(model.getSchema());
 

@@ -1,0 +1,31 @@
+name: 'media.allmovie.genre'
+namespace: 'media/allmovie'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  about:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  highlights:
+    type: 'array'
+    items:
+      type: 'object'
+      properties:
+        movie:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+        description:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+        starCount:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+        photo:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+  subGenres:
+    type: 'array'
+    items:
+      type: 'string'
