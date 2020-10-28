@@ -52,6 +52,7 @@ public class ModelService {
         existingModel.setUrlCheck(model.getUrlCheck());
         existingModel.setRef(model.getRef());
         existingModel.setObjectType(model.getObjectType());
+        existingModel.setSource(model.getSource());
 
         repository.save(existingModel);
 
