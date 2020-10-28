@@ -1,0 +1,29 @@
+name: 'media.allmovie.artist'
+namespace: 'media/allmovie'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  biography:
+    type: 'string'
+  activeYears:
+    type: 'string'
+  born:
+    type: 'string'
+  genres:
+    type: 'array'
+    items:
+      type: 'string'
+  aliases:
+    type: 'array'
+    items:
+      type: 'string'
+  subGenres:
+    type: 'array'
+    items:
+      type: 'string'
+  facts:
+    type: 'array'
+    items:
+      type: 'string'

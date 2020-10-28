@@ -98,7 +98,7 @@ public class NormalizerMarker implements Marker {
                 textElement.appendChild(node);
                 element.insertChildren(index, textElement);
             } else if (node instanceof Element) {
-                ((Element) node).children().forEach(this::wrapText);
+                wrapText((Element) node);
             }
         }
     }
