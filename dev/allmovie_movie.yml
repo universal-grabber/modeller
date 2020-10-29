@@ -5,6 +5,10 @@ properties:
   name:
     type: 'string'
     pattern: '^[A-Z]\w+'
+  keywords:
+    type: 'string'
+  attributes:
+    type: 'string'
   genres:
     type: 'array'
     items:
