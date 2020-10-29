@@ -1,6 +1,7 @@
 package net.tislib.ugm.lib.markers.base;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import net.tislib.ugm.data.HasProperties;
 import net.tislib.ugm.data.Schema;
 import net.tislib.ugm.data.SchemaProperty;
@@ -15,6 +16,7 @@ import org.jsoup.select.Elements;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +32,7 @@ public class ModelDataSchemaExtractor {
     public Record processDocument(Model model, Schema schema, String url, String html) {
         Document processedDocument = modelProcessor.processDocument(model, url, html);
 
-        Map<String, Object> data = extract(schema, processedDocument);
+        Map<String, Object> data = extract(url, schema, processedDocument);
 
         Record record = new Record();
 
@@ -98,11 +100,11 @@ public class ModelDataSchemaExtractor {
         return UUID.nameUUIDFromBytes(token.getBytes());
     }
 
-    private Map<String, Object> extract(HasProperties schema, Element parent) {
+    private Map<String, Object> extract(String pageUrl, HasProperties schema, Element parent) {
         Map<String, Object> data = new HashMap<>();
 
         schema.getProperties().forEach((key, property) -> {
-            Object value = locatePropertyValue(parent, key, property);
+            Object value = locatePropertyValue(pageUrl, parent, key, property);
 
             if (value != null) {
                 data.put(key, (Serializable) value);
@@ -112,13 +114,13 @@ public class ModelDataSchemaExtractor {
         return data;
     }
 
-    private Object locatePropertyValue(Element parent, String key, SchemaProperty property) {
+    private Object locatePropertyValue(String pageUrl, Element parent, String key, SchemaProperty property) {
         Elements fields = parent.select("[ug-field=\"" + key + "\"]");
 
-        return locatePropertyValue(property, fields);
+        return locatePropertyValue(pageUrl, property, fields);
     }
 
-    private Object locatePropertyValue(SchemaProperty property, List<Element> fields) {
+    private Object locatePropertyValue(String pageUrl, SchemaProperty property, List<Element> fields) {
         if (property instanceof ArrayProperty) {
             ArrayProperty arrayProperty = (ArrayProperty) property;
             SchemaProperty itemsProperty = arrayProperty.getItems();
@@ -126,7 +128,7 @@ public class ModelDataSchemaExtractor {
             List<Object> result = new ArrayList<>();
 
             fields.forEach(field -> {
-                Object val = locatePropertyValue(itemsProperty, field);
+                Object val = locatePropertyValue(pageUrl, itemsProperty, field);
                 if (val != null) {
                     result.add(val);
                 }
@@ -135,13 +137,13 @@ public class ModelDataSchemaExtractor {
             return result;
         } else {
             if (fields.size() > 0) {
-                return locatePropertyValue(property, fields.get(0));
+                return locatePropertyValue(pageUrl, property, fields.get(0));
             }
         }
         return null;
     }
 
-    private Object locatePropertyValue(SchemaProperty property, Element field) {
+    private Object locatePropertyValue(String pageUrl, SchemaProperty property, Element field) {
         if (property instanceof StringProperty) {
             return getValue(field);
         } else if (property instanceof NumberProperty) {
@@ -159,18 +161,19 @@ public class ModelDataSchemaExtractor {
                 return new BigDecimal(valStrNum);
             }
         } else if (property instanceof ArrayProperty) {
-            return locatePropertyValue(property, Collections.singletonList(field));
+            return locatePropertyValue(pageUrl, property, Collections.singletonList(field));
         } else if (property instanceof HasProperties) {
             ObjectProperty objectProperty = (ObjectProperty) property;
-            return extract(objectProperty, field);
+            return extract(pageUrl, objectProperty, field);
         } else if (property instanceof ReferenceProperty) {
             ReferenceProperty referenceProperty = (ReferenceProperty) property;
-            return extractReference(referenceProperty, field);
+            return extractReference(pageUrl, referenceProperty, field);
         }
         return null;
     }
 
-    private Reference extractReference(ReferenceProperty referenceProperty, Element field) {
+    @SneakyThrows
+    private Reference extractReference(String pageUrl, ReferenceProperty referenceProperty, Element field) {
         Reference reference = new Reference();
         String text = getValue(field);
         reference.setName(text);
@@ -179,9 +182,17 @@ public class ModelDataSchemaExtractor {
         if (StringUtils.isBlank(field.attr("href"))) {
             return reference;
         }
+
         String href = field.attr("href");
 
-        //todo prepend host if href has not host
+        if (!href.startsWith("http")) { // is not absolute link
+            if (href.startsWith("/")) {
+                URL url = new URL(pageUrl);
+                href = url.getProtocol() + "://" + url.getHost() + href;
+            } else {
+                throw new UnsupportedOperationException("relative href not supported");
+            }
+        }
 
         String schemaName = referenceProperty.getSchema();
 

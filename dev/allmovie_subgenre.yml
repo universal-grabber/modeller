@@ -1,11 +1,16 @@
-name: 'media.allmovie.genre'
+name: 'media.allmovie.subGenre'
 namespace: 'media/allmovie'
 version: '1.0.0'
 properties:
   name:
     type: 'string'
+    pattern: '^[A-Z]\w+'
+  genre:
+    type: 'ref'
+    schema: 'media.allmovie.genre'
   about:
     type: 'string'
+    pattern: '^[A-Z]\w+'
   highlights:
     type: 'array'
     items:
@@ -23,7 +28,3 @@ properties:
         photo:
           type: 'string'
           pattern: '^[A-Z]\w+'
-  subGenres:
-    type: 'array'
-    items:
-      type: 'ref'
