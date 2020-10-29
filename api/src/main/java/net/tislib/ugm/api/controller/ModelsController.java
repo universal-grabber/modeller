@@ -30,10 +30,15 @@ public class ModelsController {
         return service.get(name);
     }
 
-    @DeleteMapping(params = {"name"})
-    public void delete(@RequestParam String name) {
-        service.delete(name);
+    @PostMapping(value = "/duplicate", params = {"name"})
+    public Model duplicate(@RequestParam String name) {
+        return service.get(name);
     }
+
+//    @DeleteMapping(params = {"name"})
+//    public void delete(@RequestParam String name) {
+//        service.delete(name);
+//    }
 
     @PutMapping(params = {"name"})
     public Model update(@RequestParam String name, @RequestBody @Validated Model model) {
