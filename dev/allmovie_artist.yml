@@ -25,7 +25,8 @@ properties:
   subGenres:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.allmovie.subGenre'
   facts:
     type: 'array'
     items:

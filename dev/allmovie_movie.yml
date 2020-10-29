@@ -8,19 +8,23 @@ properties:
   genres:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.allmovie.genre'
   subGenres:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.allmovie.subGenre'
   moods:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.allmovie.mood'
   themes:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.allmovie.theme'
   releaseYear:
     type: number
   releaseDate:

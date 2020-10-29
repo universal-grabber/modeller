@@ -1,0 +1,25 @@
+name: 'media.allmovie.theme'
+namespace: 'media/allmovie'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+  about:
+    type: 'string'
+  highlights:
+    type: 'array'
+    items:
+      type: 'object'
+      properties:
+        movie:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+        description:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+        starCount:
+          type: 'string'
+          pattern: '^[A-Z]\w+'
+        photo:
+          type: 'string'
+          pattern: '^[A-Z]\w+'

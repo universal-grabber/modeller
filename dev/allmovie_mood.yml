@@ -1,0 +1,7 @@
+name: 'media.allmovie.mood'
+namespace: 'media/allmovie'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
