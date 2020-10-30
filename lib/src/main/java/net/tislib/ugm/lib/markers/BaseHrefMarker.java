@@ -18,7 +18,7 @@ public class BaseHrefMarker implements Marker {
 
     @Override
     public String getName() {
-        return "page-marker";
+        return "base-marker";
     }
 
     @Override
@@ -26,7 +26,7 @@ public class BaseHrefMarker implements Marker {
         return Collections.singletonList(
                 MarkerParameter.builder()
                         .name(PARAM_BASE_HREF)
-                        .caption("Object type")
+                        .caption("Base Href")
                         .parameterType(MarkerParameter.ParameterType.TEXT)
                         .required(true)
                         .build()
