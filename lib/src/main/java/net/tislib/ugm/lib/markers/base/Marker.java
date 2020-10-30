@@ -21,6 +21,7 @@ public interface Marker {
         markers.add(new ChildToParentTransformMarker());
         markers.add(new NormalizerMarker());
         markers.add(new ChunkWrapMarker());
+        markers.add(new BaseHrefMarker());
 
         return markers;
     }
