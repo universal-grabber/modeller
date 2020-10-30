@@ -153,7 +153,7 @@ public class ModelDataSchemaExtractor {
             }
             String valStr = String.valueOf(val);
 
-            String valStrNum = valStr.replaceAll("[\\D.]+", "");
+            String valStrNum = valStr.replaceAll("[^\\d.]+", "");
 
             if (valStrNum.length() == 0) {
                 return null;

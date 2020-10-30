@@ -5,3 +5,11 @@ properties:
   name:
     type: 'string'
     pattern: '^[A-Z]\w+'
+  metaScore:
+    type: 'number'
+  metaScoreDetails:
+    type: 'string'
+  userScore:
+    type: 'number'
+  userScoreDetails:
+    type: 'string'
