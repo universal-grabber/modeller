@@ -40,7 +40,7 @@ public class BaseHrefMarker implements Marker {
 
         String baseHref = (String) parameters.get(PARAM_BASE_HREF);
 
-        Element baseElem = document.head().appendElement("base");
+        Element baseElem = document.head().prependElement("base");
 
         baseElem.attr("href", baseHref);
 
