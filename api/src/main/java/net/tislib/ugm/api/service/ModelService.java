@@ -168,4 +168,9 @@ public class ModelService {
 
         return existingModel;
     }
+
+    public Model create(Model model) {
+        model = repository.save(model);
+        return model;
+    }
 }

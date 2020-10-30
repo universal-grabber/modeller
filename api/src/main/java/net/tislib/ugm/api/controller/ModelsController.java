@@ -30,9 +30,9 @@ public class ModelsController {
         return service.get(name);
     }
 
-    @PostMapping(value = "/duplicate", params = {"name"})
-    public Model duplicate(@RequestParam String name) {
-        return service.get(name);
+    @PostMapping
+    public Model create(@RequestBody Model model) {
+        return service.create(model);
     }
 
 //    @DeleteMapping(params = {"name"})
