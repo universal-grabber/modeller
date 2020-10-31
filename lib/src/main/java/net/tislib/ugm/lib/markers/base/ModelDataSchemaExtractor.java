@@ -158,7 +158,12 @@ public class ModelDataSchemaExtractor {
             if (valStrNum.length() == 0) {
                 return null;
             } else {
-                return new BigDecimal(valStrNum);
+                try {
+                    return new BigDecimal(valStrNum);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
         } else if (property instanceof ArrayProperty) {
             return locatePropertyValue(pageUrl, property, Collections.singletonList(field));
