@@ -1,0 +1,34 @@
+name: 'media.metacritic.movieUserReview'
+namespace: 'media/metacritic'
+version: '1.0.0'
+properties:
+  movie:
+    type: 'ref'
+    schema: 'media.metacritic.movie'
+  userScore:
+    type: 'number'
+  userScoreDetails:
+    type: 'string'
+  positiveScoreCount:
+    type: 'number'
+  negativeScoreCount:
+    type: 'number'
+  mixedScoreCount:
+    type: 'number'
+  reviews:
+    type: 'array'
+    items:
+      type: 'object'
+      properties:
+        user:
+          type: 'string'
+        date:
+          type: 'string'
+        rate:
+          type: 'number'
+        review:
+          type: 'string'
+        upVoteCount:
+          type: 'number'
+        downVoteCount:
+          type: 'number'
