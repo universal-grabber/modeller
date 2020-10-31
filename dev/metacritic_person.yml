@@ -5,24 +5,38 @@ properties:
   name:
     type: 'string'
     pattern: '^[A-Z]\w+'
-  metaScore:
+  averageCareerScore:
     type: 'number'
-  metaScoreDetails:
-    type: 'string'
-  userScore:
+  positiveScoreCount:
     type: 'number'
-  userScoreDetails:
-    type: 'string'
-  company:
+  negativeScoreCount:
+    type: 'number'
+  mixedScoreCount:
+    type: 'number'
+  highestMetascoreMovie:
     type: 'ref'
-    schema: 'media.metacritic.company'
-  releaseDate:
-    type: 'string'
-  releaseYear:
+    schema: 'media.metacritic.movie'
+  lowestMetascoreMovie:
+    type: 'ref'
+    schema: 'media.metacritic.movie'
+  highestMetascoreMovieScore:
     type: 'number'
-  starring:
+  lowestMetascoreMovieScore:
+    type: 'number'
+  movies:
     type: 'array'
     items:
-      type: 'ref'
-      schema: 'media.metacritic'
+      type: 'object'
+      properties:
+        movie:
+          type: 'ref'
+          schema: 'media.metacritic.movie'
+        year:
+          type: 'string'
+        credit:
+          type: 'string'
+        userScore:
+          type: 'number'
+        metaScore:
+          type: 'number'
 

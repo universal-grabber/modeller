@@ -25,4 +25,18 @@ properties:
     items:
       type: 'ref'
       schema: 'media.metacritic.person'
-
+  summary:
+    type: 'string'
+  directors:
+    type: 'array'
+    items:
+      type: 'ref'
+      schema: 'media.metacritic.person'
+  genres:
+    type: 'array'
+    items:
+      type: 'string'
+  rating:
+    type: 'string'
+  runtime:
+    type: 'string'
