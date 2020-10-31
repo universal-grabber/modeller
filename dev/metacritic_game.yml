@@ -1,0 +1,22 @@
+name: 'media.metacritic.game'
+namespace: 'media/metacritic'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  platform:
+    type: 'string'
+  company:
+    type: 'ref'
+    schema: 'media.metacritic.company'
+  releaseDate:
+    type: 'string'
+  summary:
+    type: 'string'
+  developer:
+    type: 'string'
+  genres:
+    type: 'array'
+    items:
+      type: 'string'

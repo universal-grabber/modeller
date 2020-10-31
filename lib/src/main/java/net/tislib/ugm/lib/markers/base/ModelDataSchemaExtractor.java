@@ -231,3 +231,6 @@ public class ModelDataSchemaExtractor {
         }
     }
 }
+
+//#main > div:nth-child(1) > div.product_split:nth-child(1) > div.left > div.module.product_data.product_data_summary > div.module_wrap.has_image.has_large_image > div.summary_wrap > div.section.product_details > div.details.main_details > ul.summary_details > li.summary_detail.product_summary > span.data > span
+//#main > div:nth-child(1) > div.product_split:nth-child(1) > div.left > div.with_trailer > div.module.product_data.product_data_summary > div.module_wrap.has_image.has_large_image > div.summary_wrap > div.section.product_details > div.details.main_details > ul.summary_details > li.summary_detail.product_summary > span.data > span
