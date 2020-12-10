@@ -1,0 +1,7 @@
+name: 'media.imdb.movie.soundtrack'
+namespace: 'media/imdb'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'

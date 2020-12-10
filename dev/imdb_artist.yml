@@ -1,0 +1,23 @@
+name: 'media.imdb.artist'
+namespace: 'media/imdb'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  metaScore:
+    type: 'number'
+  genres:
+    type: 'array'
+    items:
+      type: 'string'
+  knownForMovies:
+    type: 'array'
+    items:
+      type: 'object'
+      properties:
+        image:
+          type: 'string'
+        movie:
+          type: 'ref'
+          schema: 'media.imdb.movie'

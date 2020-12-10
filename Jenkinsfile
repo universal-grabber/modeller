@@ -27,9 +27,15 @@ node {
 			}
 
             stage ('deploy') {
-               sh "kubectl --kubeconfig /var/lib/jenkins/.kube/config --record deployment.apps/$RESOURCE_NAME set image deployment.apps/$RESOURCE_NAME $APP_NAME=hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} -n $NAMESPACE"
-			   sh "kubectl --kubeconfig /var/lib/jenkins/.kube/config rollout status deployment/$RESOURCE_NAME -n $NAMESPACE"
-            }
+                sh '''
+                    cd infra
+
+                    terraform init
+                    terraform validate .
+                    terraform plan -var DOCKER_IMG_TAG=v${BUILD_NUMBER}
+                    terraform apply -var DOCKER_IMG_TAG=v${BUILD_NUMBER} -auto-approve
+                '''
+           }
 //         }
     } catch (err) {
         throw err
