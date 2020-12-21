@@ -2,7 +2,6 @@ package net.tislib.ugm.data.property;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import net.tislib.ugm.data.Example;
 import net.tislib.ugm.data.SchemaProperty;
 
 import javax.validation.constraints.NotBlank;
@@ -20,5 +19,5 @@ public class ReferenceProperty implements SchemaProperty {
 
     private boolean allowQuery = true;
 
-    private Example example;
+    private String example;
 }

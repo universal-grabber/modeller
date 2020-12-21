@@ -2,7 +2,6 @@ package net.tislib.ugm.data.property;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-import net.tislib.ugm.data.Example;
 import net.tislib.ugm.data.SchemaProperty;
 import net.tislib.ugm.data.features.index.IndexFeature;
 import net.tislib.ugm.data.features.index.IndexType;
@@ -22,5 +21,5 @@ public class NumberProperty implements SchemaProperty, IndexFeature {
 
     private boolean allowQuery = true;
 
-    private Example example;
+    private String example;
 }

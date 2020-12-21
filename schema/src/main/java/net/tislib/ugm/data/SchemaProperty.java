@@ -23,5 +23,5 @@ public interface SchemaProperty {
 
     boolean isAllowQuery();
 
-    Example getExample();
+    String getExample();
 }
