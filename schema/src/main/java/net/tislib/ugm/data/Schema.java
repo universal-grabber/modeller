@@ -22,6 +22,8 @@ public class Schema implements HasProperties {
     @NotBlank
     private String name;
 
+    private String description;
+
     private Set<String> tags;
 
     Map<String, SchemaProperty> properties;

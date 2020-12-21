@@ -2,7 +2,11 @@ package net.tislib.ugm.data;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import net.tislib.ugm.data.property.*;
+import net.tislib.ugm.data.property.ArrayProperty;
+import net.tislib.ugm.data.property.NumberProperty;
+import net.tislib.ugm.data.property.ObjectProperty;
+import net.tislib.ugm.data.property.ReferenceProperty;
+import net.tislib.ugm.data.property.StringProperty;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -15,5 +19,9 @@ import net.tislib.ugm.data.property.*;
         @JsonSubTypes.Type(value = ReferenceProperty.class, name = "ref"),
 })
 public interface SchemaProperty {
+    String getDescription();
 
+    boolean isAllowQuery();
+
+    Example getExample();
 }

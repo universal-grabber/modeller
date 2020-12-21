@@ -107,7 +107,7 @@ public class ModelDataSchemaExtractor {
             Object value = locatePropertyValue(pageUrl, parent, key, property);
 
             if (value != null) {
-                data.put(key, (Serializable) value);
+                data.put(key, value);
             }
         });
 
