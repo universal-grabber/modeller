@@ -7,6 +7,14 @@ properties:
     pattern: '^[A-Z]\w+'
   metaScore:
     type: 'number'
+  posterImage:
+    type: 'string'
+  bio:
+    type: 'string'
+  bornDate:
+    type: 'string'
+  bornLocation:
+    type: 'string'
   genres:
     type: 'array'
     items:
@@ -21,3 +29,22 @@ properties:
         movie:
           type: 'ref'
           schema: 'media.imdb.movie'
+  filmography:
+    type: 'array'
+    items:
+      type: 'object'
+      properties:
+        category:
+          type: 'string'
+        items:
+          type: 'array'
+          items:
+            type: 'object'
+            properties:
+              movie:
+                type: 'ref'
+                schema: 'media.imdb.movie'
+              character:
+                type: 'string'
+              releaseYear:
+                type: 'number'

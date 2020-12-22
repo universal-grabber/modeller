@@ -8,15 +8,18 @@ properties:
   directors:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.imdb.artist'
   writers:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.imdb.artist'
   stars:
     type: 'array'
     items:
-      type: 'string'
+      type: 'ref'
+      schema: 'media.imdb.artist'
   metacriticScore:
     type: 'number'
   posterImage:
@@ -25,13 +28,36 @@ properties:
     type: 'number'
   originalName:
     type: 'string'
+  storyLine:
+    type: 'string'
+  plotKeywords:
+    type: array
+    items:
+      type: string
+  genres:
+    type: array
+    items:
+      type: string
+  officialSites:
+    type: array
+    items:
+      type: string
+  countries:
+    type: array
+    items:
+      type: string
+  languages:
+    type: array
+    items:
+      type: string
   cast:
     type: array
     items:
       type: object
       properties:
         personName:
-          type: string
+          type: 'ref'
+          schema: 'media.imdb.artist'
         character:
           type: string
   reviewCount:

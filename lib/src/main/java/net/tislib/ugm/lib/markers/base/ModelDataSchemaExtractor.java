@@ -195,7 +195,8 @@ public class ModelDataSchemaExtractor {
                 URL url = new URL(pageUrl);
                 href = url.getProtocol() + "://" + url.getHost() + href;
             } else {
-                throw new UnsupportedOperationException("relative href not supported");
+//                throw new UnsupportedOperationException("relative href not supported"); //todo fix
+                href = "http://exampleug.org";
             }
         }
 

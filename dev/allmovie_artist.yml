@@ -9,6 +9,7 @@ properties:
     type: 'string'
   photo:
     type: 'string'
+    allowQuery: false
   activeYears:
     type: 'string'
   bornInfo:
@@ -31,3 +32,4 @@ properties:
     type: 'array'
     items:
       type: 'string'
+      allowQuery: false

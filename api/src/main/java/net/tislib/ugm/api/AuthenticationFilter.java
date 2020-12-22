@@ -12,7 +12,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -67,6 +66,5 @@ public class AuthenticationFilter extends AbstractAuthenticationProcessingFilter
         authResponse.setUser((UserDetails) auth.getPrincipal());
 
         objectMapper.writeValue(res.getOutputStream(), authResponse);
-
     }
 }
