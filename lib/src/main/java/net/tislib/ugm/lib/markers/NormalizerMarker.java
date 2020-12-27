@@ -50,10 +50,21 @@ public class NormalizerMarker implements Marker {
                 wrapText(element);
 
                 normalizeTableSpan(element);
+
+                normalizeId(element);
             }
         }
 
         return Optional.of(page);
+    }
+
+    private void normalizeId(Element parent) {
+        for (Element element : parent.select("[id]")) {
+            String id = element.attr("id");
+            if (id.matches("^\\d[\\w\\W]+")) {
+                element.removeAttr("id");
+            }
+        }
     }
 
     private void normalizeTableSpan(Element element) {
