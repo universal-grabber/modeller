@@ -5,5 +5,15 @@ properties:
   name:
     type: 'string'
     pattern: '^[A-Z]\w+'
+  author:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
   htmlContent:
     type: 'string'
+  date:
+    type: 'string'
+  readDuration:
+    type: 'string'
+  publishDate:
+    type: 'string'
+

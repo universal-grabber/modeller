@@ -21,7 +21,6 @@ public class FieldSelectorMarker implements Marker {
 
     public static final String PARAM_NAME = "name";
     public static final String PARAM_SELECTOR = "selector";
-    public static final String PARAM_OUTPUT_FORM = "outputForm";
     public static final String PARAM_OUTPUT_TYPE = "outputType";
 
     @Override
@@ -45,18 +44,6 @@ public class FieldSelectorMarker implements Marker {
 
         parameters.add(nameParameter);
         parameters.add(inspectorParameter);
-
-        parameters.add(MarkerParameter.builder()
-                .name(PARAM_OUTPUT_FORM)
-                .caption("Output form")
-                .defaultValue("SINGULAR")
-                .parameterType(COMBOBOX)
-                .required(true)
-                .values(new Serializable[]{
-                        OutputForm.SINGLE.name(),
-                        OutputForm.OBJECT.name()
-                })
-                .build());
 
         parameters.add(MarkerParameter.builder()
                 .name(PARAM_OUTPUT_TYPE)
@@ -91,11 +78,9 @@ public class FieldSelectorMarker implements Marker {
         Map<String, Serializable> parameters = markerData.getParameters();
 
         String fieldName = (String) parameters.get(PARAM_NAME);
-        String paramOutputForm = (String) parameters.get(PARAM_OUTPUT_FORM);
         String outputType = (String) parameters.get(PARAM_OUTPUT_TYPE);
         element.attr("ug-field", fieldName);
         element.attr("ug-marker", markerData.getName());
-        element.attr("ug-form", paramOutputForm);
 
         applyValueIf(element, outputType);
     }
