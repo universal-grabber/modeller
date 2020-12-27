@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 //@Log4j2
@@ -136,6 +137,13 @@ public class ModelDataSchemaExtractor {
 
             return result;
         } else {
+            if (fields.size() > 1 && property instanceof StringProperty) {
+                return fields.stream()
+                        .map(item -> locatePropertyValue(pageUrl, property, item))
+                        .map(item -> (String) item)
+                        .collect(Collectors.joining("\n"));
+            }
+
             if (fields.size() > 0) {
                 return locatePropertyValue(pageUrl, property, fields.get(0));
             }

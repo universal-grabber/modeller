@@ -1,9 +1,7 @@
-name: 'blog.medium.post'
+name: 'blog.medium.publisher'
 namespace: 'blog/medium'
 version: '1.0.0'
 properties:
   name:
     type: 'string'
     pattern: '^[A-Z]\w+'
-  htmlContent:
-    type: 'string'
