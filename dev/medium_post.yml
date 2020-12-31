@@ -6,8 +6,8 @@ properties:
     type: 'string'
     pattern: '^[A-Z]\w+'
   author:
-    type: 'string'
-    pattern: '^[A-Z]\w+'
+    type: 'ref'
+    schema: 'blog.medium.person'
   htmlContent:
     type: 'string'
   date:
@@ -16,4 +16,9 @@ properties:
     type: 'string'
   publishDate:
     type: 'string'
-
+  clapsCount:
+    type: 'number'
+  tags:
+    type: 'array'
+    items:
+      type: 'string'

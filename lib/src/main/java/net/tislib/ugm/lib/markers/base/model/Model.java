@@ -24,4 +24,6 @@ public class Model {
     private String urlCheck;
 
     private String ref;
+
+    // todo implement logic private boolean allowQueryParams;
 }

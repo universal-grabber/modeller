@@ -5,5 +5,5 @@ terraform {
 }
 
 provider "kubernetes" {
-  config_context = "gke_ivory-being-291419_us-central1-c_universal-grabber"
+  config_context = "gke_fifth-subject-300120_europe-west2-c_cluster-1"
 }

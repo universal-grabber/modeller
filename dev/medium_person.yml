@@ -1,0 +1,14 @@
+name: 'blog.medium.person'
+namespace: 'blog/medium'
+version: '1.0.0'
+properties:
+  name:
+    type: 'string'
+    pattern: '^[A-Z]\w+'
+  posts:
+    type: 'array'
+    items:
+      type: 'ref'
+      schema: 'blog.medium.post'
+  followerCount:
+    type: 'number'
