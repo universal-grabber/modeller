@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.time.Instant;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
@@ -26,8 +25,8 @@ public class Record extends Reference {
 
     private String schema;
     
-    private Instant publishDate;
+    private Long publishDate;
 
-    private Instant modifyDate;
+    private Long modifyDate;
 
 }
