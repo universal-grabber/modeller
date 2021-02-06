@@ -5,5 +5,6 @@ terraform {
 }
 
 provider "kubernetes" {
+  config_path = "~/.kube/config"
   config_context = "gke_fifth-subject-300120_europe-west2-c_cluster-1"
 }
