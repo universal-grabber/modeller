@@ -1,8 +1,8 @@
 package net.tislib.ugm.api.controller;
 
 import lombok.RequiredArgsConstructor;
+import net.tislib.ugm.api.data.marker.Marker;
 import net.tislib.ugm.api.service.MarkerService;
-import net.tislib.ugm.lib.markers.base.Marker;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

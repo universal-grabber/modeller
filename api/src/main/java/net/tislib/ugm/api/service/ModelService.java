@@ -1,17 +1,19 @@
 package net.tislib.ugm.api.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import kong.unirest.GenericType;
 import kong.unirest.Unirest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import net.tislib.ugm.api.component.CacheHelper;
+import net.tislib.ugm.api.data.ProcessData;
+import net.tislib.ugm.api.data.marker.Marker;
+import net.tislib.ugm.api.data.model.MarkerData;
+import net.tislib.ugm.api.data.model.Model;
 import net.tislib.ugm.api.data.repository.ModelRepository;
 import net.tislib.ugm.data.Schema;
-import net.tislib.ugm.lib.markers.base.ModelDataExtractor;
-import net.tislib.ugm.lib.markers.base.ModelDataSchemaExtractor;
-import net.tislib.ugm.lib.markers.base.ModelProcessor;
-import net.tislib.ugm.lib.markers.base.model.MarkerData;
-import net.tislib.ugm.lib.markers.base.model.Model;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
@@ -23,9 +25,13 @@ import java.util.stream.Collectors;
 public class ModelService {
 
     private final ModelRepository repository;
-    private final ModelProcessor modelProcessor = new ModelProcessor();
     private final CacheHelper cacheHelper;
     private final SchemaService schemaService;
+    private final MarkerService markerService;
+    private final ObjectMapper mapper;
+
+    @Value("${service.modeller-processor}")
+    private String modelProcessorService;
 
     @SneakyThrows
     public Model get(String name) {
@@ -44,7 +50,7 @@ public class ModelService {
     public Model update(String name, Model model) {
         Model existingModel = get(name);
 
-        modelProcessor.materialize(model);
+        materialize(model);
 
         existingModel.setExamples(model.getExamples());
         existingModel.setMarkers(model.getMarkers());
@@ -57,6 +63,22 @@ public class ModelService {
         repository.save(existingModel);
 
         return get(name);
+    }
+
+    public Model materialize(Model model) {
+        for (MarkerData markerData : model.getMarkers()) {
+            Marker marker = markerService.get(markerData.getName());
+            materializeParameters(marker, markerData.getParameters());
+        }
+        return model;
+    }
+
+    public void materializeParameters(Marker marker, Map<String, Serializable> parameters) {
+        marker.getParameters().forEach(item -> {
+            if (!parameters.containsKey(item.getName()) && item.getDefaultValue() != null) {
+                parameters.put(item.getName(), item.getDefaultValue());
+            }
+        });
     }
 
     public Serializable extractSingleData(String name, List<String> url, boolean cache, boolean merge) {
@@ -94,23 +116,33 @@ public class ModelService {
         return (Serializable) result;
     }
 
+    @SneakyThrows
     public Serializable extractDataSingle(String name, String url, boolean cache) {
-
-
         Model model = get(name);
 
         String html = download(url, cache);
 
-        if (model.getSchema() != null) {
-            ModelDataSchemaExtractor modelDataSchemaExtractor = new ModelDataSchemaExtractor(getAll());
-
-            Schema schema = schemaService.get(model.getSchema());
-
-            return modelDataSchemaExtractor.processDocument(model, schema, url, html);
-        } else {
-            ModelDataExtractor modelDataExtractor = new ModelDataExtractor();
-            return modelDataExtractor.processDocument(model, url, html);
+        if (model.getSchema() == null) {
+            throw new RuntimeException("schema must be not null");
         }
+
+        Schema schema = schemaService.get(model.getSchema());
+
+        ProcessData processData = new ProcessData();
+        processData.setModel(model);
+        processData.setSchema(schema);
+        processData.setAdditionalModels(new HashSet<>(repository.findAll()));
+        processData.setUrl(url);
+        processData.setHtml(html);
+
+        String requestBody = mapper.writeValueAsString(processData);
+
+        String jsonBody = Unirest.post(modelProcessorService + "/api/1.0/parse")
+                .header("Content-type", "application/json")
+                .body(requestBody).asString().getBody();
+
+        return (Serializable) mapper.readValue(jsonBody, Object.class);
+
     }
 
     private String download(String url, boolean cache) {
@@ -172,5 +204,31 @@ public class ModelService {
     public Model create(Model model) {
         model = repository.save(model);
         return model;
+    }
+
+    @SneakyThrows
+    public String processedFrame(String name, String url) {
+        Model model = get(name);
+
+        String html = download(url, false);
+
+        if (model.getSchema() == null) {
+            throw new RuntimeException("schema must be not null");
+        }
+
+        Schema schema = schemaService.get(model.getSchema());
+
+        ProcessData processData = new ProcessData();
+        processData.setModel(model);
+        processData.setSchema(schema);
+        processData.setAdditionalModels(new HashSet<>(repository.findAll()));
+        processData.setUrl(url);
+        processData.setHtml(html);
+
+        String requestBody = mapper.writeValueAsString(processData);
+
+        return Unirest.post(modelProcessorService + "/api/1.0/process")
+                .header("Content-type", "application/json")
+                .body(requestBody).asString().getBody();
     }
 }

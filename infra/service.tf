@@ -17,6 +17,7 @@ resource "kubernetes_service" "universal-grabber-modeller-api" {
       name        = "http"
       port        = 80
       target_port = 8080
+      node_port   = 30006
     }
   }
 }
