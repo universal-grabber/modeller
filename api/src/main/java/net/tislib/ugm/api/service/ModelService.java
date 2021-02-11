@@ -229,6 +229,8 @@ public class ModelService {
 
         return Unirest.post(modelProcessorService + "/api/1.0/process")
                 .header("Content-type", "application/json")
-                .body(requestBody).asString().getBody();
+                .body(requestBody)
+                .asString()
+                .getBody();
     }
 }
