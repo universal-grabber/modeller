@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Document("schema")
-public class SchemaEntity {
+public class SchemaEntity extends Schema {
     private String id;
-    private Schema schema;
 }

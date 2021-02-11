@@ -7,6 +7,6 @@ import java.util.Optional;
 
 public interface SchemaRepository extends MongoRepository<SchemaEntity, String> {
 
-    Optional<SchemaEntity> findBySchema_Name(String name);
+    Optional<SchemaEntity> findByName(String name);
 
 }

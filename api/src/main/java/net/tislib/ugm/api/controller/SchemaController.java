@@ -29,17 +29,4 @@ public class SchemaController {
         return schemaService.get(name);
     }
 
-    @DeleteMapping("{name}")
-    public Schema delete(@PathVariable String name) {
-        return schemaService.delete(name);
-    }
-
-    @PostMapping(consumes = {
-            "application/json",
-            "application/yaml",
-    })
-    public Schema apply(@RequestBody @Validated Schema schema) {
-        return schemaService.apply(schema);
-    }
-
 }
