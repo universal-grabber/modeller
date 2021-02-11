@@ -1,0 +1,110 @@
+PUT http://localhost:8080/api/1.0/models?name=fbrefcom/player
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+sec-ch-ua: "Chromium";v="88", "Google Chrome";v="88", ";Not A Brand";v="99"
+Accept: application/json, text/plain, */*
+DNT: 1
+Authorization: eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0YWxlaCIsImV4cCI6MTkxODk2NDkxNX0.X3wEhvuQvn-yNA06T3-OtBrAV_j-mXgsxM0lIXysjK4QduSCKBg2ieVjupIE8BWCSiEWDRjYdad7M2YpMX_VwQ
+sec-ch-ua-mobile: ?0
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36
+Origin: http://localhost:3000
+Sec-Fetch-Site: same-origin
+Sec-Fetch-Mode: cors
+Sec-Fetch-Dest: empty
+Referer: http://localhost:3000/models/fbrefcom/player/markers
+Accept-Language: en-US,en;q=0.9,az-AZ;q=0.8,az;q=0.7
+Cookie: policy=notified; _pubcid=dc14dc77-a44b-40c9-b565-f12cd7ae3ec1; utag_main=v_id:01757ee2b74b001d94a01ee90ee103079011d07100942$_sn:1$_ss:1$_pn:1%3Bexp-session$_st:1604153395397$ses_id:1604151588683%3Bexp-session; Idea-a3d9264e=ddb5a0d5-6d0e-4726-9db4-d0b407edc825; _ga=GA1.1.2068215938.1605983968; _ga_B6M0XM8L4G=GS1.1.1605983967.1.1.1605984511.0; _ym_uid=1606860112218141422; _ym_d=1606860112; Idea-a3d9264f=95842174-e904-42a7-a899-acc6dc4bed4f; Goland-a637d012=c4d7762d-614d-4be8-a40b-8b9f802561fe; csm-hit=tb:s-RPPVK3P82HQ1N8GWXXDB|1612087460527&t:1612087460527&adb:adblk_no; _gcl_au=1.1.988801329.1612978186; _ym_wasSynced=%7B%22time%22%3A1612978186801%2C%22params%22%3A%7B%22eu%22%3A0%7D%2C%22bkParams%22%3A%7B%7D%7D; _ym_isad=2; srcssfull=yes; _gid=GA1.1.641984368.1612993120; sr_lang_views-en=1.5
+Content-Type: application/json;charset=UTF-8
+
+{
+  "id": "fbrefcom/player",
+  "name": "fbrefcom/player",
+  "source": "fbref.com",
+  "examples": [
+    {
+      "id": null,
+      "url": "https://fbref.com/en/players/dea698d9/Cristiano-Ronaldo"
+    },
+    {
+      "id": null,
+      "url": "https://fbref.com/en/players/d70ce98e/Lionel-Messi"
+    },
+    {
+      "id": null,
+      "url": "https://fbref.com/en/players/2604bced/Emin-Agayev"
+    }
+  ],
+  "markers": [
+    {
+      "name": "base-tag",
+      "type": "base-marker",
+      "parameters": {
+        "baseHref": "https://bina.az/"
+      }
+    },
+    {
+      "name": "microdata",
+      "type": "microdata-marker",
+      "parameters": {
+        "enableItemProp": "true"
+      }
+    },
+    {
+      "name": "name",
+      "type": "field-selector",
+      "parameters": {
+        "name": "name",
+        "outputForm": "SINGLE",
+        "outputType": "text",
+        "selector": "#meta > div:nth-child(2) > h1 > span",
+        "selectors": [
+          "#meta > div:nth-child(2) > h1 > span"
+        ],
+        "algorithm": "SIMPLE"
+      }
+    },
+    {
+      "name": "longName",
+      "type": "field-selector",
+      "parameters": {
+        "selectors": [
+          "#meta > div:nth-child(2) > p:nth-child(2) > strong"
+        ],
+        "algorithm": "SIMPLE",
+        "name": "longName",
+        "outputForm": "SINGLE",
+        "outputType": "text",
+        "selector": "#meta > div:nth-child(2) > p:nth-child(2) > strong"
+      }
+    },
+    {
+      "name": "image",
+      "type": "field-selector",
+      "parameters": {
+        "algorithm": "SIMPLE",
+        "name": "image",
+        "outputForm": "SINGLE",
+        "outputType": "img",
+        "selector": "#meta > div.media-item > img",
+        "selectors": [
+          "#meta > div.media-item > img"
+        ]
+      }
+    },
+    {
+      "name": "meta-extract",
+      "type": "meta-data",
+      "parameters": {
+        "meta-tags": "true"
+      }
+    }
+  ],
+  "schema": "gamedata.fbref.player",
+  "objectType": "building",
+  "urlCheck": "^https://fbref.com/items/([0-9]+)$",
+  "ref": "^https://fbref.com/items/([0-9]+)$"
+}
+
+###
+

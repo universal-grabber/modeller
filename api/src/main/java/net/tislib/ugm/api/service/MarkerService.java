@@ -32,6 +32,8 @@ public class MarkerService {
     }
 
     public Marker get(String name) {
-        return null;
+        return getAll().stream()
+                .filter(item -> item.getName().equals(name)).findAny()
+                .orElseThrow(RuntimeException::new);
     }
 }

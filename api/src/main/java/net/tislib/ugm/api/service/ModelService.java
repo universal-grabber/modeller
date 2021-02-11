@@ -67,7 +67,7 @@ public class ModelService {
 
     public Model materialize(Model model) {
         for (MarkerData markerData : model.getMarkers()) {
-            Marker marker = markerService.get(markerData.getName());
+            Marker marker = markerService.get(markerData.getType());
             materializeParameters(marker, markerData.getParameters());
         }
         return model;
