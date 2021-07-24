@@ -18,12 +18,12 @@ node {
 //         if (env.BRANCH_NAME == 'master'){
             stage ('Build Image') {
                 sh './gradlew bootJar'
-				sh "docker build -t hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} api"
+				sh "docker build -t hub.kube.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER} api"
             }
 
       	    stage ('Push&Clean Image') {
-				sh "docker push hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER}"
-				sh "docker rmi -f hub.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER}"
+				sh "docker push hub.kube.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER}"
+				sh "docker rmi -f hub.kube.tisserv.net/$RESOURCE_NAME:v${env.BUILD_NUMBER}"
 			}
 
             stage ('deploy') {
