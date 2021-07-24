@@ -8,6 +8,6 @@ variable "base_name" {
 
 
 locals {
-  repository    = "hub.tisserv.net"
+  repository    = "hub.kube.tisserv.net"
   service_image = "${local.repository}/${var.base_name}:${var.DOCKER_IMG_TAG}"
 }
